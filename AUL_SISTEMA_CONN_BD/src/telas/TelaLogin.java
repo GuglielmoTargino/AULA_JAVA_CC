@@ -83,7 +83,7 @@ public class TelaLogin extends javax.swing.JFrame {
         
         dispose(); // fecha a tela anterior
         
-        new TelaMenu().setVisible(true);// cha a tela TelaMenu
+        new TelaMenu().setVisible(true);// chama a tela TelaMenu
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
