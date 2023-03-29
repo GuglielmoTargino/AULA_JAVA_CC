@@ -20,7 +20,7 @@ public class TesteComBD {
             Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD.
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro","root",""); 
             st=conn.createStatement();
-            st.executeUpdate("INSERT INTO funcionario (cargo,email,nome,salario,tel) VALUES('gato', 'toyy@te@','joe',1000,'5289-2')");
+            st.executeUpdate("INSERT INTO funcionario (cargo,email,nome,salario,tel) VALUES('gato', 'toyy@te@','lic',10,'5289-2')");
             JOptionPane.showMessageDialog(null,"Processo concluido");
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null,"Erro de biblioteca");
