@@ -36,14 +36,15 @@ public class TelaLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Acesso");
         setBackground(new java.awt.Color(153, 153, 255));
+        setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         getContentPane().setLayout(null);
 
-        lblUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblUsuario.setText("Usuário");
         getContentPane().add(lblUsuario);
         lblUsuario.setBounds(40, 40, 60, 20);
 
-        lblSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSenha.setText("Senha");
         getContentPane().add(lblSenha);
         lblSenha.setBounds(40, 90, 70, 20);
@@ -59,7 +60,7 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(txtUsuario);
         txtUsuario.setBounds(110, 40, 210, 22);
 
-        btnEntrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEntrar.setText("Entrar");
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,8 +69,14 @@ public class TelaLogin extends javax.swing.JFrame {
         });
         getContentPane().add(btnEntrar);
         btnEntrar.setBounds(30, 150, 75, 23);
+
+        ckbSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ckbSenhaActionPerformed(evt);
+            }
+        });
         getContentPane().add(ckbSenha);
-        ckbSenha.setBounds(230, 90, 19, 19);
+        ckbSenha.setBounds(210, 90, 30, 19);
 
         setSize(new java.awt.Dimension(377, 275));
     }// </editor-fold>//GEN-END:initComponents
@@ -85,6 +92,10 @@ public class TelaLogin extends javax.swing.JFrame {
         
         new TelaMenu().setVisible(true);// chama a tela TelaMenu
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void ckbSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckbSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ckbSenhaActionPerformed
 
     /**
      * @param args the command line arguments

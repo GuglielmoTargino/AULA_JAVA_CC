@@ -26,89 +26,145 @@ public class TelaMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        itmCad = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        itmAlt = new javax.swing.JMenuItem();
+        itmCon = new javax.swing.JMenuItem();
+        mnuRel = new javax.swing.JMenu();
+        itmGer = new javax.swing.JMenuItem();
+        itmExc = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        itmSair = new javax.swing.JMenuItem();
+        mnuFunc = new javax.swing.JMenu();
+        itmCadFun = new javax.swing.JMenuItem();
+        itmAltFun = new javax.swing.JMenuItem();
+        itmConFun = new javax.swing.JMenuItem();
+        itmRelFun = new javax.swing.JMenuItem();
+        itmExcFun = new javax.swing.JMenuItem();
+        mnuUsuario = new javax.swing.JMenu();
+        itmNome = new javax.swing.JMenuItem();
+        itmCargo = new javax.swing.JMenuItem();
+        mnuAjuda = new javax.swing.JMenu();
+        itmManu = new javax.swing.JMenuItem();
+        itmSobre = new javax.swing.JMenuItem();
+
+        jMenu1.setText("File");
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar2.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu do Sistema");
         getContentPane().setLayout(null);
 
-        jMenu1.setText("Dept.");
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Funcionario mês");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(330, 290, 160, 40);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bleachperfil3.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 500, 350);
+
+        itmCad.setText("Dept.");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setText("Cadastar");
-        jMenu1.add(jMenuItem1);
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        itmCad.add(jMenuItem1);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setText("Alterar");
-        jMenu1.add(jMenuItem2);
+        itmAlt.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmAlt.setText("Alterar");
+        itmCad.add(itmAlt);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem3.setText("Consultar");
-        jMenu1.add(jMenuItem3);
+        itmCon.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmCon.setText("Consultar");
+        itmCad.add(itmCon);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem4.setText("Relatorios");
-        jMenu1.add(jMenuItem4);
+        mnuRel.setText("Relatorios");
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem5.setText("Excluir");
-        jMenu1.add(jMenuItem5);
+        itmGer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmGer.setText("Geral");
+        mnuRel.add(itmGer);
 
-        jMenuBar1.add(jMenu1);
+        itmCad.add(mnuRel);
 
-        jMenu2.setText("Func.");
+        itmExc.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmExc.setText("Excluir");
+        itmCad.add(itmExc);
+        itmCad.add(jSeparator1);
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem6.setText("Cadastrar");
-        jMenu2.add(jMenuItem6);
+        itmSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmSair.setText("Sair");
+        itmCad.add(itmSair);
 
-        jMenuItem7.setText("Alterar");
-        jMenu2.add(jMenuItem7);
+        jMenuBar1.add(itmCad);
 
-        jMenuItem8.setText("Consultar");
-        jMenu2.add(jMenuItem8);
+        mnuFunc.setText("Func.");
 
-        jMenuItem9.setText("Relatório");
-        jMenu2.add(jMenuItem9);
+        itmCadFun.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmCadFun.setText("Cadastrar");
+        mnuFunc.add(itmCadFun);
 
-        jMenuItem10.setText("Excluir");
-        jMenu2.add(jMenuItem10);
+        itmAltFun.setText("Alterar");
+        mnuFunc.add(itmAltFun);
 
-        jMenuBar1.add(jMenu2);
+        itmConFun.setText("Consultar");
+        mnuFunc.add(itmConFun);
 
-        jMenu3.setText("Usuário");
+        itmRelFun.setText("Relatório");
+        mnuFunc.add(itmRelFun);
 
-        jMenuItem11.setText("Nome");
-        jMenu3.add(jMenuItem11);
+        itmExcFun.setText("Excluir");
+        mnuFunc.add(itmExcFun);
 
-        jMenuItem12.setText("Cargo");
-        jMenu3.add(jMenuItem12);
+        jMenuBar1.add(mnuFunc);
 
-        jMenuBar1.add(jMenu3);
+        mnuUsuario.setText("Usuário");
 
-        jMenu4.setText("Ajuda");
-        jMenuBar1.add(jMenu4);
+        itmNome.setText("Nome");
+        mnuUsuario.add(itmNome);
+
+        itmCargo.setText("Cargo");
+        mnuUsuario.add(itmCargo);
+
+        jMenuBar1.add(mnuUsuario);
+
+        mnuAjuda.setText("Ajuda");
+
+        itmManu.setText("Manual usuário");
+        mnuAjuda.add(itmManu);
+
+        itmSobre.setText("Sobre");
+        mnuAjuda.add(itmSobre);
+
+        jMenuBar1.add(mnuAjuda);
 
         setJMenuBar(jMenuBar1);
 
-        setBounds(0, 0, 503, 308);
+        setBounds(0, 0, 514, 381);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        
+        new CadastroDepartamento().setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,22 +202,32 @@ public class TelaMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem itmAlt;
+    private javax.swing.JMenuItem itmAltFun;
+    private javax.swing.JMenu itmCad;
+    private javax.swing.JMenuItem itmCadFun;
+    private javax.swing.JMenuItem itmCargo;
+    private javax.swing.JMenuItem itmCon;
+    private javax.swing.JMenuItem itmConFun;
+    private javax.swing.JMenuItem itmExc;
+    private javax.swing.JMenuItem itmExcFun;
+    private javax.swing.JMenuItem itmGer;
+    private javax.swing.JMenuItem itmManu;
+    private javax.swing.JMenuItem itmNome;
+    private javax.swing.JMenuItem itmRelFun;
+    private javax.swing.JMenuItem itmSair;
+    private javax.swing.JMenuItem itmSobre;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JMenu mnuAjuda;
+    private javax.swing.JMenu mnuFunc;
+    private javax.swing.JMenu mnuRel;
+    private javax.swing.JMenu mnuUsuario;
     // End of variables declaration//GEN-END:variables
 }
