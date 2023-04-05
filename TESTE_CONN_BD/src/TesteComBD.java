@@ -17,16 +17,11 @@ public class TesteComBD {
             // TODO code application logic here
             Connection conn; //variavel da classe connection para conexão
             Statement st;// serve para permitir execuat escrita no BD
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD.
-            
-            /*("jdbc:mysql://localhost:3306/cadastro","root","");*/
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD.           
             
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro","root",""); 
-            st=conn.createStatement();
-            
-            /*st.executeUpdate("INSERT INTO testeconn (nome,cargo) VALUES('chu','dog')");*/
-            
-            st.executeUpdate("INSERT INTO testeconn (nome,cargo) VALUES('lic','gato')");
+            st=conn.createStatement();           
+            st.executeUpdate("INSERT INTO usuario (usuario,senha,cargo) VALUES('guglielmo','1234','estagiario')");
             
             JOptionPane.showMessageDialog(null,"Processo concluido");
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
@@ -34,13 +29,6 @@ public class TesteComBD {
             
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
             JOptionPane.showMessageDialog(null,"falha no cadastro");
-        }
-        
-        
-        
-        
+        }         
     }
-
 }
-    
-

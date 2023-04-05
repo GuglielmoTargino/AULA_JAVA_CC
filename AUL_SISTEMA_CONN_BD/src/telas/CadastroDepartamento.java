@@ -1,8 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package telas;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,71 +29,97 @@ public class CadastroDepartamento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        lblCodigo = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        lblNome = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        lblCidade = new javax.swing.JLabel();
+        txtCidade = new javax.swing.JTextField();
+        lblTel = new javax.swing.JLabel();
+        txtTel = new javax.swing.JTextField();
+        btnSalvar = new javax.swing.JButton();
 
         setTitle("Cadastro Departamentos");
         getContentPane().setLayout(null);
 
-        jLabel1.setBackground(new java.awt.Color(0, 204, 204));
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setText("Código");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 30, 90, 40);
+        lblCodigo.setBackground(new java.awt.Color(0, 204, 204));
+        lblCodigo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblCodigo.setText("Código");
+        getContentPane().add(lblCodigo);
+        lblCodigo.setBounds(30, 30, 90, 40);
 
-        jTextField1.setBackground(new java.awt.Color(0, 153, 153));
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(120, 30, 130, 30);
+        txtCodigo.setBackground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(txtCodigo);
+        txtCodigo.setBounds(120, 30, 130, 30);
 
-        jLabel2.setBackground(new java.awt.Color(0, 204, 204));
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Nome");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 90, 90, 40);
+        lblNome.setBackground(new java.awt.Color(0, 204, 204));
+        lblNome.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblNome.setText("Nome");
+        getContentPane().add(lblNome);
+        lblNome.setBounds(30, 90, 90, 40);
 
-        jTextField2.setBackground(new java.awt.Color(0, 153, 153));
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(120, 100, 130, 30);
+        txtNome.setBackground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(txtNome);
+        txtNome.setBounds(120, 100, 130, 30);
 
-        jLabel3.setBackground(new java.awt.Color(0, 204, 204));
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Cidade");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 150, 90, 40);
+        lblCidade.setBackground(new java.awt.Color(0, 204, 204));
+        lblCidade.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblCidade.setText("Cidade");
+        getContentPane().add(lblCidade);
+        lblCidade.setBounds(30, 150, 90, 40);
 
-        jTextField3.setBackground(new java.awt.Color(0, 153, 153));
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(120, 160, 130, 30);
+        txtCidade.setBackground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(txtCidade);
+        txtCidade.setBounds(120, 160, 130, 30);
 
-        jLabel4.setBackground(new java.awt.Color(0, 204, 204));
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setText("Tel");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(30, 240, 90, 40);
+        lblTel.setBackground(new java.awt.Color(0, 204, 204));
+        lblTel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblTel.setText("Tel");
+        getContentPane().add(lblTel);
+        lblTel.setBounds(30, 240, 90, 40);
 
-        jTextField4.setBackground(new java.awt.Color(0, 153, 153));
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(120, 250, 130, 30);
+        txtTel.setBackground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(txtTel);
+        txtTel.setBounds(120, 250, 130, 30);
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setText("Salvar");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(30, 320, 110, 40);
+        btnSalvar.setBackground(new java.awt.Color(204, 204, 204));
+        btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSalvar);
+        btnSalvar.setBounds(30, 320, 110, 40);
 
         setBounds(0, 0, 671, 405);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+       
+        /*=============programa para acao do botao salvar===============*/
+        
+          try {
+            // TODO code application logic here
+            Connection conn; //variavel da classe connection para conexão
+            Statement st;// serve para permitir execuat escrita no BD
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD.           
+            
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro","root",""); 
+            st=conn.createStatement();           
+            st.executeUpdate("INSERT INTO departamento (codigo,nome,cidade,telefone) VALUES(10,'guglielmo','SP','58339782')");
+            
+            JOptionPane.showMessageDialog(null,"Processo concluido");
+        } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
+            JOptionPane.showMessageDialog(null,"Erro de biblioteca");
+            
+        } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
+            JOptionPane.showMessageDialog(null,"falha no cadastro");
+        }         
+    }//GEN-LAST:event_btnSalvarActionPerformed
+    /*=======================================================================*/
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -124,14 +153,14 @@ public class CadastroDepartamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JLabel lblCidade;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblTel;
+    private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtTel;
     // End of variables declaration//GEN-END:variables
 }
