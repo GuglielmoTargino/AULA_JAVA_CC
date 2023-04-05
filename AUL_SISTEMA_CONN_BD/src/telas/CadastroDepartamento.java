@@ -4,7 +4,7 @@ package telas;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
 /**
@@ -102,15 +102,21 @@ public class CadastroDepartamento extends javax.swing.JFrame {
         
           try {
             // TODO code application logic here
-            Connection conn; //variavel da classe connection para conexão
-            Statement st;// serve para permitir execuat escrita no BD
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD.           
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro","root",""); //variavel da classe connection para conexão
+           PreparedStatement st = conn.prepareStatement("INSERT INTO departamento (codigo,nome,cidade,telefone) VALUES(?,?,?,?)");  // serve para permitir execuat escrita no BD          
             
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro","root",""); 
-            st=conn.createStatement();           
-            st.executeUpdate("INSERT INTO departamento (codigo,nome,cidade,telefone) VALUES(10,'guglielmo','SP','58339782')");
-            
-            JOptionPane.showMessageDialog(null,"Processo concluido");
+                        st.setInt(1,Integer.parseInt(txtCodigo.getText()));
+                        st.setString(2,txtNome.getText());
+                        st.setString(3,txtCidade.getText());
+                        st.setString(4,txtTel.getText());
+                        st.executeUpdate();
+                        txtCodigo.setText("");
+                        txtNome.setText("");
+                        txtCidade.setText("");
+                        txtTel.setText("");
+                                    
+            JOptionPane.showMessageDialog(null,"Cadastro Concluido");
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null,"Erro de biblioteca");
             

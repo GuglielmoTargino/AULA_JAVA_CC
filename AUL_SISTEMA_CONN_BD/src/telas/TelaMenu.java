@@ -74,7 +74,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bleachperfil3.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 500, 350);
+        jLabel2.setBounds(0, 0, 500, 360);
 
         itmCad.setText("Dept.");
 
@@ -156,7 +156,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setBounds(0, 0, 514, 381);
+        setBounds(0, 0, 514, 398);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
