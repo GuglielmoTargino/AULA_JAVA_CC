@@ -121,6 +121,11 @@ public class TelaMenu extends javax.swing.JFrame {
 
         itmCadFun.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmCadFun.setText("Cadastrar");
+        itmCadFun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmCadFunActionPerformed(evt);
+            }
+        });
         mnuFunc.add(itmCadFun);
 
         itmAltFun.setText("Alterar");
@@ -198,6 +203,13 @@ public class TelaMenu extends javax.swing.JFrame {
         
         new CadastroUsuario().setVisible(true);// chama a tela TelaMenu
     }//GEN-LAST:event_itmCadastroActionPerformed
+
+    private void itmCadFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCadFunActionPerformed
+        // TODO add your handling code here:
+         dispose(); // fecha a tela anterior
+        
+        new Funcionario().setVisible(true);// chama a tela TelaMenu
+    }//GEN-LAST:event_itmCadFunActionPerformed
 
     /**
      * @param args the command line arguments

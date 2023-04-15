@@ -26,65 +26,70 @@ public class Funcionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        lblNome = new javax.swing.JLabel();
+        txtTel = new javax.swing.JTextField();
+        lblSobreNome = new javax.swing.JLabel();
+        lblSexo = new javax.swing.JLabel();
+        lblDtNasc = new javax.swing.JLabel();
+        lblCpf = new javax.swing.JLabel();
+        lblEndereco = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        txtSobreNome = new javax.swing.JTextField();
+        txtSexo = new javax.swing.JTextField();
+        txtDataNasc = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JTextField();
+        lblTel = new javax.swing.JLabel();
+        txtEndereco = new javax.swing.JTextField();
+        btnSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setText("Nome");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(33, 25, 90, 40);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(160, 340, 220, 40);
+        lblNome.setText("Nome");
+        getContentPane().add(lblNome);
+        lblNome.setBounds(33, 25, 90, 40);
+        getContentPane().add(txtTel);
+        txtTel.setBounds(160, 340, 220, 40);
 
-        jLabel2.setText("SobreNome");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 80, 110, 40);
+        lblSobreNome.setText("SobreNome");
+        getContentPane().add(lblSobreNome);
+        lblSobreNome.setBounds(30, 80, 110, 40);
 
-        jLabel3.setText("Sexo");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 120, 90, 40);
+        lblSexo.setText("Sexo");
+        getContentPane().add(lblSexo);
+        lblSexo.setBounds(30, 120, 90, 40);
 
-        jLabel4.setText("DtNasc");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(40, 190, 80, 30);
+        lblDtNasc.setText("DataNasc");
+        getContentPane().add(lblDtNasc);
+        lblDtNasc.setBounds(40, 190, 80, 30);
 
-        jLabel5.setText("CPF");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(40, 240, 70, 30);
+        lblCpf.setText("CPF");
+        getContentPane().add(lblCpf);
+        lblCpf.setBounds(40, 240, 70, 30);
 
-        jLabel6.setText("Endereco");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(40, 290, 80, 40);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(160, 20, 220, 40);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(160, 80, 220, 40);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(160, 130, 220, 40);
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(160, 190, 220, 40);
-        getContentPane().add(jTextField6);
-        jTextField6.setBounds(160, 240, 220, 40);
+        lblEndereco.setText("Endereco");
+        getContentPane().add(lblEndereco);
+        lblEndereco.setBounds(40, 290, 80, 40);
+        getContentPane().add(txtNome);
+        txtNome.setBounds(160, 20, 220, 40);
+        getContentPane().add(txtSobreNome);
+        txtSobreNome.setBounds(160, 80, 220, 40);
+        getContentPane().add(txtSexo);
+        txtSexo.setBounds(160, 130, 220, 40);
+        getContentPane().add(txtDataNasc);
+        txtDataNasc.setBounds(160, 190, 220, 40);
+        getContentPane().add(txtCpf);
+        txtCpf.setBounds(160, 240, 220, 40);
 
-        jLabel7.setText("Tel");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(40, 360, 15, 16);
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(160, 290, 220, 40);
+        lblTel.setText("Tel");
+        getContentPane().add(lblTel);
+        lblTel.setBounds(40, 336, 100, 40);
+        getContentPane().add(txtEndereco);
+        txtEndereco.setBounds(160, 290, 220, 40);
+
+        btnSalvar.setText("Salvar");
+        getContentPane().add(btnSalvar);
+        btnSalvar.setBounds(30, 420, 120, 50);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -125,19 +130,20 @@ public class Funcionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JLabel lblCpf;
+    private javax.swing.JLabel lblDtNasc;
+    private javax.swing.JLabel lblEndereco;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblSexo;
+    private javax.swing.JLabel lblSobreNome;
+    private javax.swing.JLabel lblTel;
+    private javax.swing.JTextField txtCpf;
+    private javax.swing.JTextField txtDataNasc;
+    private javax.swing.JTextField txtEndereco;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtSexo;
+    private javax.swing.JTextField txtSobreNome;
+    private javax.swing.JTextField txtTel;
     // End of variables declaration//GEN-END:variables
 }
