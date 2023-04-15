@@ -89,7 +89,7 @@ public class Funcionario extends javax.swing.JFrame {
 
         btnSalvar.setText("Salvar");
         getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(30, 420, 120, 50);
+        btnSalvar.setBounds(30, 410, 120, 50);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
