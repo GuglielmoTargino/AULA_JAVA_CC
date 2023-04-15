@@ -24,7 +24,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="itmCad">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Dept."/>
+            <Property name="text" type="java.lang.String" value="Depto."/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
@@ -91,7 +91,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuFunc">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Func."/>
+            <Property name="text" type="java.lang.String" value="Funcion&#xe1;rio."/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="itmCadFun">

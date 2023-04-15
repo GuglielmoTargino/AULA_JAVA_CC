@@ -79,7 +79,7 @@ public class TelaMenu extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(10, 0, 500, 370);
 
-        itmCad.setText("Dept.");
+        itmCad.setText("Depto.");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setText("Cadastar");
@@ -117,7 +117,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(itmCad);
 
-        mnuFunc.setText("Func.");
+        mnuFunc.setText("Funcionário.");
 
         itmCadFun.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmCadFun.setText("Cadastrar");

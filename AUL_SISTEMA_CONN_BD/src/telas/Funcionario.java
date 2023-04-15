@@ -53,7 +53,7 @@ public class Funcionario extends javax.swing.JFrame {
         txtTel.setBounds(160, 320, 200, 30);
 
         lblSobreNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblSobreNome.setText("SobreNome");
+        lblSobreNome.setText("Sobre Nome");
         getContentPane().add(lblSobreNome);
         lblSobreNome.setBounds(40, 70, 100, 30);
 
@@ -63,7 +63,7 @@ public class Funcionario extends javax.swing.JFrame {
         lblSexo.setBounds(40, 120, 100, 30);
 
         lblDtNasc.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblDtNasc.setText("DataNasc");
+        lblDtNasc.setText("Data Nasc");
         getContentPane().add(lblDtNasc);
         lblDtNasc.setBounds(40, 170, 100, 30);
 
@@ -105,7 +105,7 @@ public class Funcionario extends javax.swing.JFrame {
         getContentPane().add(btnSalvar);
         btnSalvar.setBounds(30, 380, 120, 50);
 
-        setSize(new java.awt.Dimension(524, 482));
+        setSize(new java.awt.Dimension(432, 482));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

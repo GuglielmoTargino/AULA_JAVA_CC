@@ -46,46 +46,46 @@ public class CadastroDepartamento extends javax.swing.JFrame {
         lblCodigo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblCodigo.setText("Código");
         getContentPane().add(lblCodigo);
-        lblCodigo.setBounds(30, 30, 100, 30);
+        lblCodigo.setBounds(40, 100, 100, 30);
 
-        txtCodigo.setBackground(new java.awt.Color(0, 153, 153));
+        txtCodigo.setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().add(txtCodigo);
-        txtCodigo.setBounds(150, 30, 200, 30);
+        txtCodigo.setBounds(150, 100, 200, 30);
 
         lblNome.setBackground(new java.awt.Color(0, 204, 204));
         lblNome.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblNome.setText("Nome");
         getContentPane().add(lblNome);
-        lblNome.setBounds(30, 70, 100, 30);
+        lblNome.setBounds(40, 20, 100, 30);
 
-        txtNome.setBackground(new java.awt.Color(0, 153, 153));
+        txtNome.setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().add(txtNome);
-        txtNome.setBounds(150, 70, 200, 30);
+        txtNome.setBounds(150, 20, 200, 30);
 
         lblCidade.setBackground(new java.awt.Color(0, 204, 204));
         lblCidade.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblCidade.setText("Cidade");
         getContentPane().add(lblCidade);
-        lblCidade.setBounds(30, 110, 100, 30);
+        lblCidade.setBounds(40, 60, 100, 30);
 
-        txtCidade.setBackground(new java.awt.Color(0, 153, 153));
+        txtCidade.setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().add(txtCidade);
-        txtCidade.setBounds(150, 110, 200, 30);
+        txtCidade.setBounds(150, 60, 200, 30);
 
         lblTel.setBackground(new java.awt.Color(0, 204, 204));
         lblTel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblTel.setText("Telefone");
         getContentPane().add(lblTel);
-        lblTel.setBounds(30, 150, 100, 30);
+        lblTel.setBounds(40, 140, 100, 30);
 
-        txtTel.setBackground(new java.awt.Color(0, 153, 153));
+        txtTel.setBackground(new java.awt.Color(204, 255, 255));
         txtTel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelActionPerformed(evt);
             }
         });
         getContentPane().add(txtTel);
-        txtTel.setBounds(150, 150, 200, 30);
+        txtTel.setBounds(150, 140, 200, 30);
 
         btnSalvar.setBackground(new java.awt.Color(204, 204, 204));
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -96,7 +96,7 @@ public class CadastroDepartamento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(30, 220, 110, 40);
+        btnSalvar.setBounds(30, 200, 110, 40);
 
         setSize(new java.awt.Dimension(433, 315));
         setLocationRelativeTo(null);
