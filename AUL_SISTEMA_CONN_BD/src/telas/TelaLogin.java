@@ -34,7 +34,7 @@ public class TelaLogin extends javax.swing.JFrame {
         ckbSenha = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tela de Acesso");
+        setTitle("Tela de Login");
         setBackground(new java.awt.Color(153, 153, 255));
         setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         getContentPane().setLayout(null);
@@ -42,12 +42,12 @@ public class TelaLogin extends javax.swing.JFrame {
         lblUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblUsuario.setText("Usuário");
         getContentPane().add(lblUsuario);
-        lblUsuario.setBounds(40, 40, 60, 20);
+        lblUsuario.setBounds(40, 40, 100, 30);
 
         lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSenha.setText("Senha");
         getContentPane().add(lblSenha);
-        lblSenha.setBounds(40, 90, 70, 20);
+        lblSenha.setBounds(40, 90, 100, 30);
 
         txtSenha.setText("jPasswordField1");
         txtSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -56,9 +56,9 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtSenha);
-        txtSenha.setBounds(110, 90, 90, 22);
+        txtSenha.setBounds(110, 90, 80, 30);
         getContentPane().add(txtUsuario);
-        txtUsuario.setBounds(110, 40, 210, 22);
+        txtUsuario.setBounds(110, 40, 200, 30);
 
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEntrar.setText("Entrar");
@@ -68,7 +68,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnEntrar);
-        btnEntrar.setBounds(30, 150, 75, 23);
+        btnEntrar.setBounds(30, 150, 100, 60);
 
         ckbSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +78,8 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(ckbSenha);
         ckbSenha.setBounds(210, 90, 30, 19);
 
-        setSize(new java.awt.Dimension(377, 275));
+        setSize(new java.awt.Dimension(388, 273));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed

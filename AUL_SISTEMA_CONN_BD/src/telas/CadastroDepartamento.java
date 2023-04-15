@@ -46,41 +46,46 @@ public class CadastroDepartamento extends javax.swing.JFrame {
         lblCodigo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblCodigo.setText("Código");
         getContentPane().add(lblCodigo);
-        lblCodigo.setBounds(30, 30, 90, 40);
+        lblCodigo.setBounds(30, 30, 100, 30);
 
         txtCodigo.setBackground(new java.awt.Color(0, 153, 153));
         getContentPane().add(txtCodigo);
-        txtCodigo.setBounds(120, 30, 130, 30);
+        txtCodigo.setBounds(150, 30, 200, 30);
 
         lblNome.setBackground(new java.awt.Color(0, 204, 204));
         lblNome.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblNome.setText("Nome");
         getContentPane().add(lblNome);
-        lblNome.setBounds(30, 90, 90, 40);
+        lblNome.setBounds(30, 70, 100, 30);
 
         txtNome.setBackground(new java.awt.Color(0, 153, 153));
         getContentPane().add(txtNome);
-        txtNome.setBounds(120, 100, 130, 30);
+        txtNome.setBounds(150, 70, 200, 30);
 
         lblCidade.setBackground(new java.awt.Color(0, 204, 204));
         lblCidade.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblCidade.setText("Cidade");
         getContentPane().add(lblCidade);
-        lblCidade.setBounds(30, 150, 90, 40);
+        lblCidade.setBounds(30, 110, 100, 30);
 
         txtCidade.setBackground(new java.awt.Color(0, 153, 153));
         getContentPane().add(txtCidade);
-        txtCidade.setBounds(120, 160, 130, 30);
+        txtCidade.setBounds(150, 110, 200, 30);
 
         lblTel.setBackground(new java.awt.Color(0, 204, 204));
         lblTel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblTel.setText("Tel");
+        lblTel.setText("Telefone");
         getContentPane().add(lblTel);
-        lblTel.setBounds(30, 240, 90, 40);
+        lblTel.setBounds(30, 150, 100, 30);
 
         txtTel.setBackground(new java.awt.Color(0, 153, 153));
+        txtTel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtTel);
-        txtTel.setBounds(120, 250, 130, 30);
+        txtTel.setBounds(150, 150, 200, 30);
 
         btnSalvar.setBackground(new java.awt.Color(204, 204, 204));
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -91,9 +96,10 @@ public class CadastroDepartamento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(30, 320, 110, 40);
+        btnSalvar.setBounds(30, 220, 110, 40);
 
-        setBounds(0, 0, 671, 405);
+        setSize(new java.awt.Dimension(433, 315));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -124,6 +130,10 @@ public class CadastroDepartamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"falha no cadastro");
         }         
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void txtTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelActionPerformed
     /*=======================================================================*/
     
     public static void main(String args[]) {

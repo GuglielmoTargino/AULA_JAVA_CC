@@ -32,67 +32,86 @@ public class Funcionario extends javax.swing.JFrame {
         lblSexo = new javax.swing.JLabel();
         lblDtNasc = new javax.swing.JLabel();
         lblCpf = new javax.swing.JLabel();
-        lblEndereco = new javax.swing.JLabel();
+        lblSalario = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         txtSobreNome = new javax.swing.JTextField();
         txtSexo = new javax.swing.JTextField();
         txtDataNasc = new javax.swing.JTextField();
         txtCpf = new javax.swing.JTextField();
-        lblTel = new javax.swing.JLabel();
+        lblMatricula = new javax.swing.JLabel();
         txtEndereco = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        lblNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblNome.setText("Nome");
         getContentPane().add(lblNome);
-        lblNome.setBounds(33, 25, 90, 40);
+        lblNome.setBounds(40, 20, 100, 30);
         getContentPane().add(txtTel);
-        txtTel.setBounds(160, 340, 220, 40);
+        txtTel.setBounds(160, 320, 200, 30);
 
+        lblSobreNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSobreNome.setText("SobreNome");
         getContentPane().add(lblSobreNome);
-        lblSobreNome.setBounds(30, 80, 110, 40);
+        lblSobreNome.setBounds(40, 70, 100, 30);
 
+        lblSexo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSexo.setText("Sexo");
         getContentPane().add(lblSexo);
-        lblSexo.setBounds(30, 120, 90, 40);
+        lblSexo.setBounds(40, 120, 100, 30);
 
+        lblDtNasc.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblDtNasc.setText("DataNasc");
         getContentPane().add(lblDtNasc);
-        lblDtNasc.setBounds(40, 190, 80, 30);
+        lblDtNasc.setBounds(40, 170, 100, 30);
 
+        lblCpf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCpf.setText("CPF");
         getContentPane().add(lblCpf);
-        lblCpf.setBounds(40, 240, 70, 30);
+        lblCpf.setBounds(40, 220, 100, 30);
 
-        lblEndereco.setText("Endereco");
-        getContentPane().add(lblEndereco);
-        lblEndereco.setBounds(40, 290, 80, 40);
+        lblSalario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblSalario.setText("Salario");
+        getContentPane().add(lblSalario);
+        lblSalario.setBounds(40, 270, 100, 30);
         getContentPane().add(txtNome);
-        txtNome.setBounds(160, 20, 220, 40);
+        txtNome.setBounds(160, 20, 200, 30);
         getContentPane().add(txtSobreNome);
-        txtSobreNome.setBounds(160, 80, 220, 40);
+        txtSobreNome.setBounds(160, 70, 200, 30);
         getContentPane().add(txtSexo);
-        txtSexo.setBounds(160, 130, 220, 40);
+        txtSexo.setBounds(160, 120, 200, 30);
         getContentPane().add(txtDataNasc);
-        txtDataNasc.setBounds(160, 190, 220, 40);
+        txtDataNasc.setBounds(160, 170, 200, 30);
+
+        txtCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCpfActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtCpf);
-        txtCpf.setBounds(160, 240, 220, 40);
+        txtCpf.setBounds(160, 220, 200, 30);
 
-        lblTel.setText("Tel");
-        getContentPane().add(lblTel);
-        lblTel.setBounds(40, 336, 100, 40);
+        lblMatricula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMatricula.setText("Matricula");
+        getContentPane().add(lblMatricula);
+        lblMatricula.setBounds(40, 320, 100, 30);
         getContentPane().add(txtEndereco);
-        txtEndereco.setBounds(160, 290, 220, 40);
+        txtEndereco.setBounds(160, 270, 200, 30);
 
+        btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalvar.setText("Salvar");
         getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(30, 410, 120, 50);
+        btnSalvar.setBounds(30, 380, 120, 50);
 
-        pack();
+        setSize(new java.awt.Dimension(524, 482));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCpfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,11 +152,11 @@ public class Funcionario extends javax.swing.JFrame {
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblDtNasc;
-    private javax.swing.JLabel lblEndereco;
+    private javax.swing.JLabel lblMatricula;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblSalario;
     private javax.swing.JLabel lblSexo;
     private javax.swing.JLabel lblSobreNome;
-    private javax.swing.JLabel lblTel;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtDataNasc;
     private javax.swing.JTextField txtEndereco;

@@ -40,18 +40,22 @@ public class CadastroUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        lblNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblNome.setText("Nome");
         getContentPane().add(lblNome);
-        lblNome.setBounds(30, 26, 110, 30);
+        lblNome.setBounds(30, 26, 100, 30);
 
+        lblCargo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCargo.setText("Cargo");
         getContentPane().add(lblCargo);
         lblCargo.setBounds(30, 66, 100, 30);
 
+        lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSenha.setText("Senha");
         getContentPane().add(lblSenha);
-        lblSenha.setBounds(30, 116, 100, 40);
+        lblSenha.setBounds(30, 110, 100, 30);
 
+        btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,15 +63,28 @@ public class CadastroUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(30, 213, 110, 50);
-        getContentPane().add(txtNome);
-        txtNome.setBounds(180, 30, 190, 30);
-        getContentPane().add(txtCargo);
-        txtCargo.setBounds(180, 70, 190, 30);
-        getContentPane().add(txtSenha);
-        txtSenha.setBounds(180, 120, 190, 30);
+        btnSalvar.setBounds(30, 160, 110, 50);
 
-        pack();
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNome);
+        txtNome.setBounds(140, 30, 200, 30);
+        getContentPane().add(txtCargo);
+        txtCargo.setBounds(140, 70, 200, 30);
+
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtSenha);
+        txtSenha.setBounds(140, 110, 200, 30);
+
+        setSize(new java.awt.Dimension(460, 283));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -97,6 +114,14 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 
     } 
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaActionPerformed
 
     /**
      * @param args the command line arguments
