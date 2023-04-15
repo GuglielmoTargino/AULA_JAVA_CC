@@ -50,6 +50,9 @@ public class TelaMenu extends javax.swing.JFrame {
         mnuUsuario = new javax.swing.JMenu();
         itmNome = new javax.swing.JMenuItem();
         itmCargo = new javax.swing.JMenuItem();
+        itmSenha = new javax.swing.JMenuItem();
+        itmCadastro = new javax.swing.JMenuItem();
+        itmExcluir = new javax.swing.JMenuItem();
         mnuAjuda = new javax.swing.JMenu();
         itmManu = new javax.swing.JMenuItem();
         itmSobre = new javax.swing.JMenuItem();
@@ -142,6 +145,25 @@ public class TelaMenu extends javax.swing.JFrame {
         itmCargo.setText("Cargo");
         mnuUsuario.add(itmCargo);
 
+        itmSenha.setText("Senha");
+        itmSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmSenhaActionPerformed(evt);
+            }
+        });
+        mnuUsuario.add(itmSenha);
+
+        itmCadastro.setText("Cadastrar");
+        itmCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmCadastroActionPerformed(evt);
+            }
+        });
+        mnuUsuario.add(itmCadastro);
+
+        itmExcluir.setText("Excluir");
+        mnuUsuario.add(itmExcluir);
+
         jMenuBar1.add(mnuUsuario);
 
         mnuAjuda.setText("Ajuda");
@@ -165,6 +187,17 @@ public class TelaMenu extends javax.swing.JFrame {
         new CadastroDepartamento().setVisible(true);
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void itmSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itmSenhaActionPerformed
+
+    private void itmCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCadastroActionPerformed
+        // TODO add your handling code here:
+        dispose(); // fecha a tela anterior
+        
+        new CadastroUsuario().setVisible(true);// chama a tela TelaMenu
+    }//GEN-LAST:event_itmCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,16 +239,19 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem itmAltFun;
     private javax.swing.JMenu itmCad;
     private javax.swing.JMenuItem itmCadFun;
+    private javax.swing.JMenuItem itmCadastro;
     private javax.swing.JMenuItem itmCargo;
     private javax.swing.JMenuItem itmCon;
     private javax.swing.JMenuItem itmConFun;
     private javax.swing.JMenuItem itmExc;
     private javax.swing.JMenuItem itmExcFun;
+    private javax.swing.JMenuItem itmExcluir;
     private javax.swing.JMenuItem itmGer;
     private javax.swing.JMenuItem itmManu;
     private javax.swing.JMenuItem itmNome;
     private javax.swing.JMenuItem itmRelFun;
     private javax.swing.JMenuItem itmSair;
+    private javax.swing.JMenuItem itmSenha;
     private javax.swing.JMenuItem itmSobre;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
