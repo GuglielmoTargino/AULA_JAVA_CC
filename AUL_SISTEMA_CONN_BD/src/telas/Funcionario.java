@@ -53,7 +53,7 @@ public class Funcionario extends javax.swing.JFrame {
         txtTel.setBounds(160, 320, 200, 30);
 
         lblSobreNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblSobreNome.setText("Sobre Nome");
+        lblSobreNome.setText("Cargo");
         getContentPane().add(lblSobreNome);
         lblSobreNome.setBounds(40, 70, 100, 30);
 
@@ -76,6 +76,12 @@ public class Funcionario extends javax.swing.JFrame {
         lblSalario.setText("Salario");
         getContentPane().add(lblSalario);
         lblSalario.setBounds(40, 270, 100, 30);
+
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtNome);
         txtNome.setBounds(160, 20, 200, 30);
         getContentPane().add(txtSobreNome);
@@ -112,6 +118,10 @@ public class Funcionario extends javax.swing.JFrame {
     private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpfActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     /**
      * @param args the command line arguments
