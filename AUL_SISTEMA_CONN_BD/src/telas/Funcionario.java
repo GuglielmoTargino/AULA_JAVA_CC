@@ -1,8 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
+
+
+
 package telas;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,35 +33,36 @@ public class Funcionario extends javax.swing.JFrame {
     private void initComponents() {
 
         lblNome = new javax.swing.JLabel();
-        txtTel = new javax.swing.JTextField();
-        lblSobreNome = new javax.swing.JLabel();
+        txtMatricula = new javax.swing.JTextField();
+        lblCargo = new javax.swing.JLabel();
         lblSexo = new javax.swing.JLabel();
         lblDtNasc = new javax.swing.JLabel();
         lblCpf = new javax.swing.JLabel();
         lblSalario = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
-        txtSobreNome = new javax.swing.JTextField();
+        txtCargo = new javax.swing.JTextField();
         txtSexo = new javax.swing.JTextField();
-        txtDataNasc = new javax.swing.JTextField();
+        txtDtNasc = new javax.swing.JTextField();
         txtCpf = new javax.swing.JTextField();
         lblMatricula = new javax.swing.JLabel();
-        txtEndereco = new javax.swing.JTextField();
+        txtSalario = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro Funcionários");
         getContentPane().setLayout(null);
 
         lblNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblNome.setText("Nome");
         getContentPane().add(lblNome);
         lblNome.setBounds(40, 20, 100, 30);
-        getContentPane().add(txtTel);
-        txtTel.setBounds(160, 320, 200, 30);
+        getContentPane().add(txtMatricula);
+        txtMatricula.setBounds(160, 320, 200, 30);
 
-        lblSobreNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblSobreNome.setText("Cargo");
-        getContentPane().add(lblSobreNome);
-        lblSobreNome.setBounds(40, 70, 100, 30);
+        lblCargo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCargo.setText("Cargo");
+        getContentPane().add(lblCargo);
+        lblCargo.setBounds(40, 70, 100, 30);
 
         lblSexo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSexo.setText("Sexo");
@@ -84,12 +91,12 @@ public class Funcionario extends javax.swing.JFrame {
         });
         getContentPane().add(txtNome);
         txtNome.setBounds(160, 20, 200, 30);
-        getContentPane().add(txtSobreNome);
-        txtSobreNome.setBounds(160, 70, 200, 30);
+        getContentPane().add(txtCargo);
+        txtCargo.setBounds(160, 70, 200, 30);
         getContentPane().add(txtSexo);
         txtSexo.setBounds(160, 120, 200, 30);
-        getContentPane().add(txtDataNasc);
-        txtDataNasc.setBounds(160, 170, 200, 30);
+        getContentPane().add(txtDtNasc);
+        txtDtNasc.setBounds(160, 170, 200, 30);
 
         txtCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,11 +110,16 @@ public class Funcionario extends javax.swing.JFrame {
         lblMatricula.setText("Matricula");
         getContentPane().add(lblMatricula);
         lblMatricula.setBounds(40, 320, 100, 30);
-        getContentPane().add(txtEndereco);
-        txtEndereco.setBounds(160, 270, 200, 30);
+        getContentPane().add(txtSalario);
+        txtSalario.setBounds(160, 270, 200, 30);
 
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnSalvar);
         btnSalvar.setBounds(30, 380, 120, 50);
 
@@ -123,9 +135,48 @@ public class Funcionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // TODO add your handling code here:
+                try {
+            // TODO code application logic here
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro","root",""); //variavel da classe connection para conexão
+            java.sql.PreparedStatement st = conn.prepareStatement("INSERT INTO funcionario (nome,cargo,sexo,dt_nasc,cpf,salario,matricula) VALUES(?,?,?,?,?,?,?)");  // serve para permitir execuat escrita no BD          
+            
+                       
+                            st.setString(1,txtNome.getText());
+                            st.setString(2,txtCargo.getText());
+                            st.setString(3,txtSexo.getText());
+                            st.setString(4, txtDtNasc.getText());
+                            st.setString(5,txtCpf.getText());
+                            st.setDouble(6,Double.parseDouble(txtSalario.getText()));
+                            st.setString(7,txtMatricula.getText());
+                            
+                        
+                            st.executeUpdate();  
+                            
+                            txtNome.setText("");                       
+                            txtCargo.setText("");                        
+                            txtSexo.setText("");
+                            txtDtNasc.setText("");
+                            txtCpf.setText("");
+                            txtSalario.setText("");
+                            txtMatricula.setText("");
+                                    
+                            
+                                    
+            JOptionPane.showMessageDialog(null,"Cadastro Concluido ");
+        } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
+            JOptionPane.showMessageDialog(null,"Erro de biblioteca");
+            
+        } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
+            JOptionPane.showMessageDialog(null,"falha no cadastro");
+                
+    } 
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    
+    //============================================================================
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -160,19 +211,19 @@ public class Funcionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblDtNasc;
     private javax.swing.JLabel lblMatricula;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblSalario;
     private javax.swing.JLabel lblSexo;
-    private javax.swing.JLabel lblSobreNome;
+    private javax.swing.JTextField txtCargo;
     private javax.swing.JTextField txtCpf;
-    private javax.swing.JTextField txtDataNasc;
-    private javax.swing.JTextField txtEndereco;
+    private javax.swing.JTextField txtDtNasc;
+    private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtSalario;
     private javax.swing.JTextField txtSexo;
-    private javax.swing.JTextField txtSobreNome;
-    private javax.swing.JTextField txtTel;
     // End of variables declaration//GEN-END:variables
 }
