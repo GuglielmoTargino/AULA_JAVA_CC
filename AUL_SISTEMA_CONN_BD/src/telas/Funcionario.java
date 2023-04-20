@@ -1,7 +1,3 @@
-
-
-
-
 package telas;
 
 import java.sql.Connection;
@@ -137,45 +133,60 @@ public class Funcionario extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-                try {
+        try {
             // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro","root",""); //variavel da classe connection para conexão
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
             java.sql.PreparedStatement st = conn.prepareStatement("INSERT INTO funcionario (nome,cargo,sexo,dt_nasc,cpf,salario,matricula) VALUES(?,?,?,?,?,?,?)");  // serve para permitir execuat escrita no BD          
+
+            st.setString(1, txtNome.getText());
+            st.setString(2, txtCargo.getText());
+            st.setString(3, txtSexo.getText());
+            st.setString(4, txtDtNasc.getText());
+            st.setString(5, txtCpf.getText());
+            st.setDouble(6, Double.parseDouble(txtSalario.getText()));
+            st.setString(7, txtMatricula.getText());
             
-                       
-                            st.setString(1,txtNome.getText());
-                            st.setString(2,txtCargo.getText());
-                            st.setString(3,txtSexo.getText());
-                            st.setString(4, txtDtNasc.getText());
-                            st.setString(5,txtCpf.getText());
-                            st.setDouble(6,Double.parseDouble(txtSalario.getText()));
-                            st.setString(7,txtMatricula.getText());
-                            
-                        
-                            st.executeUpdate();  
-                            
-                            txtNome.setText("");                       
-                            txtCargo.setText("");                        
-                            txtSexo.setText("");
-                            txtDtNasc.setText("");
-                            txtCpf.setText("");
-                            txtSalario.setText("");
-                            txtMatricula.setText("");
-                                    
-                            
-                                    
-            JOptionPane.showMessageDialog(null,"Cadastro Concluido ");
+                 // filtro para obrigar digitação do nome
+             if (txtNome.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "O Nome é obrigatório");
+            txtNome.requestFocus();
+            return; // para a execução do programa
+        }
+             
+                     // filtro para obrigar digitação do cpf
+             if (txtCpf.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "O CPF é obrigatório");
+            txtCpf.requestFocus();
+            return; // para a execução do programa
+        }
+
+            st.executeUpdate(); // linha que executa a query no BD.
+
+            txtNome.setText("");
+            txtCargo.setText("");
+            txtSexo.setText("");
+            txtDtNasc.setText("");
+            txtCpf.setText("");
+            txtSalario.setText("");
+            txtMatricula.setText("");
+            
+            
+        
+
+            JOptionPane.showMessageDialog(null, "Cadastro Concluido ");
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
-            JOptionPane.showMessageDialog(null,"Erro de biblioteca");
-            
+            JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null,"falha no cadastro");
-                
-    } 
+            JOptionPane.showMessageDialog(null, "falha no cadastro");
+        }
+       
+        
+       
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    
     //============================================================================
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
