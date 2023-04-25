@@ -1,8 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package telas;
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;// usado para opção caso a execução falhe
+
+import java.sql.PreparedStatement; //usado para executar os comandos SQL
+import java.sql.ResultSet; //usado para guardar os resultados da consulta SQL
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -88,9 +94,22 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conectado = DriverManager.getConnection("jdbc:mysql://localhost:3306/ cadastro ", "root", "");
+
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+
+        //==================================================================
+        
         
         dispose(); // fecha a tela anterior
-        
+
         new TelaMenu().setVisible(true);// chama a tela TelaMenu
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -129,7 +148,7 @@ public class TelaLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaLogin().setVisible(true);
-        }
+            }
         });
     }
 
