@@ -1,6 +1,4 @@
-
 package telas;
-
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -96,21 +94,32 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conectado = DriverManager.getConnection("jdbc:mysql://localhost:3306/ cadastro ", "root", "");
+            // TODO code application logic here
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario WHERE usuario = ?  AND senha = ? ");  // comando query no BD
 
-        } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+            st.setString(1, txtUsuario.getText());
+            st.setString(2, txtSenha.getText());
+           
+            ResultSet resultado= st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+            
+            if (resultado.next()){
+                dispose();
+                new TelaMenu().setVisible(true);
+            
+                } else{
+                JOptionPane.showMessageDialog(null,"Usuario ou senha incorreto");
+                txtUsuario.requestFocus(); // coloca o pronpt no campo usuario            
+                }
+
+        } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
+            JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+
+        } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
+            JOptionPane.showMessageDialog(null, "falha no cadastro");
         }
-
-        //==================================================================
-        
-        
-        dispose(); // fecha a tela anterior
-
-        new TelaMenu().setVisible(true);// chama a tela TelaMenu
+     
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void ckbSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckbSenhaActionPerformed
@@ -131,16 +140,24 @@ public class TelaLogin extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
