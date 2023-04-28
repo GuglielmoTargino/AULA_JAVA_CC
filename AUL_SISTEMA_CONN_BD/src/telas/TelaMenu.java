@@ -96,6 +96,11 @@ public class TelaMenu extends javax.swing.JFrame {
 
         itmCon.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmCon.setText("Consultar");
+        itmCon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmConActionPerformed(evt);
+            }
+        });
         itmCad.add(itmCon);
 
         mnuRel.setText("Relatorios");
@@ -211,6 +216,12 @@ public class TelaMenu extends javax.swing.JFrame {
         
         new Funcionario().setVisible(true);// chama a tela TelaMenu
     }//GEN-LAST:event_itmCadFunActionPerformed
+
+    private void itmConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmConActionPerformed
+        // TODO add your handling code here:
+        
+        new ControleDepartamento().setVisible(true);
+    }//GEN-LAST:event_itmConActionPerformed
 
     /**
      * @param args the command line arguments

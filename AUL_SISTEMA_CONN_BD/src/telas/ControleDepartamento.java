@@ -41,7 +41,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
         btnSalvar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
 
-        setTitle("Cadastro Departamentos");
+        setTitle("Controle Departamentos");
         getContentPane().setLayout(null);
 
         lblCodigo.setBackground(new java.awt.Color(0, 204, 204));
@@ -52,7 +52,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
         txtCodigo.setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().add(txtCodigo);
-        txtCodigo.setBounds(150, 100, 200, 30);
+        txtCodigo.setBounds(150, 100, 90, 30);
 
         lblNome.setBackground(new java.awt.Color(0, 204, 204));
         lblNome.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -62,7 +62,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
         txtNome.setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().add(txtNome);
-        txtNome.setBounds(150, 20, 90, 30);
+        txtNome.setBounds(150, 20, 200, 30);
 
         lblCidade.setBackground(new java.awt.Color(0, 204, 204));
         lblCidade.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -109,7 +109,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(260, 20, 110, 30);
+        btnConsultar.setBounds(250, 100, 110, 30);
 
         setSize(new java.awt.Dimension(433, 315));
         setLocationRelativeTo(null);

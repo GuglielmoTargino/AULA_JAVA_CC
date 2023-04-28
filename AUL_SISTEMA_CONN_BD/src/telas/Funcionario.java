@@ -52,8 +52,14 @@ public class Funcionario extends javax.swing.JFrame {
         lblNome.setText("Nome");
         getContentPane().add(lblNome);
         lblNome.setBounds(40, 20, 100, 30);
+
+        txtMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMatriculaActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtMatricula);
-        txtMatricula.setBounds(160, 320, 200, 30);
+        txtMatricula.setBounds(160, 320, 50, 30);
 
         lblCargo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCargo.setText("Cargo");
@@ -186,6 +192,10 @@ public class Funcionario extends javax.swing.JFrame {
        
 
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void txtMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatriculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMatriculaActionPerformed
 
     //============================================================================
     public static void main(String args[]) {
