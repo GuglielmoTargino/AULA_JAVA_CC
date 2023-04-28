@@ -38,6 +38,7 @@ public class CadastroDepartamento extends javax.swing.JFrame {
         lblTel = new javax.swing.JLabel();
         txtTel = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
+        btnConsultar = new javax.swing.JButton();
 
         setTitle("Cadastro Departamentos");
         getContentPane().setLayout(null);
@@ -60,7 +61,7 @@ public class CadastroDepartamento extends javax.swing.JFrame {
 
         txtNome.setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().add(txtNome);
-        txtNome.setBounds(150, 20, 200, 30);
+        txtNome.setBounds(150, 20, 90, 30);
 
         lblCidade.setBackground(new java.awt.Color(0, 204, 204));
         lblCidade.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -97,6 +98,12 @@ public class CadastroDepartamento extends javax.swing.JFrame {
         });
         getContentPane().add(btnSalvar);
         btnSalvar.setBounds(30, 200, 110, 40);
+
+        btnConsultar.setBackground(new java.awt.Color(204, 204, 204));
+        btnConsultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnConsultar.setText("Consultar");
+        getContentPane().add(btnConsultar);
+        btnConsultar.setBounds(260, 20, 110, 30);
 
         setSize(new java.awt.Dimension(433, 315));
         setLocationRelativeTo(null);
@@ -169,6 +176,7 @@ public class CadastroDepartamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblCodigo;
