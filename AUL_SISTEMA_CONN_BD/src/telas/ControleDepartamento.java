@@ -5,18 +5,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Guglielmo H T
  */
-public class CadastroDepartamento extends javax.swing.JFrame {
+public class ControleDepartamento extends javax.swing.JFrame {
 
     /**
      * Creates new form CadastroDepartamento
      */
-    public CadastroDepartamento() {
+    public ControleDepartamento() {
         initComponents();
     }
 
@@ -102,6 +103,11 @@ public class CadastroDepartamento extends javax.swing.JFrame {
         btnConsultar.setBackground(new java.awt.Color(204, 204, 204));
         btnConsultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnConsultar);
         btnConsultar.setBounds(260, 20, 110, 30);
 
@@ -141,6 +147,41 @@ public class CadastroDepartamento extends javax.swing.JFrame {
     private void txtTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelActionPerformed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        // TODO add your handling code here:
+        
+            try {
+            // TODO code application logic here
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento WHERE codigo = ? ");  // comando query no BD
+
+            st.setString(1, txtCodigo.getText());
+            
+            //st.setString(2, txtSenha.getText());// nao mais nessa tela
+           
+            ResultSet resultado= st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+            
+            if (resultado.next()){
+               txtNome.setText(resultado.getString("nome"));
+                txtCidade.setText(resultado.getString("cidade"));
+                txtTel.setText(resultado.getString("telefone"));
+            
+                } else{
+                JOptionPane.showMessageDialog(null,"Departamento não encontrado");
+                txtCodigo.requestFocus(); // coloca o pronpt no campo usuario            
+                }
+
+        } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
+            JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+
+        } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
+            JOptionPane.showMessageDialog(null, "falha no cadastro");
+        }
+     
+          
+    }//GEN-LAST:event_btnConsultarActionPerformed
     /*=======================================================================*/
     
     public static void main(String args[]) {
@@ -157,20 +198,21 @@ public class CadastroDepartamento extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroDepartamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ControleDepartamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroDepartamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ControleDepartamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroDepartamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ControleDepartamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroDepartamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ControleDepartamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroDepartamento().setVisible(true);
+                new ControleDepartamento().setVisible(true);
             }
         });
     }
