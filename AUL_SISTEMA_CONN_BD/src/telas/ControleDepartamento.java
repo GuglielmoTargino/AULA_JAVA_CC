@@ -1,4 +1,3 @@
-
 package telas;
 
 import java.sql.Connection;
@@ -116,32 +115,31 @@ public class ControleDepartamento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       
+
         /*=============programa para acao do botao salvar===============*/
-        
-          try {
+        try {
             // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro","root",""); //variavel da classe connection para conexão
-           PreparedStatement st = conn.prepareStatement("INSERT INTO departamento (codigo,nome,cidade,telefone) VALUES(?,?,?,?)");  // serve para permitir execuat escrita no BD          
-            
-                        st.setInt(1,Integer.parseInt(txtCodigo.getText()));
-                        st.setString(2,txtNome.getText());
-                        st.setString(3,txtCidade.getText());
-                        st.setString(4,txtTel.getText());
-                        st.executeUpdate();
-                        txtCodigo.setText("");
-                        txtNome.setText("");
-                        txtCidade.setText("");
-                        txtTel.setText("");
-                                    
-            JOptionPane.showMessageDialog(null,"Cadastro Concluido");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            PreparedStatement st = conn.prepareStatement("INSERT INTO departamento (codigo,nome,cidade,telefone) VALUES(?,?,?,?)");  // serve para permitir execuat escrita no BD          
+
+            st.setInt(1, Integer.parseInt(txtCodigo.getText()));
+            st.setString(2, txtNome.getText());
+            st.setString(3, txtCidade.getText());
+            st.setString(4, txtTel.getText());
+            st.executeUpdate();
+            txtCodigo.setText("");
+            txtNome.setText("");
+            txtCidade.setText("");
+            txtTel.setText("");
+
+            JOptionPane.showMessageDialog(null, "Cadastro Concluido");
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
-            JOptionPane.showMessageDialog(null,"Erro de biblioteca");
-            
+            JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null,"falha no cadastro");
-        }         
+            JOptionPane.showMessageDialog(null, "falha no cadastro");
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void txtTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelActionPerformed
@@ -150,28 +148,27 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
-        
-            try {
+
+        try {
             // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
             PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento WHERE codigo = ? ");  // comando query no BD
 
             st.setString(1, txtCodigo.getText());
-            
+
             //st.setString(2, txtSenha.getText());// nao mais nessa tela
-           
-            ResultSet resultado= st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
-            
-            if (resultado.next()){
-               txtNome.setText(resultado.getString("nome"));
+            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+
+            if (resultado.next()) {
+                txtNome.setText(resultado.getString("nome"));
                 txtCidade.setText(resultado.getString("cidade"));
                 txtTel.setText(resultado.getString("telefone"));
-            
-                } else{
-                JOptionPane.showMessageDialog(null,"Departamento não encontrado");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Departamento não encontrado");
                 txtCodigo.requestFocus(); // coloca o pronpt no campo usuario            
-                }
+            }
 
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
@@ -179,11 +176,11 @@ public class ControleDepartamento extends javax.swing.JFrame {
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
             JOptionPane.showMessageDialog(null, "falha no cadastro");
         }
-     
-          
+
+
     }//GEN-LAST:event_btnConsultarActionPerformed
     /*=======================================================================*/
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
