@@ -36,25 +36,31 @@ public class CadastroUsuario extends javax.swing.JFrame {
         txtNome = new javax.swing.JTextField();
         txtCargo = new javax.swing.JTextField();
         txtSenha = new javax.swing.JTextField();
+        lblIcone = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Usuario");
+        setMaximumSize(new java.awt.Dimension(373, 280));
+        setMinimumSize(new java.awt.Dimension(373, 280));
         getContentPane().setLayout(null);
 
         lblNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblNome.setForeground(new java.awt.Color(255, 255, 255));
         lblNome.setText("Nome");
         getContentPane().add(lblNome);
-        lblNome.setBounds(30, 26, 100, 30);
+        lblNome.setBounds(20, 30, 100, 30);
 
         lblCargo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCargo.setForeground(new java.awt.Color(255, 255, 255));
         lblCargo.setText("Cargo");
         getContentPane().add(lblCargo);
-        lblCargo.setBounds(30, 66, 100, 30);
+        lblCargo.setBounds(20, 70, 100, 30);
 
         lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblSenha.setForeground(new java.awt.Color(255, 255, 255));
         lblSenha.setText("Senha");
         getContentPane().add(lblSenha);
-        lblSenha.setBounds(30, 110, 100, 30);
+        lblSenha.setBounds(20, 110, 100, 30);
 
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalvar.setText("Salvar");
@@ -64,7 +70,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(30, 160, 110, 50);
+        btnSalvar.setBounds(20, 190, 110, 50);
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,9 +78,15 @@ public class CadastroUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtNome);
-        txtNome.setBounds(140, 30, 200, 30);
+        txtNome.setBounds(90, 30, 200, 30);
+
+        txtCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCargoActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtCargo);
-        txtCargo.setBounds(140, 70, 200, 30);
+        txtCargo.setBounds(90, 70, 200, 30);
 
         txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,9 +94,14 @@ public class CadastroUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtSenha);
-        txtSenha.setBounds(140, 110, 200, 30);
+        txtSenha.setBounds(90, 110, 200, 30);
 
-        setSize(new java.awt.Dimension(460, 283));
+        lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gitv3.png"))); // NOI18N
+        lblIcone.setText("lblIcone");
+        getContentPane().add(lblIcone);
+        lblIcone.setBounds(0, 0, 380, 290);
+
+        setSize(new java.awt.Dimension(389, 296));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -124,6 +141,10 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaActionPerformed
 
+    private void txtCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCargoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCargoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -162,6 +183,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel lblCargo;
+    private javax.swing.JLabel lblIcone;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JTextField txtCargo;

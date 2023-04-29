@@ -36,22 +36,26 @@ public class TelaLogin extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         btnEntrar = new javax.swing.JButton();
         ckbSenha = new javax.swing.JCheckBox();
+        lblIcone = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Login");
         setBackground(new java.awt.Color(153, 153, 255));
         setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        setMaximumSize(new java.awt.Dimension(373, 280));
         getContentPane().setLayout(null);
 
         lblUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblUsuario.setText("Usuário");
         getContentPane().add(lblUsuario);
-        lblUsuario.setBounds(40, 40, 100, 30);
+        lblUsuario.setBounds(260, 50, 100, 30);
 
         lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblSenha.setForeground(new java.awt.Color(255, 255, 255));
         lblSenha.setText("Senha");
         getContentPane().add(lblSenha);
-        lblSenha.setBounds(40, 90, 100, 30);
+        lblSenha.setBounds(260, 90, 100, 30);
 
         txtSenha.setText("jPasswordField1");
         txtSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -60,9 +64,9 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtSenha);
-        txtSenha.setBounds(110, 90, 80, 30);
+        txtSenha.setBounds(160, 90, 80, 30);
         getContentPane().add(txtUsuario);
-        txtUsuario.setBounds(110, 40, 200, 30);
+        txtUsuario.setBounds(40, 50, 200, 30);
 
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEntrar.setText("Entrar");
@@ -72,7 +76,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnEntrar);
-        btnEntrar.setBounds(30, 150, 100, 60);
+        btnEntrar.setBounds(30, 180, 100, 60);
 
         ckbSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,9 +84,14 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ckbSenha);
-        ckbSenha.setBounds(210, 90, 30, 19);
+        ckbSenha.setBounds(120, 100, 30, 19);
 
-        setSize(new java.awt.Dimension(388, 273));
+        lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_git2.png"))); // NOI18N
+        lblIcone.setText("lblIcone");
+        getContentPane().add(lblIcone);
+        lblIcone.setBounds(0, 0, 380, 280);
+
+        setSize(new java.awt.Dimension(389, 288));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -117,7 +126,7 @@ public class TelaLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no cadastro");
+            JOptionPane.showMessageDialog(null, "Falha de Acesso.");
         }
      
     }//GEN-LAST:event_btnEntrarActionPerformed
@@ -172,6 +181,7 @@ public class TelaLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEntrar;
     private javax.swing.JCheckBox ckbSenha;
+    private javax.swing.JLabel lblIcone;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JPasswordField txtSenha;
