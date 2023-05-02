@@ -115,6 +115,11 @@ public class TelaMenu extends javax.swing.JFrame {
 
         itmExc.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmExc.setText("Excluir");
+        itmExc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmExcActionPerformed(evt);
+            }
+        });
         itmCad.add(itmExc);
         itmCad.add(jSeparator1);
 
@@ -224,6 +229,11 @@ public class TelaMenu extends javax.swing.JFrame {
         
         new ControleDepartamento().setVisible(true);
     }//GEN-LAST:event_itmConActionPerformed
+
+    private void itmExcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmExcActionPerformed
+        // TODO add your handling code here:
+        new ControleDepartamento().setVisible(true);
+    }//GEN-LAST:event_itmExcActionPerformed
 
     /**
      * @param args the command line arguments

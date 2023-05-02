@@ -39,6 +39,8 @@ public class ControleDepartamento extends javax.swing.JFrame {
         txtTel = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        btnAlterar = new javax.swing.JButton();
 
         setTitle("Controle Departamentos");
         getContentPane().setLayout(null);
@@ -97,7 +99,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(30, 200, 110, 40);
+        btnSalvar.setBounds(30, 220, 110, 40);
 
         btnConsultar.setBackground(new java.awt.Color(204, 204, 204));
         btnConsultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -108,7 +110,30 @@ public class ControleDepartamento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(250, 100, 110, 30);
+        btnConsultar.setBounds(250, 100, 100, 30);
+
+        btnExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnExcluir.setText("Excluir");
+        btnExcluir.setMaximumSize(new java.awt.Dimension(72, 27));
+        btnExcluir.setMinimumSize(new java.awt.Dimension(72, 27));
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnExcluir);
+        btnExcluir.setBounds(160, 220, 110, 40);
+
+        btnAlterar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAlterar.setText("Alterar");
+        btnAlterar.setMaximumSize(new java.awt.Dimension(72, 27));
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAlterar);
+        btnAlterar.setBounds(290, 220, 110, 40);
 
         setSize(new java.awt.Dimension(433, 315));
         setLocationRelativeTo(null);
@@ -179,6 +204,38 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        
+        try {
+            // TODO code application logic here
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            PreparedStatement st = conn.prepareStatement("delete from departamento where codigo=?");  // serve para permitir execuat escrita no BD          
+
+           
+            st.setString(1, txtCodigo.getText());
+            
+            st.executeUpdate();
+            
+            txtCodigo.setText("");
+            txtNome.setText("");
+            txtCidade.setText("");
+            txtTel.setText("");
+
+            JOptionPane.showMessageDialog(null, "Cadastro Excluido");
+            
+        } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
+            JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+
+        } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
+            JOptionPane.showMessageDialog(null, "falha no cadastro");
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
     /*=======================================================================*/
 
     public static void main(String args[]) {
@@ -215,7 +272,9 @@ public class ControleDepartamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblCodigo;
