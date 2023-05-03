@@ -62,7 +62,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Funcionario mês");
         getContentPane().add(jButton1);
-        jButton1.setBounds(260, 280, 150, 40);
+        jButton1.setBounds(200, 150, 150, 70);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/painel.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
