@@ -62,14 +62,13 @@ public class TelaMenu extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Funcionario mês");
         getContentPane().add(jButton1);
-        jButton1.setBounds(280, 270, 150, 70);
+        jButton1.setBounds(320, 260, 150, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/painel_blur.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planta3.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(494, 390));
         jLabel2.setMinimumSize(new java.awt.Dimension(494, 390));
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 490, 360);
+        jLabel2.setBounds(0, 0, 500, 350);
 
         mnudepto.setText("Depto.");
 
@@ -190,7 +189,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(510, 398));
+        setSize(new java.awt.Dimension(516, 383));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
