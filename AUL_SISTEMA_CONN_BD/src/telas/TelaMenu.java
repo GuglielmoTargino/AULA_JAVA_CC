@@ -19,7 +19,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jButton1 = new javax.swing.JButton();
+        btnFuncionarioMes = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnudepto = new javax.swing.JMenu();
@@ -57,12 +57,12 @@ public class TelaMenu extends javax.swing.JFrame {
         setTitle("Menu do Sistema");
         getContentPane().setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Funcionario mês");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(320, 260, 150, 40);
+        btnFuncionarioMes.setBackground(new java.awt.Color(204, 204, 204));
+        btnFuncionarioMes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnFuncionarioMes.setForeground(new java.awt.Color(102, 102, 0));
+        btnFuncionarioMes.setText("Funcionario mês");
+        getContentPane().add(btnFuncionarioMes);
+        btnFuncionarioMes.setBounds(320, 260, 150, 40);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planta3.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(494, 390));
@@ -103,6 +103,11 @@ public class TelaMenu extends javax.swing.JFrame {
 
         itmGer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmGer.setText("Geral");
+        itmGer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmGerActionPerformed(evt);
+            }
+        });
         mnuRel.add(itmGer);
 
         mnudepto.add(mnuRel);
@@ -235,7 +240,13 @@ public class TelaMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_itmAltActionPerformed
 
+    private void itmGerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmGerActionPerformed
+        // TODO add your handling code here:
+        new RelatorioDepartamento().setVisible(true);
+    }//GEN-LAST:event_itmGerActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFuncionarioMes;
     private javax.swing.JMenuItem itmAlt;
     private javax.swing.JMenuItem itmAltFun;
     private javax.swing.JMenuItem itmCadFun;
@@ -253,7 +264,6 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem itmSair;
     private javax.swing.JMenuItem itmSenha;
     private javax.swing.JMenuItem itmSobre;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
