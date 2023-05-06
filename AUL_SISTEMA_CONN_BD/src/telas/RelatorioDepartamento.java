@@ -42,6 +42,7 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
                 resultado.getString("cidade"),
                 resultado.getString("telefone")                
               };
+                  
               modeloBaseTabela.addRow(dep);              
                           
             }
