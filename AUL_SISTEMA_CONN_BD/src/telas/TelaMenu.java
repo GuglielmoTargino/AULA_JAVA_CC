@@ -211,7 +211,8 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void itmCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCadastroActionPerformed
         // TODO add your handling code here:
-        dispose(); // fecha a tela anterior
+        
+        //dispose(); // Serve para fecha a tela anterior
         
         new CadastroUsuario().setVisible(true);// chama a tela TelaMenu
     }//GEN-LAST:event_itmCadastroActionPerformed

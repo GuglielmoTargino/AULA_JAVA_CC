@@ -51,7 +51,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
         lblCodigo.setBackground(new java.awt.Color(0, 204, 204));
         lblCodigo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        lblCodigo.setForeground(new java.awt.Color(204, 255, 255));
         lblCodigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCodigo.setText("Código");
         lblCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -60,7 +60,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
         lblNome.setBackground(new java.awt.Color(204, 204, 255));
         lblNome.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblNome.setForeground(new java.awt.Color(255, 255, 255));
+        lblNome.setForeground(new java.awt.Color(204, 255, 255));
         lblNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNome.setText("Nome");
         lblNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -73,7 +73,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
         lblCidade.setBackground(new java.awt.Color(0, 204, 204));
         lblCidade.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblCidade.setForeground(new java.awt.Color(255, 255, 255));
+        lblCidade.setForeground(new java.awt.Color(204, 255, 255));
         lblCidade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCidade.setText("Cidade");
         lblCidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -86,7 +86,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
         lblTel.setBackground(new java.awt.Color(0, 204, 204));
         lblTel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblTel.setForeground(new java.awt.Color(255, 255, 255));
+        lblTel.setForeground(new java.awt.Color(204, 255, 255));
         lblTel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTel.setText("Telefone");
         lblTel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -153,7 +153,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
         getContentPane().add(btnAlterar);
         btnAlterar.setBounds(380, 20, 110, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chapaferro2.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chapaferro2v22.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 500, 375);
 

@@ -30,7 +30,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
         txtSenha = new javax.swing.JTextField();
         lblIcone = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Usuario");
         setMaximumSize(new java.awt.Dimension(373, 280));
         setMinimumSize(new java.awt.Dimension(373, 280));
@@ -62,7 +61,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(20, 190, 110, 50);
+        btnSalvar.setBounds(20, 200, 110, 30);
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,12 +87,12 @@ public class CadastroUsuario extends javax.swing.JFrame {
         getContentPane().add(txtSenha);
         txtSenha.setBounds(90, 110, 200, 30);
 
-        lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gitv3.png"))); // NOI18N
+        lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/git3.jpg"))); // NOI18N
         lblIcone.setText("lblIcone");
         getContentPane().add(lblIcone);
-        lblIcone.setBounds(0, 0, 380, 290);
+        lblIcone.setBounds(0, 0, 500, 380);
 
-        setSize(new java.awt.Dimension(389, 296));
+        setSize(new java.awt.Dimension(521, 395));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
