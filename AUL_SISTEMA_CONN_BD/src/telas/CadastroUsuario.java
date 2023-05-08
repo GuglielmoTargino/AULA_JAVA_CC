@@ -49,10 +49,10 @@ public class CadastroUsuario extends javax.swing.JFrame {
         txtNome = new javax.swing.JTextField();
         txtCargo = new javax.swing.JTextField();
         txtSenha = new javax.swing.JTextField();
-        lblIcone = new javax.swing.JLabel();
         btnAlterar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
+        lblIcone = new javax.swing.JLabel();
 
         setTitle("Cadastro Usuario");
         setMaximumSize(new java.awt.Dimension(373, 280));
@@ -60,19 +60,19 @@ public class CadastroUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         lblNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblNome.setForeground(new java.awt.Color(51, 51, 51));
+        lblNome.setForeground(new java.awt.Color(255, 255, 255));
         lblNome.setText("Nome");
         getContentPane().add(lblNome);
         lblNome.setBounds(20, 30, 100, 30);
 
         lblCargo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblCargo.setForeground(new java.awt.Color(51, 51, 51));
+        lblCargo.setForeground(new java.awt.Color(255, 255, 255));
         lblCargo.setText("Cargo");
         getContentPane().add(lblCargo);
         lblCargo.setBounds(20, 70, 100, 30);
 
         lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblSenha.setForeground(new java.awt.Color(51, 51, 51));
+        lblSenha.setForeground(new java.awt.Color(255, 255, 255));
         lblSenha.setText("Senha");
         getContentPane().add(lblSenha);
         lblSenha.setBounds(20, 110, 100, 30);
@@ -111,17 +111,15 @@ public class CadastroUsuario extends javax.swing.JFrame {
         getContentPane().add(txtSenha);
         txtSenha.setBounds(90, 110, 200, 30);
 
-        lblIcone.setText("lblIcone");
-        getContentPane().add(lblIcone);
-        lblIcone.setBounds(380, 350, 110, 20);
-
         btnAlterar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAlterar.setForeground(new java.awt.Color(51, 51, 51));
         btnAlterar.setText("Alterar");
         btnAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(btnAlterar);
         btnAlterar.setBounds(200, 290, 110, 30);
 
         btnExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnExcluir.setForeground(new java.awt.Color(51, 51, 51));
         btnExcluir.setText("Excluir");
         btnExcluir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +131,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         btnExcluir.setBounds(360, 290, 110, 30);
 
         btnConsultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnConsultar.setForeground(new java.awt.Color(51, 51, 51));
         btnConsultar.setText("Consultar Nome");
         btnConsultar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +141,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(btnConsultar);
         btnConsultar.setBounds(310, 30, 130, 30);
+
+        lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/git3.jpg"))); // NOI18N
+        lblIcone.setText("lblIcone");
+        getContentPane().add(lblIcone);
+        lblIcone.setBounds(0, -10, 510, 400);
 
         setSize(new java.awt.Dimension(521, 395));
         setLocationRelativeTo(null);
