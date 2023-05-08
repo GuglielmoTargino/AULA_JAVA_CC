@@ -81,7 +81,7 @@ public class Funcionario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtMatricula);
-        txtMatricula.setBounds(140, 320, 120, 30);
+        txtMatricula.setBounds(140, 320, 70, 30);
 
         lblCargo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCargo.setText("Cargo");
@@ -128,14 +128,14 @@ public class Funcionario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtCpf);
-        txtCpf.setBounds(140, 220, 110, 30);
+        txtCpf.setBounds(140, 220, 220, 30);
 
         lblMatricula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblMatricula.setText("Matricula");
         getContentPane().add(lblMatricula);
         lblMatricula.setBounds(40, 320, 100, 30);
         getContentPane().add(txtSalario);
-        txtSalario.setBounds(140, 270, 120, 30);
+        txtSalario.setBounds(140, 270, 220, 30);
 
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalvar.setText("Salvar");
@@ -157,7 +157,7 @@ public class Funcionario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(270, 220, 90, 30);
+        btnConsultar.setBounds(270, 320, 90, 30);
 
         btnExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExcluir.setText("Excluir");
@@ -245,6 +245,34 @@ public class Funcionario extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
+              try {
+            // TODO code application logic here
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            PreparedStatement st = conn.prepareStatement("delete from funcionario where matricula=?");  // serve para permitir execuat escrita no BD          
+
+            st.setString(1, txtMatricula.getText());
+
+            st.executeUpdate(); //comando para executar SQL no BD
+
+            txtNome.setText("");
+            txtCargo.setText("");
+            txtSexo.setText("");
+            txtDtNasc.setText("");
+            txtCpf.setText("");
+            txtSalario.setText("");
+            txtMatricula.setText("");
+
+            JOptionPane.showMessageDialog(null, "Funcionário Excluido");
+            btnExcluir.setVisible(false);
+            btnAlterar.setVisible(false);
+
+        } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
+            JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+
+        } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
+            JOptionPane.showMessageDialog(null, "falha no cadastro");
+        }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
@@ -254,25 +282,29 @@ public class Funcionario extends javax.swing.JFrame {
             // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento WHERE codigo = ? ");  // comando query no BD
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario WHERE matricula= ? ");  // comando query no BD
 
-            st.setString(1, txtCodigo.getText());
+            st.setString(1, txtMatricula.getText());
 
             //st.setString(2, txtSenha.getText());// nao mais nessa tela
             ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
-
+            // se o resulatdo não valtar vazio será executado o IF aqui.
             if (resultado.next()) {
                 txtNome.setText(resultado.getString("nome"));
-                txtCidade.setText(resultado.getString("cidade"));
-                txtTel.setText(resultado.getString("telefone"));
+                txtCargo.setText(resultado.getString("cargo"));
+                txtSexo.setText(resultado.getString("sexo"));
+                txtDtNasc.setText(resultado.getString("dt_nasc"));
+                txtCpf.setText(resultado.getString("cpf"));
+                txtSalario.setText(resultado.getString("salario"));
+                txtMatricula.setText(resultado.getString("matricula"));
                 
                 btnExcluir.setVisible(true);
                 btnAlterar.setVisible(true);
                 
 
             } else {
-                JOptionPane.showMessageDialog(null, "Departamento não encontrado");
-                txtCodigo.requestFocus(); // coloca o pronpt no campo usuario            
+                JOptionPane.showMessageDialog(null, "Funcionário não encontrado");
+                txtMatricula.requestFocus(); // coloca o pronpt no campo usuario            
             }
 
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
