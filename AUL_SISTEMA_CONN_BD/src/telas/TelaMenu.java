@@ -143,6 +143,11 @@ public class TelaMenu extends javax.swing.JFrame {
         mnuFunc.add(itmAltFun);
 
         itmConFun.setText("Consultar");
+        itmConFun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmConFunActionPerformed(evt);
+            }
+        });
         mnuFunc.add(itmConFun);
 
         itmRelFun.setText("Relatório");
@@ -245,6 +250,12 @@ public class TelaMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         new RelatorioDepartamento().setVisible(true);
     }//GEN-LAST:event_itmGerActionPerformed
+
+    private void itmConFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmConFunActionPerformed
+        // TODO add your handling code here:
+        
+        new Funcionario("consultar").setVisible(true);// chama a tela funcionario
+    }//GEN-LAST:event_itmConFunActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFuncionarioMes;

@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class ControleDepartamento extends javax.swing.JFrame {
 
+        //op aqui é uma variave. pode ser X,V etc
     public ControleDepartamento(String op) {
         initComponents();
       if(op.equalsIgnoreCase("cadastrar")){
