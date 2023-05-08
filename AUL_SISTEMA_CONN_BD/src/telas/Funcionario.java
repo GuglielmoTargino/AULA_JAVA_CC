@@ -81,7 +81,7 @@ public class Funcionario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtMatricula);
-        txtMatricula.setBounds(140, 320, 70, 30);
+        txtMatricula.setBounds(140, 320, 50, 30);
 
         lblCargo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCargo.setText("Cargo");
@@ -157,7 +157,7 @@ public class Funcionario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(270, 320, 90, 30);
+        btnConsultar.setBounds(210, 320, 150, 30);
 
         btnExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExcluir.setText("Excluir");
@@ -173,6 +173,11 @@ public class Funcionario extends javax.swing.JFrame {
         btnAlterar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAlterar.setText("Alterar");
         btnAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAlterar);
         btnAlterar.setBounds(290, 380, 100, 50);
 
@@ -314,6 +319,48 @@ public class Funcionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "falha no alteração");
         }
     }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        // TODO add your handling code here:
+             try {
+            // TODO code application logic here
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            PreparedStatement st = conn.prepareStatement("update funcionario set nome=?, cargo=?, sexo=?, dt_nasc=?, cpf=?, salario=? where matricula=?");  // serve para permitir execuat escrita no BD          
+
+            st.setString(1, txtNome.getText());
+            st.setString(2, txtCargo.getText());
+            st.setString(3, txtSexo.getText());
+            st.setString(4, txtDtNasc.getText());
+            st.setString(5, txtCpf.getText());
+            st.setDouble(6,Double.parseDouble(txtSalario.getText())); 
+            st.setString(7,txtMatricula.getText());
+            
+
+            st.executeUpdate();// executa o comando SQL no BD
+
+            txtNome.setText("");
+            txtCargo.setText("");
+            txtSexo.setText("");
+            txtDtNasc.setText("");
+            txtCpf.setText("");
+            txtSalario.setText("");
+            txtMatricula.setText("");
+                        
+
+            JOptionPane.showMessageDialog(null, "Funcionário Alterado com Sucesso");
+            
+            btnExcluir.setVisible(false);
+            btnAlterar.setVisible(false);
+            
+
+        } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
+            JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+
+        } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
+            JOptionPane.showMessageDialog(null, "falha no comando");
+        }
+    }//GEN-LAST:event_btnAlterarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
