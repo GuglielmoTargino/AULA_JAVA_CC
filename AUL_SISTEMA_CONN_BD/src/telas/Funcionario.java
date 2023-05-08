@@ -114,13 +114,13 @@ public class Funcionario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtNome);
-        txtNome.setBounds(140, 20, 220, 30);
+        txtNome.setBounds(140, 20, 240, 30);
         getContentPane().add(txtCargo);
-        txtCargo.setBounds(140, 70, 220, 30);
+        txtCargo.setBounds(140, 70, 240, 30);
         getContentPane().add(txtSexo);
-        txtSexo.setBounds(140, 120, 220, 30);
+        txtSexo.setBounds(140, 120, 240, 30);
         getContentPane().add(txtDtNasc);
-        txtDtNasc.setBounds(140, 170, 220, 30);
+        txtDtNasc.setBounds(140, 170, 240, 30);
 
         txtCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,14 +128,14 @@ public class Funcionario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtCpf);
-        txtCpf.setBounds(140, 220, 220, 30);
+        txtCpf.setBounds(140, 220, 240, 30);
 
         lblMatricula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblMatricula.setText("Matricula");
         getContentPane().add(lblMatricula);
         lblMatricula.setBounds(40, 320, 100, 30);
         getContentPane().add(txtSalario);
-        txtSalario.setBounds(140, 270, 220, 30);
+        txtSalario.setBounds(140, 270, 240, 30);
 
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalvar.setText("Salvar");
@@ -149,7 +149,7 @@ public class Funcionario extends javax.swing.JFrame {
         btnSalvar.setBounds(20, 380, 100, 50);
 
         btnConsultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnConsultar.setText("Consultar");
+        btnConsultar.setText("Consultar Matrícula");
         btnConsultar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +157,7 @@ public class Funcionario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(210, 320, 150, 30);
+        btnConsultar.setBounds(210, 320, 170, 30);
 
         btnExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExcluir.setText("Excluir");
@@ -348,7 +348,7 @@ public class Funcionario extends javax.swing.JFrame {
             txtMatricula.setText("");
                         
 
-            JOptionPane.showMessageDialog(null, "Funcionário Alterado com Sucesso");
+            JOptionPane.showMessageDialog(null, "Sucesso na Alteração");
             
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(false);

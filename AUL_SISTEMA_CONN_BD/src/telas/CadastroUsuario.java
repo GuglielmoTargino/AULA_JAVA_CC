@@ -61,7 +61,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(20, 200, 110, 30);
+        btnSalvar.setBounds(40, 290, 110, 30);
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -47,7 +47,7 @@ public class TelaLogin extends javax.swing.JFrame {
         lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsuario.setText("Usuário");
         getContentPane().add(lblUsuario);
-        lblUsuario.setBounds(140, 40, 70, 30);
+        lblUsuario.setBounds(180, 30, 70, 30);
 
         lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSenha.setForeground(new java.awt.Color(255, 255, 255));
@@ -63,7 +63,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtSenha);
-        txtSenha.setBounds(250, 90, 80, 30);
+        txtSenha.setBounds(260, 90, 80, 30);
 
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +71,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtUsuario);
-        txtUsuario.setBounds(230, 40, 100, 30);
+        txtUsuario.setBounds(260, 30, 110, 30);
 
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEntrar.setText("Entrar");
@@ -81,7 +81,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnEntrar);
-        btnEntrar.setBounds(230, 140, 100, 40);
+        btnEntrar.setBounds(260, 150, 110, 40);
 
         ckbSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +89,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ckbSenha);
-        ckbSenha.setBounds(360, 100, 30, 19);
+        ckbSenha.setBounds(350, 90, 30, 19);
 
         lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/porta2.jpg"))); // NOI18N
         lblIcone.setText("lblIcone");

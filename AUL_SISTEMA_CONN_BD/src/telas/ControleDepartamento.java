@@ -57,7 +57,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
         lblCodigo.setText("Código");
         lblCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(lblCodigo);
-        lblCodigo.setBounds(40, 100, 100, 30);
+        lblCodigo.setBounds(40, 150, 100, 30);
 
         lblNome.setBackground(new java.awt.Color(204, 204, 255));
         lblNome.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -70,7 +70,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
         txtCodigo.setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().add(txtCodigo);
-        txtCodigo.setBounds(150, 100, 90, 30);
+        txtCodigo.setBounds(150, 150, 60, 30);
 
         lblCidade.setBackground(new java.awt.Color(0, 204, 204));
         lblCidade.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -79,11 +79,11 @@ public class ControleDepartamento extends javax.swing.JFrame {
         lblCidade.setText("Cidade");
         lblCidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(lblCidade);
-        lblCidade.setBounds(40, 60, 100, 30);
+        lblCidade.setBounds(40, 90, 100, 30);
 
         txtNome.setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().add(txtNome);
-        txtNome.setBounds(150, 20, 200, 30);
+        txtNome.setBounds(150, 20, 250, 30);
 
         lblTel.setBackground(new java.awt.Color(0, 204, 204));
         lblTel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -92,11 +92,11 @@ public class ControleDepartamento extends javax.swing.JFrame {
         lblTel.setText("Telefone");
         lblTel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(lblTel);
-        lblTel.setBounds(40, 140, 100, 30);
+        lblTel.setBounds(40, 220, 100, 30);
 
         txtCidade.setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().add(txtCidade);
-        txtCidade.setBounds(150, 60, 200, 30);
+        txtCidade.setBounds(150, 90, 250, 30);
 
         txtTel.setBackground(new java.awt.Color(204, 255, 255));
         txtTel.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +105,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtTel);
-        txtTel.setBounds(150, 140, 200, 30);
+        txtTel.setBounds(150, 220, 250, 30);
 
         btnSalvar.setBackground(new java.awt.Color(204, 204, 204));
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -116,18 +116,18 @@ public class ControleDepartamento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(380, 120, 110, 40);
+        btnSalvar.setBounds(60, 310, 110, 40);
 
         btnConsultar.setBackground(new java.awt.Color(204, 204, 204));
         btnConsultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnConsultar.setText("Consultar");
+        btnConsultar.setText("Consultar Código");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultarActionPerformed(evt);
             }
         });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(250, 100, 100, 30);
+        btnConsultar.setBounds(230, 150, 170, 30);
 
         btnExcluir.setBackground(new java.awt.Color(204, 204, 204));
         btnExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -140,7 +140,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnExcluir);
-        btnExcluir.setBounds(380, 70, 110, 40);
+        btnExcluir.setBounds(220, 310, 110, 40);
 
         btnAlterar.setBackground(new java.awt.Color(204, 204, 204));
         btnAlterar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -152,7 +152,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAlterar);
-        btnAlterar.setBounds(380, 20, 110, 40);
+        btnAlterar.setBounds(370, 310, 110, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chapaferro2v22.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
