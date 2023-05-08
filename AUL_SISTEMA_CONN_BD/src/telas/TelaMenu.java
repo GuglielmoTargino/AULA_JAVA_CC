@@ -140,6 +140,11 @@ public class TelaMenu extends javax.swing.JFrame {
         mnuFunc.add(itmCadFun);
 
         itmAltFun.setText("Alterar");
+        itmAltFun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmAltFunActionPerformed(evt);
+            }
+        });
         mnuFunc.add(itmAltFun);
 
         itmConFun.setText("Consultar");
@@ -154,6 +159,11 @@ public class TelaMenu extends javax.swing.JFrame {
         mnuFunc.add(itmRelFun);
 
         itmExcFun.setText("Excluir");
+        itmExcFun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmExcFunActionPerformed(evt);
+            }
+        });
         mnuFunc.add(itmExcFun);
 
         jMenuBar1.add(mnuFunc);
@@ -226,7 +236,7 @@ public class TelaMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
          dispose(); // fecha a tela anterior
         
-        new Funcionario().setVisible(true);// chama a tela TelaMenu
+        new Funcionario("cadastrar").setVisible(true);// chama a tela TelaMenu
     }//GEN-LAST:event_itmCadFunActionPerformed
 
     private void itmConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmConActionPerformed
@@ -256,6 +266,16 @@ public class TelaMenu extends javax.swing.JFrame {
         
         new Funcionario("consultar").setVisible(true);// chama a tela funcionario
     }//GEN-LAST:event_itmConFunActionPerformed
+
+    private void itmExcFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmExcFunActionPerformed
+        // TODO add your handling code here:
+        new Funcionario("excluir").setVisible(true);
+    }//GEN-LAST:event_itmExcFunActionPerformed
+
+    private void itmAltFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmAltFunActionPerformed
+        // TODO add your handling code here:
+        new Funcionario("alterar").setVisible(true);
+    }//GEN-LAST:event_itmAltFunActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFuncionarioMes;
