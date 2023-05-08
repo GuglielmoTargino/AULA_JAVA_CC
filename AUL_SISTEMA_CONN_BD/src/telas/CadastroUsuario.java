@@ -1,22 +1,43 @@
-
 package telas;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+
 /**
  *
  * @author Guglielmo H T
  */
 public class CadastroUsuario extends javax.swing.JFrame {
 
-   
-    public CadastroUsuario() {
+    // programa aqiu a variavel passada na chamada em tela menu
+    public CadastroUsuario(String gh) {
         initComponents();
+        if (gh.equalsIgnoreCase("cadastrar")) {
+            btnSalvar.setVisible(true);
+            btnConsultar.setVisible(false);
+            btnExcluir.setVisible(false);
+            btnAlterar.setVisible(false);
+
+        } else if (gh.equalsIgnoreCase("excluir") || (gh.equalsIgnoreCase("consultar"))) {
+            btnSalvar.setVisible(false);
+            btnExcluir.setVisible(false);
+            btnAlterar.setVisible(false);
+            btnConsultar.setVisible(true);
+
+        } else if (gh.equalsIgnoreCase("alterar")) {
+            btnExcluir.setVisible(false);
+            btnSalvar.setVisible(false);
+            btnAlterar.setVisible(false);
+            btnConsultar.setVisible(true);
+
+        }
+
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -29,6 +50,9 @@ public class CadastroUsuario extends javax.swing.JFrame {
         txtCargo = new javax.swing.JTextField();
         txtSenha = new javax.swing.JTextField();
         lblIcone = new javax.swing.JLabel();
+        btnAlterar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        btnConsultar = new javax.swing.JButton();
 
         setTitle("Cadastro Usuario");
         setMaximumSize(new java.awt.Dimension(373, 280));
@@ -36,19 +60,19 @@ public class CadastroUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         lblNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblNome.setForeground(new java.awt.Color(255, 255, 255));
+        lblNome.setForeground(new java.awt.Color(51, 51, 51));
         lblNome.setText("Nome");
         getContentPane().add(lblNome);
         lblNome.setBounds(20, 30, 100, 30);
 
         lblCargo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblCargo.setForeground(new java.awt.Color(255, 255, 255));
+        lblCargo.setForeground(new java.awt.Color(51, 51, 51));
         lblCargo.setText("Cargo");
         getContentPane().add(lblCargo);
         lblCargo.setBounds(20, 70, 100, 30);
 
         lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblSenha.setForeground(new java.awt.Color(255, 255, 255));
+        lblSenha.setForeground(new java.awt.Color(51, 51, 51));
         lblSenha.setText("Senha");
         getContentPane().add(lblSenha);
         lblSenha.setBounds(20, 110, 100, 30);
@@ -87,10 +111,37 @@ public class CadastroUsuario extends javax.swing.JFrame {
         getContentPane().add(txtSenha);
         txtSenha.setBounds(90, 110, 200, 30);
 
-        lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/git3.jpg"))); // NOI18N
         lblIcone.setText("lblIcone");
         getContentPane().add(lblIcone);
-        lblIcone.setBounds(0, 0, 500, 380);
+        lblIcone.setBounds(380, 350, 110, 20);
+
+        btnAlterar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAlterar.setText("Alterar");
+        btnAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(btnAlterar);
+        btnAlterar.setBounds(200, 290, 110, 30);
+
+        btnExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnExcluir.setText("Excluir");
+        btnExcluir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnExcluir);
+        btnExcluir.setBounds(360, 290, 110, 30);
+
+        btnConsultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnConsultar.setText("Consultar Nome");
+        btnConsultar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnConsultar);
+        btnConsultar.setBounds(310, 30, 130, 30);
 
         setSize(new java.awt.Dimension(521, 395));
         setLocationRelativeTo(null);
@@ -98,30 +149,29 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-            try {
+        try {
             // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro","root",""); //variavel da classe connection para conexão
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
             java.sql.PreparedStatement st = conn.prepareStatement("INSERT INTO usuario (usuario,cargo,senha) VALUES(?,?,?)");  // serve para permitir execuat escrita no BD          
-            
-                       
-                            st.setString(1,txtNome.getText());
-                            st.setString(2,txtCargo.getText());
-                            st.setInt(3,Integer.parseInt(txtSenha.getText()));
-                        
-                            st.executeUpdate();                         
-                            txtNome.setText("");                       
-                            txtSenha.setText("");                        
-                            txtCargo.setText("");
-                                    
-            JOptionPane.showMessageDialog(null,"Cadastro Concluido");
+
+            st.setString(1, txtNome.getText());
+            st.setString(2, txtCargo.getText());
+            st.setInt(3, Integer.parseInt(txtSenha.getText()));
+
+            st.executeUpdate();
+            txtNome.setText("");
+            txtSenha.setText("");
+            txtCargo.setText("");
+
+            JOptionPane.showMessageDialog(null, "Cadastro Concluido");
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
-            JOptionPane.showMessageDialog(null,"Erro de biblioteca");
-            
+            JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null,"falha no cadastro");
-                
-    } 
+            JOptionPane.showMessageDialog(null, "falha no cadastro");
+
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 //===========================================================================================
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
@@ -136,8 +186,78 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCargoActionPerformed
 
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO code application logic here
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM  usuario WHERE usuario= ? ");  // comando query no BD
+
+            st.setString(1, txtNome.getText());
+
+           //aqui resultado guarda o valor encontrado no BD.
+            ResultSet resultado = st.executeQuery(); 
+            
+            // se o resulatdo não valtar vazio será executado o IF aqui.
+
+            if (resultado.next()) {
+                               
+                txtCargo.setText(resultado.getString("cargo"));               
+                txtSenha.setText(resultado.getString("senha"));
+
+                btnExcluir.setVisible(true);
+                btnAlterar.setVisible(true);
+                
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário não encontrado");
+                txtNome.requestFocus(); // coloca o pronpt no campo usuario            
+            }
+            // caso não encontre a biblioteca, mosta "Erro de biblioteca"
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+
+            // caso não execute o script sql mostra "falha de processo "
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "falha no comando");
+        }
+
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // TODO add your handling code here:
+                      try {
+            // TODO code application logic here
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            PreparedStatement st = conn.prepareStatement("delete from usuario where usuario=?");  // serve para permitir execuat escrita no BD          
+
+            st.setString(1, txtNome.getText());
+
+            st.executeUpdate(); //comando para executar SQL no BD
+
+            txtNome.setText("");
+            txtCargo.setText("");
+            txtSenha.setText("");
+           
+            JOptionPane.showMessageDialog(null, "Usuario Excluido");
+            btnExcluir.setVisible(false);
+            btnAlterar.setVisible(false);
+
+        } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
+            JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+
+        } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
+            JOptionPane.showMessageDialog(null, "falha no comando");
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterar;
+    private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblIcone;

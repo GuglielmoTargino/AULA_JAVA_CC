@@ -41,8 +41,10 @@ public class TelaMenu extends javax.swing.JFrame {
         itmNome = new javax.swing.JMenuItem();
         itmCargo = new javax.swing.JMenuItem();
         itmSenha = new javax.swing.JMenuItem();
-        itmCadastro = new javax.swing.JMenuItem();
-        itmExcluir = new javax.swing.JMenuItem();
+        itmCadastroUsuario = new javax.swing.JMenuItem();
+        itmExcluirUsuario = new javax.swing.JMenuItem();
+        itmConsultarUsuario = new javax.swing.JMenuItem();
+        itmAlterarUsuario = new javax.swing.JMenuItem();
         mnuAjuda = new javax.swing.JMenu();
         itmManu = new javax.swing.JMenuItem();
         itmSobre = new javax.swing.JMenuItem();
@@ -184,16 +186,37 @@ public class TelaMenu extends javax.swing.JFrame {
         });
         mnuUsuario.add(itmSenha);
 
-        itmCadastro.setText("Cadastrar");
-        itmCadastro.addActionListener(new java.awt.event.ActionListener() {
+        itmCadastroUsuario.setText("Cadastrar");
+        itmCadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmCadastroActionPerformed(evt);
+                itmCadastroUsuarioActionPerformed(evt);
             }
         });
-        mnuUsuario.add(itmCadastro);
+        mnuUsuario.add(itmCadastroUsuario);
 
-        itmExcluir.setText("Excluir");
-        mnuUsuario.add(itmExcluir);
+        itmExcluirUsuario.setText("Excluir");
+        itmExcluirUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmExcluirUsuarioActionPerformed(evt);
+            }
+        });
+        mnuUsuario.add(itmExcluirUsuario);
+
+        itmConsultarUsuario.setText("Consultar");
+        itmConsultarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmConsultarUsuarioActionPerformed(evt);
+            }
+        });
+        mnuUsuario.add(itmConsultarUsuario);
+
+        itmAlterarUsuario.setText("Alterar");
+        itmAlterarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmAlterarUsuarioActionPerformed(evt);
+            }
+        });
+        mnuUsuario.add(itmAlterarUsuario);
 
         jMenuBar1.add(mnuUsuario);
 
@@ -224,17 +247,16 @@ public class TelaMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_itmSenhaActionPerformed
 
-    private void itmCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCadastroActionPerformed
+    private void itmCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCadastroUsuarioActionPerformed
         // TODO add your handling code here:
         
-        //dispose(); // Serve para fecha a tela anterior
+        //dispose(); // Serve para fecha a tela anterior       
         
-        new CadastroUsuario().setVisible(true);// chama a tela TelaMenu
-    }//GEN-LAST:event_itmCadastroActionPerformed
+        new CadastroUsuario("cadastro").setVisible(true);// chama a tela TelaMenu
+    }//GEN-LAST:event_itmCadastroUsuarioActionPerformed
 
     private void itmCadFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCadFunActionPerformed
-        // TODO add your handling code here:
-         dispose(); // fecha a tela anterior
+        // TODO add your handling code here
         
         new Funcionario("cadastrar").setVisible(true);// chama a tela TelaMenu
     }//GEN-LAST:event_itmCadFunActionPerformed
@@ -277,18 +299,35 @@ public class TelaMenu extends javax.swing.JFrame {
         new Funcionario("alterar").setVisible(true);
     }//GEN-LAST:event_itmAltFunActionPerformed
 
+    private void itmConsultarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmConsultarUsuarioActionPerformed
+        // TODO add your handling code here:
+        new CadastroUsuario("consultar").setVisible(true);
+    }//GEN-LAST:event_itmConsultarUsuarioActionPerformed
+
+    private void itmExcluirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmExcluirUsuarioActionPerformed
+        // TODO add your handling code here:
+        new CadastroUsuario("excluir").setVisible(true);
+    }//GEN-LAST:event_itmExcluirUsuarioActionPerformed
+
+    private void itmAlterarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmAlterarUsuarioActionPerformed
+        // TODO add your handling code here:
+        new CadastroUsuario("alterar").setVisible(true);
+    }//GEN-LAST:event_itmAlterarUsuarioActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFuncionarioMes;
     private javax.swing.JMenuItem itmAlt;
     private javax.swing.JMenuItem itmAltFun;
+    private javax.swing.JMenuItem itmAlterarUsuario;
     private javax.swing.JMenuItem itmCadFun;
-    private javax.swing.JMenuItem itmCadastro;
+    private javax.swing.JMenuItem itmCadastroUsuario;
     private javax.swing.JMenuItem itmCargo;
     private javax.swing.JMenuItem itmCon;
     private javax.swing.JMenuItem itmConFun;
+    private javax.swing.JMenuItem itmConsultarUsuario;
     private javax.swing.JMenuItem itmExc;
     private javax.swing.JMenuItem itmExcFun;
-    private javax.swing.JMenuItem itmExcluir;
+    private javax.swing.JMenuItem itmExcluirUsuario;
     private javax.swing.JMenuItem itmGer;
     private javax.swing.JMenuItem itmManu;
     private javax.swing.JMenuItem itmNome;
