@@ -115,6 +115,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
         btnAlterar.setForeground(new java.awt.Color(51, 51, 51));
         btnAlterar.setText("Alterar");
         btnAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAlterar);
         btnAlterar.setBounds(200, 290, 110, 30);
 
@@ -256,6 +261,48 @@ public class CadastroUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "falha no comando");
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        // TODO add your handling code here:
+               try {
+            // TODO code application logic here
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            PreparedStatement st = conn.prepareStatement("update funcionario set nome=?, cargo=?, sexo=?, dt_nasc=?, cpf=?, salario=? where matricula=?");  // serve para permitir execuat escrita no BD          
+
+            st.setString(1, txtNome.getText());
+            st.setString(2, txtCargo.getText());
+            st.setString(3, txtSexo.getText());
+            st.setString(4, txtDtNasc.getText());
+            st.setString(5, txtCpf.getText());
+            st.setDouble(6,Double.parseDouble(txtSalario.getText())); 
+            st.setString(7,txtMatricula.getText());
+            
+
+            st.executeUpdate();// executa o comando SQL no BD
+
+            txtNome.setText("");
+            txtCargo.setText("");
+            txtSexo.setText("");
+            txtDtNasc.setText("");
+            txtCpf.setText("");
+            txtSalario.setText("");
+            txtMatricula.setText("");
+                        
+
+            JOptionPane.showMessageDialog(null, "Sucesso na Alteração");
+            
+            btnExcluir.setVisible(false);
+            btnAlterar.setVisible(false);
+            
+
+        } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
+            JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+
+        } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
+            JOptionPane.showMessageDialog(null, "falha no comando");
+        }
+    }//GEN-LAST:event_btnAlterarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
