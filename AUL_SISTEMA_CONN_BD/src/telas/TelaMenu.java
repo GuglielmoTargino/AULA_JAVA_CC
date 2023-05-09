@@ -64,9 +64,9 @@ public class TelaMenu extends javax.swing.JFrame {
         btnFuncionarioMes.setForeground(new java.awt.Color(102, 102, 0));
         btnFuncionarioMes.setText("Funcionario mês");
         getContentPane().add(btnFuncionarioMes);
-        btnFuncionarioMes.setBounds(60, 240, 150, 40);
+        btnFuncionarioMes.setBounds(330, 290, 150, 40);
 
-        lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/git45.jpg"))); // NOI18N
+        lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/luaterra.jpg"))); // NOI18N
         lblIcone.setText("icone");
         lblIcone.setMaximumSize(new java.awt.Dimension(494, 390));
         lblIcone.setMinimumSize(new java.awt.Dimension(494, 390));
@@ -233,7 +233,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(516, 382));
+        setSize(new java.awt.Dimension(515, 382));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
