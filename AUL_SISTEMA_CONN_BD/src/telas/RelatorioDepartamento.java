@@ -76,9 +76,9 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblDepartamento);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 10, 460, 350);
+        jScrollPane1.setBounds(10, 230, 680, 310);
 
-        setSize(new java.awt.Dimension(516, 383));
+        setSize(new java.awt.Dimension(715, 573));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
