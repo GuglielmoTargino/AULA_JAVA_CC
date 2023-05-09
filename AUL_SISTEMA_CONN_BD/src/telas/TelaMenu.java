@@ -20,7 +20,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         btnFuncionarioMes = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lblIcone = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnudepto = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -64,13 +64,14 @@ public class TelaMenu extends javax.swing.JFrame {
         btnFuncionarioMes.setForeground(new java.awt.Color(102, 102, 0));
         btnFuncionarioMes.setText("Funcionario mês");
         getContentPane().add(btnFuncionarioMes);
-        btnFuncionarioMes.setBounds(320, 260, 150, 40);
+        btnFuncionarioMes.setBounds(60, 240, 150, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/planta3.jpg"))); // NOI18N
-        jLabel2.setMaximumSize(new java.awt.Dimension(494, 390));
-        jLabel2.setMinimumSize(new java.awt.Dimension(494, 390));
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 500, 350);
+        lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/git45.jpg"))); // NOI18N
+        lblIcone.setText("icone");
+        lblIcone.setMaximumSize(new java.awt.Dimension(494, 390));
+        lblIcone.setMinimumSize(new java.awt.Dimension(494, 390));
+        getContentPane().add(lblIcone);
+        lblIcone.setBounds(0, 0, 500, 350);
 
         mnudepto.setText("Depto.");
 
@@ -232,7 +233,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(516, 383));
+        setSize(new java.awt.Dimension(516, 382));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -335,13 +336,13 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem itmSair;
     private javax.swing.JMenuItem itmSenha;
     private javax.swing.JMenuItem itmSobre;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JLabel lblIcone;
     private javax.swing.JMenu mnuAjuda;
     private javax.swing.JMenu mnuFunc;
     private javax.swing.JMenu mnuRel;

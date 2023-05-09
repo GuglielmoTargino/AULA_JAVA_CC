@@ -71,6 +71,7 @@ public class Funcionario extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         lblNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblNome.setForeground(new java.awt.Color(255, 255, 102));
         lblNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNome.setText("Nome");
         getContentPane().add(lblNome);
@@ -85,30 +86,35 @@ public class Funcionario extends javax.swing.JFrame {
         txtMatricula.setBounds(120, 320, 50, 30);
 
         lblCargo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCargo.setForeground(new java.awt.Color(255, 255, 102));
         lblCargo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCargo.setText("Cargo");
         getContentPane().add(lblCargo);
         lblCargo.setBounds(20, 70, 100, 30);
 
         lblSexo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblSexo.setForeground(new java.awt.Color(255, 255, 102));
         lblSexo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSexo.setText("Sexo");
         getContentPane().add(lblSexo);
         lblSexo.setBounds(20, 120, 100, 30);
 
         lblDtNasc.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblDtNasc.setForeground(new java.awt.Color(255, 255, 102));
         lblDtNasc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDtNasc.setText("Data Nasc");
         getContentPane().add(lblDtNasc);
         lblDtNasc.setBounds(20, 170, 80, 30);
 
         lblCpf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCpf.setForeground(new java.awt.Color(255, 255, 102));
         lblCpf.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCpf.setText("CPF");
         getContentPane().add(lblCpf);
         lblCpf.setBounds(20, 220, 100, 30);
 
         lblSalario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblSalario.setForeground(new java.awt.Color(255, 255, 102));
         lblSalario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSalario.setText("Salario");
         getContentPane().add(lblSalario);
@@ -143,6 +149,7 @@ public class Funcionario extends javax.swing.JFrame {
         txtCpf.setBounds(120, 220, 240, 30);
 
         lblMatricula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMatricula.setForeground(new java.awt.Color(255, 255, 102));
         lblMatricula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMatricula.setText("Matricula");
         getContentPane().add(lblMatricula);
@@ -194,10 +201,10 @@ public class Funcionario extends javax.swing.JFrame {
         getContentPane().add(btnAlterar);
         btnAlterar.setBounds(290, 380, 100, 50);
 
-        lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cracha.png"))); // NOI18N
+        lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cracha3.png"))); // NOI18N
         lblIcone.setText("icone");
         getContentPane().add(lblIcone);
-        lblIcone.setBounds(110, -24, 300, 420);
+        lblIcone.setBounds(0, -24, 410, 420);
 
         setSize(new java.awt.Dimension(424, 482));
         setLocationRelativeTo(null);

@@ -116,7 +116,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(60, 310, 110, 40);
+        btnSalvar.setBounds(60, 280, 110, 40);
 
         btnConsultar.setBackground(new java.awt.Color(204, 204, 204));
         btnConsultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -140,7 +140,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnExcluir);
-        btnExcluir.setBounds(220, 310, 110, 40);
+        btnExcluir.setBounds(220, 280, 110, 40);
 
         btnAlterar.setBackground(new java.awt.Color(204, 204, 204));
         btnAlterar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -152,13 +152,13 @@ public class ControleDepartamento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAlterar);
-        btnAlterar.setBounds(370, 310, 110, 40);
+        btnAlterar.setBounds(370, 280, 110, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chapaferro2v22.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 500, 375);
 
-        setSize(new java.awt.Dimension(516, 383));
+        setSize(new java.awt.Dimension(516, 382));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
