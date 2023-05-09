@@ -65,14 +65,16 @@ public class Funcionario extends javax.swing.JFrame {
         btnConsultar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
+        lblIcone = new javax.swing.JLabel();
 
-        setTitle("Cadastro Funcionários");
+        setTitle("Controle de Funcionários");
         getContentPane().setLayout(null);
 
         lblNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNome.setText("Nome");
         getContentPane().add(lblNome);
-        lblNome.setBounds(40, 20, 100, 30);
+        lblNome.setBounds(20, 20, 100, 30);
 
         txtMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,32 +82,37 @@ public class Funcionario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtMatricula);
-        txtMatricula.setBounds(140, 320, 50, 30);
+        txtMatricula.setBounds(120, 320, 50, 30);
 
         lblCargo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCargo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCargo.setText("Cargo");
         getContentPane().add(lblCargo);
-        lblCargo.setBounds(40, 70, 100, 30);
+        lblCargo.setBounds(20, 70, 100, 30);
 
         lblSexo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblSexo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSexo.setText("Sexo");
         getContentPane().add(lblSexo);
-        lblSexo.setBounds(40, 120, 100, 30);
+        lblSexo.setBounds(20, 120, 100, 30);
 
         lblDtNasc.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblDtNasc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDtNasc.setText("Data Nasc");
         getContentPane().add(lblDtNasc);
-        lblDtNasc.setBounds(40, 170, 80, 30);
+        lblDtNasc.setBounds(20, 170, 80, 30);
 
         lblCpf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCpf.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCpf.setText("CPF");
         getContentPane().add(lblCpf);
-        lblCpf.setBounds(40, 220, 100, 30);
+        lblCpf.setBounds(20, 220, 100, 30);
 
         lblSalario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblSalario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSalario.setText("Salario");
         getContentPane().add(lblSalario);
-        lblSalario.setBounds(40, 270, 100, 30);
+        lblSalario.setBounds(20, 270, 100, 30);
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,13 +120,19 @@ public class Funcionario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtNome);
-        txtNome.setBounds(140, 20, 240, 30);
+        txtNome.setBounds(120, 20, 240, 30);
         getContentPane().add(txtCargo);
-        txtCargo.setBounds(140, 70, 240, 30);
+        txtCargo.setBounds(120, 70, 240, 30);
         getContentPane().add(txtSexo);
-        txtSexo.setBounds(140, 120, 240, 30);
+        txtSexo.setBounds(120, 120, 240, 30);
+
+        txtDtNasc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDtNascActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtDtNasc);
-        txtDtNasc.setBounds(140, 170, 240, 30);
+        txtDtNasc.setBounds(120, 170, 240, 30);
 
         txtCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,14 +140,15 @@ public class Funcionario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtCpf);
-        txtCpf.setBounds(140, 220, 240, 30);
+        txtCpf.setBounds(120, 220, 240, 30);
 
         lblMatricula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMatricula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMatricula.setText("Matricula");
         getContentPane().add(lblMatricula);
-        lblMatricula.setBounds(40, 320, 100, 30);
+        lblMatricula.setBounds(20, 320, 100, 30);
         getContentPane().add(txtSalario);
-        txtSalario.setBounds(140, 270, 240, 30);
+        txtSalario.setBounds(120, 270, 240, 30);
 
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalvar.setText("Salvar");
@@ -145,7 +159,7 @@ public class Funcionario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(20, 380, 100, 50);
+        btnSalvar.setBounds(20, 380, 90, 50);
 
         btnConsultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnConsultar.setText("Consultar Matrícula");
@@ -156,7 +170,7 @@ public class Funcionario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(210, 320, 170, 30);
+        btnConsultar.setBounds(190, 320, 170, 30);
 
         btnExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExcluir.setText("Excluir");
@@ -180,7 +194,12 @@ public class Funcionario extends javax.swing.JFrame {
         getContentPane().add(btnAlterar);
         btnAlterar.setBounds(290, 380, 100, 50);
 
-        setSize(new java.awt.Dimension(432, 482));
+        lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cracha.png"))); // NOI18N
+        lblIcone.setText("icone");
+        getContentPane().add(lblIcone);
+        lblIcone.setBounds(110, -24, 300, 420);
+
+        setSize(new java.awt.Dimension(424, 482));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -361,6 +380,10 @@ public class Funcionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
+    private void txtDtNascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDtNascActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDtNascActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnConsultar;
@@ -369,6 +392,7 @@ public class Funcionario extends javax.swing.JFrame {
     private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblDtNasc;
+    private javax.swing.JLabel lblIcone;
     private javax.swing.JLabel lblMatricula;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblSalario;

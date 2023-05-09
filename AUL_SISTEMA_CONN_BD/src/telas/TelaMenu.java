@@ -252,7 +252,7 @@ public class TelaMenu extends javax.swing.JFrame {
         
         //dispose(); // Serve para fecha a tela anterior       
         
-        new CadastroUsuario("cadastro").setVisible(true);// chama a tela TelaMenu
+        new CadastroUsuario("cadastrar").setVisible(true);// chama a tela TelaMenu
     }//GEN-LAST:event_itmCadastroUsuarioActionPerformed
 
     private void itmCadFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCadFunActionPerformed

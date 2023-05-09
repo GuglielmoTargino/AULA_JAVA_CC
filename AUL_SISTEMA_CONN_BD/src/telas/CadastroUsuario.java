@@ -28,14 +28,14 @@ public class CadastroUsuario extends javax.swing.JFrame {
             btnAlterar.setVisible(false);
             btnConsultar.setVisible(true);
 
-        } else if (gh.equalsIgnoreCase("alterar")) {
+        } else  {
             btnExcluir.setVisible(false);
             btnSalvar.setVisible(false);
             btnAlterar.setVisible(false);
             btnConsultar.setVisible(true);
 
         }
-
+        //(gh.equalsIgnoreCase("alterar"))
     }
 
     @SuppressWarnings("unchecked")
@@ -54,7 +54,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         btnConsultar = new javax.swing.JButton();
         lblIcone = new javax.swing.JLabel();
 
-        setTitle("Cadastro Usuario");
+        setTitle("Controle de Usuario");
         setMaximumSize(new java.awt.Dimension(373, 280));
         setMinimumSize(new java.awt.Dimension(373, 280));
         getContentPane().setLayout(null);
@@ -150,9 +150,9 @@ public class CadastroUsuario extends javax.swing.JFrame {
         lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/git3.jpg"))); // NOI18N
         lblIcone.setText("lblIcone");
         getContentPane().add(lblIcone);
-        lblIcone.setBounds(0, -10, 510, 400);
+        lblIcone.setBounds(0, -10, 500, 390);
 
-        setSize(new java.awt.Dimension(521, 395));
+        setSize(new java.awt.Dimension(516, 383));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -205,19 +205,17 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
             st.setString(1, txtNome.getText());
 
-           //aqui resultado guarda o valor encontrado no BD.
-            ResultSet resultado = st.executeQuery(); 
-            
-            // se o resulatdo não valtar vazio será executado o IF aqui.
+            //aqui resultado guarda o valor encontrado no BD.
+            ResultSet resultado = st.executeQuery();
 
+            // se o resulatdo não valtar vazio será executado o IF aqui.
             if (resultado.next()) {
-                               
-                txtCargo.setText(resultado.getString("cargo"));               
+
+                txtCargo.setText(resultado.getString("cargo"));
                 txtSenha.setText(resultado.getString("senha"));
 
                 btnExcluir.setVisible(true);
                 btnAlterar.setVisible(true);
-                
 
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário não encontrado");
@@ -236,7 +234,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
-                      try {
+        try {
             // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
@@ -249,7 +247,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             txtNome.setText("");
             txtCargo.setText("");
             txtSenha.setText("");
-           
+
             JOptionPane.showMessageDialog(null, "Usuario Excluido");
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(false);
@@ -264,37 +262,26 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
-               try {
+        try {
             // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
-            PreparedStatement st = conn.prepareStatement("update funcionario set nome=?, cargo=?, sexo=?, dt_nasc=?, cpf=?, salario=? where matricula=?");  // serve para permitir execuat escrita no BD          
+            PreparedStatement st = conn.prepareStatement("update usuario set senha=?, cargo=? where usuario=?");  // serve para permitir execuat escrita no BD          
 
-            st.setString(1, txtNome.getText());
+            st.setInt(1, Integer.parseInt(txtSenha.getText()));
             st.setString(2, txtCargo.getText());
-            st.setString(3, txtSexo.getText());
-            st.setString(4, txtDtNasc.getText());
-            st.setString(5, txtCpf.getText());
-            st.setDouble(6,Double.parseDouble(txtSalario.getText())); 
-            st.setString(7,txtMatricula.getText());
-            
+            st.setString(3, txtNome.getText());
 
             st.executeUpdate();// executa o comando SQL no BD
 
             txtNome.setText("");
             txtCargo.setText("");
-            txtSexo.setText("");
-            txtDtNasc.setText("");
-            txtCpf.setText("");
-            txtSalario.setText("");
-            txtMatricula.setText("");
-                        
+            txtSenha.setText("");
 
             JOptionPane.showMessageDialog(null, "Sucesso na Alteração");
-            
+
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(false);
-            
 
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
