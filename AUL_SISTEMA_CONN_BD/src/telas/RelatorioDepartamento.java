@@ -85,7 +85,7 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblDepartamento);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 230, 680, 310);
+        jScrollPane1.setBounds(10, 210, 680, 330);
 
         lblCodigoDepto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCodigoDepto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -199,6 +199,7 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
             DefaultTableModel modeloBaseTabela;// tabela modelo para sincronizar com a tabela final
 
             modeloBaseTabela = (DefaultTableModel) tblDepartamento.getModel();
+            
             modeloBaseTabela.setRowCount(0);// zera a linha quando conta depois
 
             while (resultado.next()) {

@@ -159,6 +159,11 @@ public class TelaMenu extends javax.swing.JFrame {
         mnuFunc.add(itmConFun);
 
         itmRelFun.setText("Relatório");
+        itmRelFun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmRelFunActionPerformed(evt);
+            }
+        });
         mnuFunc.add(itmRelFun);
 
         itmExcFun.setText("Excluir");
@@ -314,6 +319,11 @@ public class TelaMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         new CadastroUsuario("alterar").setVisible(true);
     }//GEN-LAST:event_itmAlterarUsuarioActionPerformed
+
+    private void itmRelFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmRelFunActionPerformed
+        // TODO add your handling code here:
+        new RelatorioFuncionario().setVisible(true);
+    }//GEN-LAST:event_itmRelFunActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFuncionarioMes;
