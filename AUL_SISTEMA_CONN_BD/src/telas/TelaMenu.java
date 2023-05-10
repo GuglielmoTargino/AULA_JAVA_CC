@@ -45,6 +45,7 @@ public class TelaMenu extends javax.swing.JFrame {
         itmExcluirUsuario = new javax.swing.JMenuItem();
         itmConsultarUsuario = new javax.swing.JMenuItem();
         itmAlterarUsuario = new javax.swing.JMenuItem();
+        itmRelatorioUsuario = new javax.swing.JCheckBoxMenuItem();
         mnuAjuda = new javax.swing.JMenu();
         itmManu = new javax.swing.JMenuItem();
         itmSobre = new javax.swing.JMenuItem();
@@ -64,7 +65,7 @@ public class TelaMenu extends javax.swing.JFrame {
         btnFuncionarioMes.setForeground(new java.awt.Color(102, 102, 0));
         btnFuncionarioMes.setText("Funcionario mês");
         getContentPane().add(btnFuncionarioMes);
-        btnFuncionarioMes.setBounds(330, 290, 150, 40);
+        btnFuncionarioMes.setBounds(330, 260, 150, 40);
 
         lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/luaterra.jpg"))); // NOI18N
         lblIcone.setText("icone");
@@ -224,6 +225,15 @@ public class TelaMenu extends javax.swing.JFrame {
         });
         mnuUsuario.add(itmAlterarUsuario);
 
+        itmRelatorioUsuario.setSelected(true);
+        itmRelatorioUsuario.setText("Relatório");
+        itmRelatorioUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmRelatorioUsuarioActionPerformed(evt);
+            }
+        });
+        mnuUsuario.add(itmRelatorioUsuario);
+
         jMenuBar1.add(mnuUsuario);
 
         mnuAjuda.setText("Ajuda");
@@ -325,6 +335,11 @@ public class TelaMenu extends javax.swing.JFrame {
         new RelatorioFuncionario().setVisible(true);
     }//GEN-LAST:event_itmRelFunActionPerformed
 
+    private void itmRelatorioUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmRelatorioUsuarioActionPerformed
+        // TODO add your handling code here:
+        new RelatorioUsuario().setVisible(true);
+    }//GEN-LAST:event_itmRelatorioUsuarioActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFuncionarioMes;
     private javax.swing.JMenuItem itmAlt;
@@ -343,6 +358,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem itmManu;
     private javax.swing.JMenuItem itmNome;
     private javax.swing.JMenuItem itmRelFun;
+    private javax.swing.JCheckBoxMenuItem itmRelatorioUsuario;
     private javax.swing.JMenuItem itmSair;
     private javax.swing.JMenuItem itmSenha;
     private javax.swing.JMenuItem itmSobre;
