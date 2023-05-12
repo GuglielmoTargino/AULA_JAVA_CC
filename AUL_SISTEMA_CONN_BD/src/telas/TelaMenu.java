@@ -7,9 +7,10 @@ package telas;
  */
 public class TelaMenu extends javax.swing.JFrame {
 
-   
-    public TelaMenu() {
+   //construtor da classe
+    public TelaMenu(String usuario, String cargo) {
         initComponents();
+        lblSaudacao.setText("Bem-vindo " + usuario + " (" + cargo + ")");
     }
    
     @SuppressWarnings("unchecked")
@@ -20,6 +21,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         btnFuncionarioMes = new javax.swing.JButton();
+        lblSaudacao = new javax.swing.JLabel();
         lblIcone = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnudepto = new javax.swing.JMenu();
@@ -66,6 +68,8 @@ public class TelaMenu extends javax.swing.JFrame {
         btnFuncionarioMes.setText("Funcionario mês");
         getContentPane().add(btnFuncionarioMes);
         btnFuncionarioMes.setBounds(330, 260, 150, 40);
+        getContentPane().add(lblSaudacao);
+        lblSaudacao.setBounds(380, 160, 80, 50);
 
         lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/luaterra.jpg"))); // NOI18N
         lblIcone.setText("icone");
@@ -369,6 +373,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JLabel lblIcone;
+    private javax.swing.JLabel lblSaudacao;
     private javax.swing.JMenu mnuAjuda;
     private javax.swing.JMenu mnuFunc;
     private javax.swing.JMenu mnuRel;

@@ -109,6 +109,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
+        
 
         try {
             // TODO code application logic here
@@ -122,8 +123,12 @@ public class TelaLogin extends javax.swing.JFrame {
             ResultSet resultado= st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
             
             if (resultado.next()){
+                String usuario, cargo;
+                usuario= resultado.getString("usuario");
+                cargo= resultado.getString("cargo");
                 dispose();
-                new TelaMenu().setVisible(true);
+                new TelaMenu(usuario,cargo).setVisible(true);// chama tela menu com vaiveis usuario e cargo
+               
             
                 } else{
                 JOptionPane.showMessageDialog(null,"Usuario ou senha incorreto");
