@@ -99,6 +99,7 @@ public class RelatorioUsuario extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
 
         setTitle("Relatorio de Usuario");
+        setBackground(new java.awt.Color(153, 153, 153));
         getContentPane().setLayout(null);
 
         tblRelatorioUsuario.setModel(new javax.swing.table.DefaultTableModel(
