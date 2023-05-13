@@ -10,7 +10,27 @@ public class TelaMenu extends javax.swing.JFrame {
    //construtor da classe
     public TelaMenu(String usuario, String cargo) {
         initComponents();
+        
         lblSaudacao.setText("Bem-vindo " + usuario + " (" + cargo + ")");
+        
+        //if(!cargo.equalsIgnoreCase("estagiario")){ // A esclamação no começo 
+        //inverte o iqualsIgnoreCase.
+        if(cargo.equalsIgnoreCase("estagiario")){
+            mnuUsuario.setVisible(false);
+            jMenuItem1.setEnabled(false);
+            itmAlt.setEnabled(false);
+            itmExc.setEnabled(false);
+            itmCon.setEnabled(false);
+            
+        } else if (cargo.equalsIgnoreCase("vendedor")){
+             mnuUsuario.setVisible(false);
+             itmAlt.setEnabled(false);
+             itmExc.setEnabled(false);
+            
+            
+        
+        }
+
     }
    
     @SuppressWarnings("unchecked")
@@ -20,8 +40,8 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        btnFuncionarioMes = new javax.swing.JButton();
         lblSaudacao = new javax.swing.JLabel();
+        btnFuncionarioMes = new javax.swing.JButton();
         lblIcone = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnudepto = new javax.swing.JMenu();
@@ -62,14 +82,16 @@ public class TelaMenu extends javax.swing.JFrame {
         setTitle("Menu do Sistema");
         getContentPane().setLayout(null);
 
+        lblSaudacao.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblSaudacao);
+        lblSaudacao.setBounds(340, 150, 150, 50);
+
         btnFuncionarioMes.setBackground(new java.awt.Color(204, 204, 204));
         btnFuncionarioMes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnFuncionarioMes.setForeground(new java.awt.Color(102, 102, 0));
         btnFuncionarioMes.setText("Funcionario mês");
         getContentPane().add(btnFuncionarioMes);
         btnFuncionarioMes.setBounds(330, 260, 150, 40);
-        getContentPane().add(lblSaudacao);
-        lblSaudacao.setBounds(380, 160, 80, 50);
 
         lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/luaterra.jpg"))); // NOI18N
         lblIcone.setText("icone");
