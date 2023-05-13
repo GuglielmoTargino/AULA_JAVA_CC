@@ -90,6 +90,13 @@ public class RelatorioUsuario extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRelatorioUsuario = new javax.swing.JTable();
+        lblUsuario = new javax.swing.JLabel();
+        lblCargo = new javax.swing.JLabel();
+        lblSenha = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        cmbCargo = new javax.swing.JComboBox<>();
+        cmbSenha = new javax.swing.JComboBox<>();
+        btnBuscar = new javax.swing.JButton();
 
         setTitle("Relatorio de Usuario");
         getContentPane().setLayout(null);
@@ -108,7 +115,43 @@ public class RelatorioUsuario extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblRelatorioUsuario);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 102, 660, 330);
+        jScrollPane1.setBounds(10, 202, 660, 230);
+
+        lblUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUsuario.setText("Usuário");
+        lblUsuario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lblUsuario);
+        lblUsuario.setBounds(60, 16, 110, 40);
+
+        lblCargo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCargo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCargo.setText("Cargo");
+        lblCargo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lblCargo);
+        lblCargo.setBounds(60, 66, 110, 40);
+
+        lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblSenha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSenha.setText("Senha");
+        lblSenha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lblSenha);
+        lblSenha.setBounds(60, 116, 110, 40);
+        getContentPane().add(txtUsuario);
+        txtUsuario.setBounds(190, 20, 100, 40);
+
+        cmbCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cmbCargo);
+        cmbCargo.setBounds(190, 70, 100, 40);
+
+        cmbSenha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cmbSenha);
+        cmbSenha.setBounds(190, 120, 100, 40);
+
+        btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBuscar.setText("Buscar");
+        getContentPane().add(btnBuscar);
+        btnBuscar.setBounds(320, 20, 90, 40);
 
         setSize(new java.awt.Dimension(694, 471));
         setLocationRelativeTo(null);
@@ -116,7 +159,14 @@ public class RelatorioUsuario extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JComboBox<String> cmbCargo;
+    private javax.swing.JComboBox<String> cmbSenha;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCargo;
+    private javax.swing.JLabel lblSenha;
+    private javax.swing.JLabel lblUsuario;
     private javax.swing.JTable tblRelatorioUsuario;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -53,7 +53,7 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
                 modeloBaseTabela.addRow(dep);
 
                 //comando que pega o codigo e insere no cmbCodigo 
-                //cmbCargo.addItem(resultado.getString("cargo"));
+                cmbCargo.addItem(resultado.getString("cargo"));
                 cmbMatricula.addItem(resultado.getString("matricula"));
 
             }
@@ -125,9 +125,19 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
 
         btnBusca.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBusca.setText("Buscar");
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnBusca);
         btnBusca.setBounds(310, 20, 110, 40);
 
+        cmbCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCargoActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmbCargo);
         cmbCargo.setBounds(190, 82, 90, 40);
 
@@ -188,6 +198,96 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_cmbMatriculaActionPerformed
+
+    private void cmbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCargoActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO code application logic here
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario where cargo=?");  // comando query no BD
+
+            //pega a string para colocar no comando where
+            st.setString(1, cmbCargo.getSelectedItem().toString());
+
+            //st.setString(2, txtSenha.getText());// nao mais nessa tela
+            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+
+            DefaultTableModel modeloBaseTabela;// tabela modelo para sincronizar com a tabela final
+
+            modeloBaseTabela = (DefaultTableModel) tblRelatorioFuncionario.getModel();
+            modeloBaseTabela.setRowCount(0);// zera a linha quando conta depois
+
+            while (resultado.next()) {
+
+                Object dep[] = {
+                    resultado.getString("nome"),
+                    resultado.getString("cargo"),
+                    resultado.getString("sexo"),
+                    resultado.getString("dt_nasc"),
+                    resultado.getString("cpf"),
+                    resultado.getString("salario"),
+                    resultado.getString("matricula")
+                };
+
+                //aqui insere na tabela
+                modeloBaseTabela.addRow(dep);
+
+            }
+
+        } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
+            JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+
+        } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
+            JOptionPane.showMessageDialog(null, "falha no alteração");
+        }
+
+    }//GEN-LAST:event_cmbCargoActionPerformed
+
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO code application logic here
+            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario where nome LIKE ?");  // comando query no BD
+
+            //pega a string para colocar no comando where
+            st.setString(1, "%" + txtNome.getText() + "%");
+
+            //st.setString(2, txtSenha.getText());// nao mais nessa tela
+            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+
+            DefaultTableModel modeloBaseTabela;// tabela modelo para sincronizar com a tabela final
+
+            modeloBaseTabela = (DefaultTableModel) tblRelatorioFuncionario.getModel();
+            modeloBaseTabela.setRowCount(0);// zera a linha quando conta depois
+
+            while (resultado.next()) {
+
+                Object dep[] = {
+                    resultado.getString("nome"),
+                    resultado.getString("cargo"),
+                    resultado.getString("sexo"),
+                    resultado.getString("dt_nasc"),
+                    resultado.getString("cpf"),
+                    resultado.getString("salario"),
+                    resultado.getString("matricula")
+                };
+
+                //aqui insere na tabela
+                modeloBaseTabela.addRow(dep);
+
+            }
+
+        } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
+            JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+
+        } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
+            JOptionPane.showMessageDialog(null, "falha no alteração");
+        }
+
+    }//GEN-LAST:event_btnBuscaActionPerformed
 
     /**
      * @param args the command line arguments
