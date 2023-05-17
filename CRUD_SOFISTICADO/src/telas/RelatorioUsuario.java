@@ -1,5 +1,6 @@
 package telas;
 
+import dados_conexao_bd.SistemaDao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -13,9 +14,9 @@ public class RelatorioUsuario extends javax.swing.JFrame {
         initComponents();
         try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
-            java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario");  // comando query no BD
+            
+            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
+           java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario");  // comando query no BD
 
             //st.setString(2, txtSenha.getText());// nao mais nessa tela
             ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
@@ -175,8 +176,7 @@ public class RelatorioUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
          try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+           Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
             java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario where senha=?");  // comando query no BD
 
             //pega a string para colocar no comando where
@@ -217,8 +217,7 @@ public class RelatorioUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
          try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+           Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
             java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario where cargo=?");  // comando query no BD
 
             //pega a string para colocar no comando where
@@ -259,8 +258,7 @@ public class RelatorioUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
          try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
             java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario where usuario LIKE ?");  // comando query no BD
 
             //pega a string para colocar no comando where

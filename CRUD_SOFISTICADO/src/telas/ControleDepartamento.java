@@ -1,5 +1,6 @@
 package telas;
 
+import dados_conexao_bd.SistemaDao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -167,8 +168,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
         /*=============programa para acao do botao salvar===============*/
         try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
             PreparedStatement st = conn.prepareStatement("INSERT INTO departamento (codigo,nome,cidade,telefone) VALUES(?,?,?,?)");  // serve para permitir execuat escrita no BD          
 
             st.setInt(1, Integer.parseInt(txtCodigo.getText()));
@@ -199,8 +199,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
         try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
             PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento WHERE codigo = ? ");  // comando query no BD
 
             st.setString(1, txtCodigo.getText());
@@ -236,8 +235,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
             PreparedStatement st = conn.prepareStatement("update departamento set nome=?, cidade=?, telefone=? where codigo=?");  // serve para permitir execuat escrita no BD          
 
             st.setString(1, txtNome.getText());
@@ -271,8 +269,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
         try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
             PreparedStatement st = conn.prepareStatement("delete from departamento where codigo=?");  // serve para permitir execuat escrita no BD          
 
             st.setString(1, txtCodigo.getText());

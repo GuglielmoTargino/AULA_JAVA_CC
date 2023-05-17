@@ -1,5 +1,6 @@
 package telas;
 
+import dados_conexao_bd.SistemaDao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -160,8 +161,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
             java.sql.PreparedStatement st = conn.prepareStatement("INSERT INTO usuario (usuario,cargo,senha) VALUES(?,?,?)");  // serve para permitir execuat escrita no BD          
 
             st.setString(1, txtNome.getText());
@@ -199,8 +199,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+           Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
             PreparedStatement st = conn.prepareStatement("SELECT * FROM  usuario WHERE usuario= ? ");  // comando query no BD
 
             st.setString(1, txtNome.getText());
@@ -236,8 +235,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
             PreparedStatement st = conn.prepareStatement("delete from usuario where usuario=?");  // serve para permitir execuat escrita no BD          
 
             st.setString(1, txtNome.getText());
@@ -264,8 +262,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+           Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
             PreparedStatement st = conn.prepareStatement("update usuario set senha=?, cargo=? where usuario=?");  // serve para permitir execuat escrita no BD          
 
             st.setInt(1, Integer.parseInt(txtSenha.getText()));

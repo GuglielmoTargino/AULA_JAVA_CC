@@ -1,5 +1,6 @@
 package telas;
 
+import dados_conexao_bd.SistemaDao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;// usado para opção caso a execução falhe
@@ -114,7 +115,8 @@ public class TelaLogin extends javax.swing.JFrame {
         try {
             // TODO code application logic here
           
-            
+            //SistemaDao c_= new SistemaDao(); // tira essa linha quando usa static
+            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada 
             PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario WHERE usuario = ?  AND senha = ? ");  // comando query no BD
 
             st.setString(1, txtUsuario.getText());
