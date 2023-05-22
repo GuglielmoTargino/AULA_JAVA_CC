@@ -36,6 +36,25 @@ public class SistemaDao {
         st.setString(4, tel);
         st.executeUpdate();
     }
-    public static void excluirDepartamento_(){
+
+    public static void excluirDepartamento_(int cod) throws ClassNotFoundException, SQLException {
+        Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
+        PreparedStatement st = conn.prepareStatement("delete from departamento where codigo=?");  // serve para permitir execuat escrita no BD          
+
+        st.setInt(1, cod);
+
+        st.executeUpdate();
+    }
+    public static void alterarDepartamento_(String nom, String cid, String tel, int cod)throws ClassNotFoundException, SQLException{
+          Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
+            PreparedStatement st = conn.prepareStatement("update departamento set nome=?, cidade=?, telefone=? where codigo=?");  // serve para permitir execuat escrita no BD          
+
+            st.setString(1,nom);
+            st.setString(2,cid);
+            st.setString(3,tel);
+            st.setInt(4, cod);
+
+            st.executeUpdate();
+    }
 
 }

@@ -2,16 +2,12 @@ package telas;
 
 import dados_conexao_bd.SistemaDao;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Guglielmo H T
- */
+
 public class ControleDepartamento extends javax.swing.JFrame {
 
     //op aqui é uma variave. pode ser X,V etc
@@ -165,7 +161,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
 
-        /*=============programa para acao do botao salvar===============*/
+        
         try {
             /* chama o metodo salvar departamento da classe sistemaDao com os valores. */           
             SistemaDao.salvarDepartamento_(Integer.parseInt(txtCodigo.getText()), txtNome.getText(), txtCidade.getText(), txtTel.getText());
@@ -219,30 +215,20 @@ public class ControleDepartamento extends javax.swing.JFrame {
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
             JOptionPane.showMessageDialog(null, "falha no alteração");
         }
-
-
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            PreparedStatement st = conn.prepareStatement("update departamento set nome=?, cidade=?, telefone=? where codigo=?");  // serve para permitir execuat escrita no BD          
-
-            st.setString(1, txtNome.getText());
-            st.setString(2, txtCidade.getText());
-            st.setString(3, txtTel.getText());
-            st.setString(4, txtCodigo.getText());
-
-            st.executeUpdate();
-
+            SistemaDao.alterarDepartamento_(txtNome.getText(), txtCidade.getText(), txtTel.getText(),Integer.parseInt(txtCodigo.getText()));
+            
             txtCodigo.setText("");
             txtNome.setText("");
             txtCidade.setText("");
             txtTel.setText("");
 
-            JOptionPane.showMessageDialog(null, "Depto Alterado com Sucesso");
+            JOptionPane.showMessageDialog(null, "Alterações com Sucesso. Codigo permanente.");
 
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(false);
@@ -259,16 +245,8 @@ public class ControleDepartamento extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
 
         try {
-            // TODO code application logic here
-            
-            
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            PreparedStatement st = conn.prepareStatement("delete from departamento where codigo=?");  // serve para permitir execuat escrita no BD          
-
-            st.setString(1, txtCodigo.getText());
-
-            st.executeUpdate();
-
+            // chama o metodo excluir da classe sistemadao.
+            SistemaDao.excluirDepartamento_(Integer.parseInt(txtCodigo.getText()));
             txtCodigo.setText("");
             txtNome.setText("");
             txtCidade.setText("");
