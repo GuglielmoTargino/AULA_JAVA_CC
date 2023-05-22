@@ -113,7 +113,7 @@ public class TelaLogin extends javax.swing.JFrame {
         
 
         try {
-            // TODO code application logic here
+            //comando query foi transferido para classe SistemaDao.
           
             //SistemaDao c_= new SistemaDao(); // tira essa linha quando usa static
             Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada 
