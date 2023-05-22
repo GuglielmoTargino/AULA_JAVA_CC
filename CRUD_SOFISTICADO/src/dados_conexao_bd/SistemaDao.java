@@ -18,18 +18,19 @@ public class SistemaDao {
         return conn;
     }
 
-    public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException,
-    SQLException
-
-    {
-
+    public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException,SQLException{
         Connection conn = conectar_();
         PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario WHERE usuario = ?  AND senha = ? ");  // comando query no BD
         st.setString(1, u);
         st.setString(2, s);
         ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
         return resultado;
-
+    }
+    
+    public static void salvarDepartamento_(Int cod, String nom, String cid, String tel){
+        Connection conn=conectar_();
+        PrepareStatement st=conn.prepareStatement("", strings)
+        
     }
 
 }

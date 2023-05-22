@@ -168,19 +168,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
         /*=============programa para acao do botao salvar===============*/
         try {
             // TODO code application logic here
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            PreparedStatement st = conn.prepareStatement("INSERT INTO departamento (codigo,nome,cidade,telefone) VALUES(?,?,?,?)");  // serve para permitir execuat escrita no BD          
-
-            st.setInt(1, Integer.parseInt(txtCodigo.getText()));
-            st.setString(2, txtNome.getText());
-            st.setString(3, txtCidade.getText());
-            st.setString(4, txtTel.getText());
-            st.executeUpdate();
-            txtCodigo.setText("");
-            txtNome.setText("");
-            txtCidade.setText("");
-            txtTel.setText("");
-
+         SistemaDao.salvarDepartamento_(Integer.parseInt(txtCodigo.getText()),txtNome.getText(),txtCidade.getText(),txtTel.getText(),);
             JOptionPane.showMessageDialog(null, "Cadastro Concluido");
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
