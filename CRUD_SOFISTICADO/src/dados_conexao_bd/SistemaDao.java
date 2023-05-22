@@ -18,7 +18,7 @@ public class SistemaDao {
         return conn;
     }
 
-    public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException,SQLException{
+    public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException, SQLException {
         Connection conn = conectar_();
         PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario WHERE usuario = ?  AND senha = ? ");  // comando query no BD
         st.setString(1, u);
@@ -26,11 +26,17 @@ public class SistemaDao {
         ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
         return resultado;
     }
-    
-    public static void salvarDepartamento_(Int cod, String nom, String cid, String tel){
-        Connection conn=conectar_();
-        PrepareStatement st=conn.prepareStatement("", strings)
-        
+
+    public static void salvarDepartamento_(int cod, String nom, String cid, String tel) throws ClassNotFoundException, SQLException {
+        Connection conn = conectar_();
+
+        PreparedStatement st = conn.prepareStatement("INSERT INTO departamento (codigo,nome,cidade,telefone) VALUES(?,?,?,?)");  // serve para permitir execuat escrita no BD          
+        st.setInt(1, cod);
+        st.setString(2, nom);
+        st.setString(3, cid);
+        st.setString(4, tel);
+        st.executeUpdate();
+
     }
 
 }

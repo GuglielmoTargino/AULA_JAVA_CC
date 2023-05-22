@@ -168,8 +168,12 @@ public class ControleDepartamento extends javax.swing.JFrame {
         /*=============programa para acao do botao salvar===============*/
         try {
             // TODO code application logic here
-         SistemaDao.salvarDepartamento_(Integer.parseInt(txtCodigo.getText()),txtNome.getText(),txtCidade.getText(),txtTel.getText(),);
+         SistemaDao.salvarDepartamento_(Integer.parseInt(txtCodigo.getText()),txtNome.getText(),txtCidade.getText(),txtTel.getText());
             JOptionPane.showMessageDialog(null, "Cadastro Concluido");
+             txtCodigo.setText("");
+            txtNome.setText("");
+            txtCidade.setText("");
+            txtTel.setText("");
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
