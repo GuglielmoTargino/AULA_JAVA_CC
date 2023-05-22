@@ -14,20 +14,20 @@ import javax.swing.JOptionPane;
  */
 public class ControleDepartamento extends javax.swing.JFrame {
 
-        //op aqui é uma variave. pode ser X,V etc
+    //op aqui é uma variave. pode ser X,V etc
     public ControleDepartamento(String op) {
         initComponents();
-      if(op.equalsIgnoreCase("cadastrar")){
+        if (op.equalsIgnoreCase("cadastrar")) {
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(false);
             btnConsultar.setVisible(false);
-        } else if (op.equalsIgnoreCase("consultar") || op.equalsIgnoreCase("exc")|| op.equalsIgnoreCase("alterar")){
+        } else if (op.equalsIgnoreCase("consultar") || op.equalsIgnoreCase("exc") || op.equalsIgnoreCase("alterar")) {
             btnSalvar.setVisible(false);
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(false);
-                      
+
         }
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -167,10 +167,11 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
         /*=============programa para acao do botao salvar===============*/
         try {
-            // TODO code application logic here
-         SistemaDao.salvarDepartamento_(Integer.parseInt(txtCodigo.getText()),txtNome.getText(),txtCidade.getText(),txtTel.getText());
+            /* chama o metodo salvar departamento da classe sistemaDao com os valores. */           
+            SistemaDao.salvarDepartamento_(Integer.parseInt(txtCodigo.getText()), txtNome.getText(), txtCidade.getText(), txtTel.getText());
+            
             JOptionPane.showMessageDialog(null, "Cadastro Concluido");
-             txtCodigo.setText("");
+            txtCodigo.setText("");
             txtNome.setText("");
             txtCidade.setText("");
             txtTel.setText("");
@@ -203,10 +204,9 @@ public class ControleDepartamento extends javax.swing.JFrame {
                 txtNome.setText(resultado.getString("nome"));
                 txtCidade.setText(resultado.getString("cidade"));
                 txtTel.setText(resultado.getString("telefone"));
-                
+
                 btnExcluir.setVisible(true);
                 btnAlterar.setVisible(true);
-                
 
             } else {
                 JOptionPane.showMessageDialog(null, "Departamento não encontrado");
@@ -243,10 +243,9 @@ public class ControleDepartamento extends javax.swing.JFrame {
             txtTel.setText("");
 
             JOptionPane.showMessageDialog(null, "Depto Alterado com Sucesso");
-            
+
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(false);
-            
 
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
@@ -261,6 +260,8 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
         try {
             // TODO code application logic here
+            
+            
             Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
             PreparedStatement st = conn.prepareStatement("delete from departamento where codigo=?");  // serve para permitir execuat escrita no BD          
 
