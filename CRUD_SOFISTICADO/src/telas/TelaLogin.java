@@ -116,13 +116,9 @@ public class TelaLogin extends javax.swing.JFrame {
             //comando query foi transferido para classe SistemaDao.
           
             //SistemaDao c_= new SistemaDao(); // tira essa linha quando usa static
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada 
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario WHERE usuario = ?  AND senha = ? ");  // comando query no BD
-
-            st.setString(1, txtUsuario.getText());
-            st.setString(2, txtSenha.getText());
-           
-            ResultSet resultado= st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+           // Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada 
+            
+            ResultSet resultado=SistemaDao.fazerLogin_(txtUsuario.getText(),txtSenha.getText());
             
             if (resultado.next()){
                 String usuario, cargo;
