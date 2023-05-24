@@ -2,26 +2,18 @@
 package telas;
 
 import dados_conexao_bd.SistemaDao;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
 public class RelatorioFuncionario extends javax.swing.JFrame {
-
 
     public RelatorioFuncionario() {
         initComponents();
         try {
             // TODO code application logic here
-           Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario");  // comando query no BD
-
-            //st.setString(2, txtSenha.getText());// nao mais nessa tela
-            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+            ResultSet resultado=SistemaDao.relatorioFuncionario_();
 
             DefaultTableModel modeloBaseTabela;// tabela modelo para sincronizar com a tabela final
 
@@ -112,6 +104,12 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
         lblMatricula.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(lblMatricula);
         lblMatricula.setBounds(60, 146, 100, 40);
+
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtNome);
         txtNome.setBounds(190, 22, 90, 40);
 
@@ -149,17 +147,9 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-           Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario where matricula=?");  // comando query no BD
-
-            //pega a string para colocar no comando where
-            st.setString(1, cmbMatricula.getSelectedItem().toString());
-
-            //st.setString(2, txtSenha.getText());// nao mais nessa tela
-            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
-
+            ResultSet resultado=SistemaDao.cmbMatriculaFuncionario_(cmbMatricula.getSelectedItem().toString());
+            
             DefaultTableModel modeloBaseTabela;// tabela modelo para sincronizar com a tabela final
-
             modeloBaseTabela = (DefaultTableModel) tblRelatorioFuncionario.getModel();
             modeloBaseTabela.setRowCount(0);// zera a linha quando conta depois
 
@@ -193,18 +183,9 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
     private void cmbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCargoActionPerformed
         // TODO add your handling code here:
         try {
-            // TODO code application logic here
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario where cargo=?");  // comando query no BD
-
-            //pega a string para colocar no comando where
-            st.setString(1, cmbCargo.getSelectedItem().toString());
-
-            //st.setString(2, txtSenha.getText());// nao mais nessa tela
-            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
-
+            // TODO code application logic here            
+            ResultSet resultado=SistemaDao.cmbCargoFuncionario_(cmbCargo.getSelectedItem().toString());           
             DefaultTableModel modeloBaseTabela;// tabela modelo para sincronizar com a tabela final
-
             modeloBaseTabela = (DefaultTableModel) tblRelatorioFuncionario.getModel();
             modeloBaseTabela.setRowCount(0);// zera a linha quando conta depois
 
@@ -238,21 +219,14 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario where nome LIKE ?");  // comando query no BD
-
-            //pega a string para colocar no comando where
-            st.setString(1, "%" + txtNome.getText() + "%");
-
-            //st.setString(2, txtSenha.getText());// nao mais nessa tela
-            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
-
+            ResultSet resultado;
+            resultado=SistemaDao.btnBuscarFuncionario_("%" + txtNome.getText() + "%");
+            
             DefaultTableModel modeloBaseTabela;// tabela modelo para sincronizar com a tabela final
-
             modeloBaseTabela = (DefaultTableModel) tblRelatorioFuncionario.getModel();
             modeloBaseTabela.setRowCount(0);// zera a linha quando conta depois
-
-            while (resultado.next()) {
+       
+          while (resultado.next()) {
 
                 Object dep[] = {
                     resultado.getString("nome"),
@@ -263,11 +237,9 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
                     resultado.getString("salario"),
                     resultado.getString("matricula")
                 };
-
                 //aqui insere na tabela
                 modeloBaseTabela.addRow(dep);
-
-            }
+          }
 
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
@@ -278,9 +250,11 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnBuscaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -312,6 +286,9 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
             }
         });
     }
+
+        
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBusca;
