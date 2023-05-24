@@ -1,9 +1,7 @@
 package telas;
 
 import dados_conexao_bd.SistemaDao;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
@@ -20,9 +18,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
             btnSalvar.setVisible(false);
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(false);
-
         }
-
     }
 
     @SuppressWarnings("unchecked")
@@ -184,14 +180,8 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
         try {
             // TODO code application logic here
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento WHERE codigo = ? ");  // comando query no BD
-
-            st.setString(1, txtCodigo.getText());
-
-            //st.setString(2, txtSenha.getText());// nao mais nessa tela
-            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
-
+            ResultSet resultado = SistemaDao.consultarDepto_(txtCodigo.getText());
+           
             if (resultado.next()) {
                 txtNome.setText(resultado.getString("nome"));
                 txtCidade.setText(resultado.getString("cidade"));
@@ -219,9 +209,6 @@ public class ControleDepartamento extends javax.swing.JFrame {
             // TODO code application logic here
             SistemaDao.alterarDepartamento_(txtNome.getText(), txtCidade.getText(), txtTel.getText(), Integer.parseInt(txtCodigo.getText()));
             limparTela_();
-            
-           
-
             JOptionPane.showMessageDialog(null, "Alterações com Sucesso. Codigo permanente.");
 
             btnExcluir.setVisible(false);

@@ -29,7 +29,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             btnAlterar.setVisible(false);
             btnConsultar.setVisible(true);
 
-        } else  {
+        } else {
             btnExcluir.setVisible(false);
             btnSalvar.setVisible(false);
             btnAlterar.setVisible(false);
@@ -161,17 +161,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            java.sql.PreparedStatement st = conn.prepareStatement("INSERT INTO usuario (usuario,cargo,senha) VALUES(?,?,?)");  // serve para permitir execuat escrita no BD          
-
-            st.setString(1, txtNome.getText());
-            st.setString(2, txtCargo.getText());
-            st.setInt(3, Integer.parseInt(txtSenha.getText()));
-
-            st.executeUpdate();
-            txtNome.setText("");
-            txtSenha.setText("");
-            txtCargo.setText("");
+            SistemaDao.salvarUsuario_(txtNome.getText(), txtCargo.getText(), Integer.parseInt(txtSenha.getText()));
+            limparTexto_();
 
             JOptionPane.showMessageDialog(null, "Cadastro Concluido");
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
@@ -199,13 +190,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-           Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM  usuario WHERE usuario= ? ");  // comando query no BD
-
-            st.setString(1, txtNome.getText());
-
-            //aqui resultado guarda o valor encontrado no BD.
-            ResultSet resultado = st.executeQuery();
+            ResultSet resultado=SistemaDao.consultarUsuario_(txtNome.getText());           
 
             // se o resulatdo não valtar vazio será executado o IF aqui.
             if (resultado.next()) {
@@ -239,12 +224,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
             PreparedStatement st = conn.prepareStatement("delete from usuario where usuario=?");  // serve para permitir execuat escrita no BD          
 
             st.setString(1, txtNome.getText());
-
             st.executeUpdate(); //comando para executar SQL no BD
-
-            txtNome.setText("");
-            txtCargo.setText("");
-            txtSenha.setText("");
+            limparTexto_();
 
             JOptionPane.showMessageDialog(null, "Usuario Excluido");
             btnExcluir.setVisible(false);
@@ -262,18 +243,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-           Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            PreparedStatement st = conn.prepareStatement("update usuario set senha=?, cargo=? where usuario=?");  // serve para permitir execuat escrita no BD          
-
-            st.setInt(1, Integer.parseInt(txtSenha.getText()));
-            st.setString(2, txtCargo.getText());
-            st.setString(3, txtNome.getText());
-
-            st.executeUpdate();// executa o comando SQL no BD
-
-            txtNome.setText("");
-            txtCargo.setText("");
-            txtSenha.setText("");
+            SistemaDao.alterarUsuario_(Integer.parseInt(txtSenha.getText()), txtCargo.getText(), txtNome.getText());
+            limparTexto_();
 
             JOptionPane.showMessageDialog(null, "Sucesso na Alteração");
 
@@ -288,7 +259,12 @@ public class CadastroUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
+    private void limparTexto_() {
+        txtNome.setText("");
+        txtCargo.setText("");
+        txtSenha.setText("");
 
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnConsultar;
