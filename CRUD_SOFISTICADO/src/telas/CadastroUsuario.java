@@ -1,17 +1,11 @@
 package telas;
 
 import dados_conexao_bd.SistemaDao;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 
-/**
- *
- * @author Guglielmo H T
- */
+
 public class CadastroUsuario extends javax.swing.JFrame {
 
     // programa aqiu a variavel passada na chamada em tela menu

@@ -1,16 +1,11 @@
 package telas;
 
 import dados_conexao_bd.SistemaDao;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Guglielmo H T
- */
+
 public class Funcionario extends javax.swing.JFrame {
 
     public Funcionario(String ght) {

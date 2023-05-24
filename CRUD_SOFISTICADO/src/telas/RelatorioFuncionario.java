@@ -9,15 +9,10 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Guglielmo H T
- */
+
 public class RelatorioFuncionario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RelatorioFuncionario
-     */
+
     public RelatorioFuncionario() {
         initComponents();
         try {
