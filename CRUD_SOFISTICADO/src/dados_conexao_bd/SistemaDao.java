@@ -37,9 +37,9 @@ public class SistemaDao {
         st.executeUpdate();
     }
 
-    public static void excluirDepartamento_(int cod)throws ClassNotFoundException, SQLException{
-       
-        Connection conn= SistemaDao.conectar_();
+    public static void excluirDepartamento_(int cod) throws ClassNotFoundException, SQLException {
+
+        Connection conn = SistemaDao.conectar_();
         PreparedStatement st = conn.prepareStatement("delete from departamento where codigo=?");  // serve para permitir execuat escrita no BD          
         st.setInt(1, cod);
         st.executeUpdate();
@@ -47,7 +47,7 @@ public class SistemaDao {
 
     public static void alterarDepartamento_(String nom, String cid, String tel, int cod) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();
-        
+
         PreparedStatement st = conn.prepareStatement("update departamento set nome=?, cidade=?, telefone=? where codigo=?");  // serve para permitir execuat escrita no BD          
 
         st.setString(1, nom);
@@ -56,39 +56,50 @@ public class SistemaDao {
         st.setInt(4, cod);
         st.executeUpdate();
     }
-  public static ResultSet consultarDepto_(String cod)throws ClassNotFoundException, SQLException{
-            Connection conn = SistemaDao.conectar_(); 
-            
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento WHERE codigo = ? ");  // comando query no BD
-            st.setString(1, cod);
-            //st.setString(2, txtSenha.getText());// nao mais nessa tela
-            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
-            return resultado;      
-  }
-  public static void salvarUsuario_(String nom, String car, int sen) throws ClassNotFoundException,SQLException{
-       Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            PreparedStatement st = conn.prepareStatement("INSERT INTO usuario (usuario,cargo,senha) VALUES(?,?,?)");  // serve para permitir execuat escrita no BD          
-            st.setString(1,nom);
-            st.setString(2,car);
-            st.setInt(3, sen);
-            st.executeUpdate();      
-  }
-  public static void alterarUsuario_(int sen, String car, String nom)throws ClassNotFoundException, SQLException{
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            PreparedStatement st = conn.prepareStatement("update usuario set senha=?, cargo=? where usuario=?");  // serve para permitir execuat escrita no BD          
-            st.setInt(1, sen);
-            st.setString(2,car);
-            st.setString(3,nom);
-            st.executeUpdate();// executa o comando SQL no BD      
-  }
-  public static ResultSet consultarUsuario_(String nom)throws ClassNotFoundException, SQLException{
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM  usuario WHERE usuario= ? ");  // comando query no BD
-            st.setString(1,nom);
-            //aqui resultado guarda o valor encontrado no BD.
-            ResultSet resultado = st.executeQuery();
-            return resultado;
-      
-  }
- 
+
+    public static ResultSet consultarDepto_(String cod) throws ClassNotFoundException, SQLException {
+        Connection conn = SistemaDao.conectar_();
+
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento WHERE codigo = ? ");  // comando query no BD
+        st.setString(1, cod);
+        //st.setString(2, txtSenha.getText());// nao mais nessa tela
+        ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+        return resultado;
+    }
+
+    public static void salvarUsuario_(String nom, String car, int sen) throws ClassNotFoundException, SQLException {
+        Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
+        PreparedStatement st = conn.prepareStatement("INSERT INTO usuario (usuario,cargo,senha) VALUES(?,?,?)");  // serve para permitir execuat escrita no BD          
+        st.setString(1, nom);
+        st.setString(2, car);
+        st.setInt(3, sen);
+        st.executeUpdate();
+    }
+
+    public static void alterarUsuario_(int sen, String car, String nom) throws ClassNotFoundException, SQLException {
+        Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
+        PreparedStatement st = conn.prepareStatement("update usuario set senha=?, cargo=? where usuario=?");  // serve para permitir execuat escrita no BD          
+        st.setInt(1, sen);
+        st.setString(2, car);
+        st.setString(3, nom);
+        st.executeUpdate();// executa o comando SQL no BD      
+    }
+
+    public static ResultSet consultarUsuario_(String nom) throws ClassNotFoundException, SQLException {
+        Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM  usuario WHERE usuario= ? ");  // comando query no BD
+        st.setString(1, nom);
+        //aqui resultado guarda o valor encontrado no BD.
+        ResultSet resultado = st.executeQuery();
+        return resultado;
+    }
+
+    public static void excluirUsuario_(String nom) throws ClassNotFoundException, SQLException {
+        Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
+        PreparedStatement st = conn.prepareStatement("delete from usuario where usuario=?");  // serve para permitir execuat escrita no BD          
+        st.setString(1, nom);
+        st.executeUpdate(); //comando para executar SQL no BD
+
+    }
+
 }

@@ -220,11 +220,9 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            PreparedStatement st = conn.prepareStatement("delete from usuario where usuario=?");  // serve para permitir execuat escrita no BD          
-
-            st.setString(1, txtNome.getText());
-            st.executeUpdate(); //comando para executar SQL no BD
+            SistemaDao.excluirUsuario_( txtNome.getText());
+           
+            
             limparTexto_();
 
             JOptionPane.showMessageDialog(null, "Usuario Excluido");
