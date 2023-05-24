@@ -149,7 +149,28 @@ public class SistemaDao {
     
     //=================================================================PROGRAMAÇÃO EM TELAS DE FUNCIONÁRIO
     
-    public static ResultSet consultarFuncionario_(String nom, String car, String sex, String nas, String cpf, String mat){
+    public static ResultSet consultarFuncionario_(String mat)throws ClassNotFoundException, SQLException{
+            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario WHERE matricula= ? ");  // comando query no BD
+
+            st.setString(1,mat);
+
+            //st.setString(2, txtSenha.getText());// nao mais nessa tela
+            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+            return resultado;        
+    }
+    public static void salvarFuncionario_(String nom, String car, String sex, String nas, String cpf, String sal, String mat){
+            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
+            java.sql.PreparedStatement st = conn.prepareStatement("INSERT INTO funcionario (nome,cargo,sexo,dt_nasc,cpf,salario,matricula) VALUES(?,?,?,?,?,?,?)");  // serve para permitir execuat escrita no BD          
+
+            st.setString(1, txtNome.getText());
+            st.setString(2, txtCargo.getText());
+            st.setString(3, txtSexo.getText());
+            st.setString(4, txtDtNasc.getText());
+            st.setString(5, txtCpf.getText());
+            st.setDouble(6, Double.parseDouble(txtSalario.getText()));
+            st.setString(7, txtMatricula.getText());
+
         
     }
 

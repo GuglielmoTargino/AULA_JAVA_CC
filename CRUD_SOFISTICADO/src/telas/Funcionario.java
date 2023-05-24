@@ -223,17 +223,8 @@ public class Funcionario extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-           Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            java.sql.PreparedStatement st = conn.prepareStatement("INSERT INTO funcionario (nome,cargo,sexo,dt_nasc,cpf,salario,matricula) VALUES(?,?,?,?,?,?,?)");  // serve para permitir execuat escrita no BD          
-
-            st.setString(1, txtNome.getText());
-            st.setString(2, txtCargo.getText());
-            st.setString(3, txtSexo.getText());
-            st.setString(4, txtDtNasc.getText());
-            st.setString(5, txtCpf.getText());
-            st.setDouble(6, Double.parseDouble(txtSalario.getText()));
-            st.setString(7, txtMatricula.getText());
-
+            SistemaDao.salvarFuncionario_(txtNome.getText(),txtCargo.getText(),txtSexo.getText(),txtDtNasc.getText(),txtCpf.getText(),txtSalario.getText(),txtMatricula.getText());
+           
             // filtro para obrigar digitação do nome
             if (txtNome.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "O Nome é obrigatório");
@@ -308,15 +299,9 @@ public class Funcionario extends javax.swing.JFrame {
         // TODO add your handling code here:
         
               try {
-            // TODO code application logic here
-            ResultSet conn=SistemaDao.consultarFuncionario_(nom, car, sex, nas, cpf, mat)
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario WHERE matricula= ? ");  // comando query no BD
-
-            st.setString(1, txtMatricula.getText());
-
-            //st.setString(2, txtSenha.getText());// nao mais nessa tela
-            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+            // chama a classe sistemadao
+            ResultSet resultado=SistemaDao.consultarFuncionario_(txtMatricula.getText());
+                        
             // se o resulatdo não valtar vazio será executado o IF aqui.
             if (resultado.next()) {
                 txtNome.setText(resultado.getString("nome"));
