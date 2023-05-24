@@ -219,12 +219,10 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
         try {
-            // TODO code application logic here
+            // chama classe sistemaDao
             SistemaDao.excluirUsuario_( txtNome.getText());
-           
-            
+                       
             limparTexto_();
-
             JOptionPane.showMessageDialog(null, "Usuario Excluido");
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(false);

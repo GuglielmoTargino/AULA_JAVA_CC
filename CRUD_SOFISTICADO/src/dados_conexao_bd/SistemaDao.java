@@ -17,8 +17,8 @@ public class SistemaDao {
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
         return conn;
     }
-                                                          //______________TELA LOGIN    
-    public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException, SQLException {
+    //===============================================================================PROGRAMAÇÃO EM TELAS DE LOGIN 
+        public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_(); 
         PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario WHERE usuario = ?  AND senha = ? ");  // comando query no BD
         st.setString(1, u);
@@ -26,8 +26,9 @@ public class SistemaDao {
         ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
         return resultado;
     }
-                                                        //___________CONTROLE DEPARTAMENTO
-    public static void salvarDepartamento_(int cod, String nom, String cid, String tel) throws ClassNotFoundException, SQLException {
+    
+    //============================================================================PROGRAMAÇÃO EM TELAS DE DEPARTAMENTO
+        public static void salvarDepartamento_(int cod, String nom, String cid, String tel) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();
         PreparedStatement st = conn.prepareStatement("INSERT INTO departamento (codigo,nome,cidade,telefone) VALUES(?,?,?,?)");  // serve para permitir execuat escrita no BD          
         st.setInt(1, cod);
@@ -38,17 +39,19 @@ public class SistemaDao {
     }
 
     public static void excluirDepartamento_(int cod) throws ClassNotFoundException, SQLException {
-
         Connection conn = SistemaDao.conectar_();
-        PreparedStatement st = conn.prepareStatement("delete from departamento where codigo=?");  // serve para permitir execuat escrita no BD          
+        
+        // serve para permitir execuat escrita no BD
+        PreparedStatement st = conn.prepareStatement("delete from departamento where codigo=?");            
         st.setInt(1, cod);
         st.executeUpdate();
     }
 
     public static void alterarDepartamento_(String nom, String cid, String tel, int cod) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();
-
-        PreparedStatement st = conn.prepareStatement("update departamento set nome=?, cidade=?, telefone=? where codigo=?");  // serve para permitir execuat escrita no BD          
+        
+        // serve para permitir execuat escrita no BD
+        PreparedStatement st = conn.prepareStatement("update departamento set nome=?, cidade=?, telefone=? where codigo=?");           
 
         st.setString(1, nom);
         st.setString(2, cid);
@@ -59,8 +62,8 @@ public class SistemaDao {
 
     public static ResultSet consultarDepto_(String cod) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();
-
         PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento WHERE codigo = ? ");  // comando query no BD
+        
         st.setString(1, cod);
         //st.setString(2, txtSenha.getText());// nao mais nessa tela
         ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
@@ -68,12 +71,12 @@ public class SistemaDao {
     }
 
     public static ResultSet relatorioDepto_(String nom) throws ClassNotFoundException, SQLException {
-
         Connection conn = SistemaDao.conectar_();
         PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where nome LIKE ?");  // comando query no BD
+        
         //pega a string para colocar no comando where
-
         st.setString(1, nom);
+        
         //st.setString(2, txtSenha.getText());// nao mais nessa tela
         ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
         return resultado;
@@ -82,10 +85,12 @@ public class SistemaDao {
     public static ResultSet iniciarRelatorio_() throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();
         PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento");  // comando query no BD
+        
         //st.setString(2, txtSenha.getText());// nao mais nessa tela
         ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
         return resultado;
     }
+    
     public static ResultSet cmbCidade_(String cid)throws ClassNotFoundException, SQLException{
            Connection conn=SistemaDao.conectar_();
             PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where cidade=?");  // comando query no BD
@@ -94,19 +99,19 @@ public class SistemaDao {
             ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
             return resultado;        
     }
+    
     public static ResultSet cmbCodigo_(String cod)throws ClassNotFoundException, SQLException{
             Connection conn=SistemaDao.conectar_();
             PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where codigo=?");  // comando query no BD
 
             //pega a string para colocar no comando where
             st.setString(1, cod);
-
             //st.setString(2, txtSenha.getText());// nao mais nessa tela
             ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
             return resultado;
-        
-    }
-
+            }
+    
+   //======================================================================PROGRAMAÇÃO EM TELAS DE USUÁRIO
     public static void salvarUsuario_(String nom, String car, int sen) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
         PreparedStatement st = conn.prepareStatement("INSERT INTO usuario (usuario,cargo,senha) VALUES(?,?,?)");  // serve para permitir execuat escrita no BD          
@@ -140,6 +145,12 @@ public class SistemaDao {
         st.setString(1, nom);
         st.executeUpdate(); //comando para executar SQL no BD
 
+    }
+    
+    //=================================================================PROGRAMAÇÃO EM TELAS DE FUNCIONÁRIO
+    
+    public static ResultSet consultarFuncionario_(String nom, String car, String sex, String nas, String cpf, String mat){
+        
     }
 
 }

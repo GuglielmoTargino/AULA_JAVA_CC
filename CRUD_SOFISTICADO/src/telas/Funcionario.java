@@ -309,6 +309,7 @@ public class Funcionario extends javax.swing.JFrame {
         
               try {
             // TODO code application logic here
+            ResultSet conn=SistemaDao.consultarFuncionario_(nom, car, sex, nas, cpf, mat)
             Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
             PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario WHERE matricula= ? ");  // comando query no BD
 
