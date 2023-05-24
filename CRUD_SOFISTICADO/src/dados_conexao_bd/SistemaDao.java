@@ -67,6 +67,46 @@ public class SistemaDao {
         return resultado;
     }
 
+    public static ResultSet relatorioDepto_(String nom) throws ClassNotFoundException, SQLException {
+
+        Connection conn = SistemaDao.conectar_();
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where nome LIKE ?");  // comando query no BD
+        //pega a string para colocar no comando where
+
+        st.setString(1, nom);
+        //st.setString(2, txtSenha.getText());// nao mais nessa tela
+        ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+        return resultado;
+    }
+
+    public static ResultSet iniciarRelatorio_() throws ClassNotFoundException, SQLException {
+        Connection conn = SistemaDao.conectar_();
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento");  // comando query no BD
+        //st.setString(2, txtSenha.getText());// nao mais nessa tela
+        ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+        return resultado;
+    }
+    public static ResultSet cmbCidade_(String cid)throws ClassNotFoundException, SQLException{
+           Connection conn=SistemaDao.conectar_();
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where cidade=?");  // comando query no BD
+            //pega a string para colocar no comando where
+            st.setString(1,cid);
+            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+            return resultado;        
+    }
+    public static ResultSet cmbCodigo_(String cod)throws ClassNotFoundException, SQLException{
+            Connection conn=SistemaDao.conectar_();
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where codigo=?");  // comando query no BD
+
+            //pega a string para colocar no comando where
+            st.setString(1, cod);
+
+            //st.setString(2, txtSenha.getText());// nao mais nessa tela
+            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+            return resultado;
+        
+    }
+
     public static void salvarUsuario_(String nom, String car, int sen) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
         PreparedStatement st = conn.prepareStatement("INSERT INTO usuario (usuario,cargo,senha) VALUES(?,?,?)");  // serve para permitir execuat escrita no BD          

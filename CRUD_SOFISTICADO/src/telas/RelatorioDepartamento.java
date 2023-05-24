@@ -1,9 +1,7 @@
 package telas;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import dados_conexao_bd.SistemaDao;
 import java.sql.ResultSet;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -19,15 +17,9 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
         initComponents();
         try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento");  // comando query no BD
-
-            //st.setString(2, txtSenha.getText());// nao mais nessa tela
-            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+           ResultSet resultado=SistemaDao.iniciarRelatorio_();
 
             DefaultTableModel modeloBaseTabela;// tabela modelo para sincronizar com a tabela final
-
             modeloBaseTabela = (DefaultTableModel) tblDepartamento.getModel();
             modeloBaseTabela.setRowCount(0);// zera a linha quando conta depois
 
@@ -46,7 +38,6 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
                 //comando que pega o codigo e insere no cmbCodigo 
                 cmbCodigo.addItem(resultado.getString("codigo"));
                 cmbCidade.addItem(resultado.getString("cidade"));
-
             }
 
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
@@ -143,18 +134,8 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
     private void cmbCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCodigoActionPerformed
         try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where codigo=?");  // comando query no BD
-
-            //pega a string para colocar no comando where
-            st.setString(1, cmbCodigo.getSelectedItem().toString());
-
-            //st.setString(2, txtSenha.getText());// nao mais nessa tela
-            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
-
+            ResultSet resultado=SistemaDao.cmbCodigo_(cmbCodigo.getSelectedItem().toString());
             DefaultTableModel modeloBaseTabela;// tabela modelo para sincronizar com a tabela final
-
             modeloBaseTabela = (DefaultTableModel) tblDepartamento.getModel();
             modeloBaseTabela.setRowCount(0);// zera a linha quando conta depois
 
@@ -169,7 +150,6 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
 
                 //aqui insere na tabela
                 modeloBaseTabela.addRow(dep);
-
             }
 
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
@@ -179,27 +159,16 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "falha no alteração");
         }
 
-
     }//GEN-LAST:event_cmbCodigoActionPerformed
 
     private void cmbCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCidadeActionPerformed
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where cidade=?");  // comando query no BD
-
-            //pega a string para colocar no comando where
-            st.setString(1, cmbCidade.getSelectedItem().toString());
-
-            //st.setString(2, txtSenha.getText());// nao mais nessa tela
-            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
-
+            ResultSet resultado=SistemaDao.cmbCidade_(cmbCidade.getSelectedItem().toString());
+         
             DefaultTableModel modeloBaseTabela;// tabela modelo para sincronizar com a tabela final
-
             modeloBaseTabela = (DefaultTableModel) tblDepartamento.getModel();
-            
             modeloBaseTabela.setRowCount(0);// zera a linha quando conta depois
 
             while (resultado.next()) {
@@ -229,35 +198,23 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
         // TODO add your handling code here:
                try {
             // TODO code application logic here
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where nome LIKE ?");  // comando query no BD
-
-            //pega a string para colocar no comando where
-            st.setString(1, "%"+txtNomeDepto.getText()+"%");
-
-            //st.setString(2, txtSenha.getText());// nao mais nessa tela
-            ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
-
+            ResultSet resultado=SistemaDao.relatorioDepto_("%"+txtNomeDepto.getText()+"%");
             DefaultTableModel modeloBaseTabela;// tabela modelo para sincronizar com a tabela final
-
             modeloBaseTabela = (DefaultTableModel) tblDepartamento.getModel();
             modeloBaseTabela.setRowCount(0);// zera a linha quando conta depois
-
-            while (resultado.next()) {
-
-                Object dep[] = {
+            
+            
+             while (resultado.next()) {
+                
+                    Object dep[] = {
                     resultado.getString("codigo"),
                     resultado.getString("nome"),
                     resultado.getString("cidade"),
-                    resultado.getString("telefone")
-                };
-
-                //aqui insere na tabela
-                modeloBaseTabela.addRow(dep);
-
-            }
-
+                    resultado.getString("telefone")};
+                             //aqui insere na tabela
+                modeloBaseTabela.addRow(dep);                
+               }
+               
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
@@ -265,6 +222,8 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "falha no alteração");
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
+         
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
