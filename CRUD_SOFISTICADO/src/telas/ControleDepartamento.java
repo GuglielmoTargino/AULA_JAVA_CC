@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
-
 public class ControleDepartamento extends javax.swing.JFrame {
 
     //op aqui é uma variave. pode ser X,V etc
@@ -161,16 +160,13 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
 
-        
         try {
-            /* chama o metodo salvar departamento da classe sistemaDao com os valores. */           
+            /* chama o metodo salvar departamento da classe sistemaDao com os valores. */
             SistemaDao.salvarDepartamento_(Integer.parseInt(txtCodigo.getText()), txtNome.getText(), txtCidade.getText(), txtTel.getText());
-            
+
             JOptionPane.showMessageDialog(null, "Cadastro Concluido");
-            txtCodigo.setText("");
-            txtNome.setText("");
-            txtCidade.setText("");
-            txtTel.setText("");
+            limparTela_();
+           
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
@@ -221,12 +217,10 @@ public class ControleDepartamento extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-            SistemaDao.alterarDepartamento_(txtNome.getText(), txtCidade.getText(), txtTel.getText(),Integer.parseInt(txtCodigo.getText()));
+            SistemaDao.alterarDepartamento_(txtNome.getText(), txtCidade.getText(), txtTel.getText(), Integer.parseInt(txtCodigo.getText()));
+            limparTela_();
             
-            txtCodigo.setText("");
-            txtNome.setText("");
-            txtCidade.setText("");
-            txtTel.setText("");
+           
 
             JOptionPane.showMessageDialog(null, "Alterações com Sucesso. Codigo permanente.");
 
@@ -247,11 +241,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
         try {
             // chama o metodo excluir da classe sistemadao.
             SistemaDao.excluirDepartamento_(Integer.parseInt(txtCodigo.getText()));
-            txtCodigo.setText("");
-            txtNome.setText("");
-            txtCidade.setText("");
-            txtTel.setText("");
-
+            limparTela_();
             JOptionPane.showMessageDialog(null, "Cadastro Excluido");
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(false);
@@ -264,7 +254,12 @@ public class ControleDepartamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
     /*=======================================================================*/
-
+    private void limparTela_() {
+        txtCodigo.setText("");
+        txtNome.setText("");
+        txtCidade.setText("");
+        txtTel.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
