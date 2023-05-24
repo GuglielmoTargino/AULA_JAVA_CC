@@ -159,18 +159,40 @@ public class SistemaDao {
             ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
             return resultado;        
     }
-    public static void salvarFuncionario_(String nom, String car, String sex, String nas, String cpf, String sal, String mat){
+    public static void salvarFuncionario_(String nom, String car, String sex, String nas, String cpf, double sal, String mat)throws ClassNotFoundException, SQLException{
             Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            java.sql.PreparedStatement st = conn.prepareStatement("INSERT INTO funcionario (nome,cargo,sexo,dt_nasc,cpf,salario,matricula) VALUES(?,?,?,?,?,?,?)");  // serve para permitir execuat escrita no BD          
+            PreparedStatement st = conn.prepareStatement("INSERT INTO funcionario (nome,cargo,sexo,dt_nasc,cpf,salario,matricula) VALUES(?,?,?,?,?,?,?)");  // serve para permitir execuat escrita no BD          
 
-            st.setString(1, txtNome.getText());
-            st.setString(2, txtCargo.getText());
-            st.setString(3, txtSexo.getText());
-            st.setString(4, txtDtNasc.getText());
-            st.setString(5, txtCpf.getText());
-            st.setDouble(6, Double.parseDouble(txtSalario.getText()));
-            st.setString(7, txtMatricula.getText());
+            st.setString(1,nom);
+            st.setString(2,car);
+            st.setString(3,sex);
+            st.setString(4,nas);
+            st.setString(5,cpf);
+            st.setDouble(6, sal);
+            st.setString(7,mat);
+            st.executeUpdate(); // linha que executa a query no BD.        
+    }
+    
+    public static void excluirFuncionario(String mat)throws ClassNotFoundException, SQLException{
+            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
+            PreparedStatement st = conn.prepareStatement("delete from funcionario where matricula=?");  // serve para permitir execuat escrita no BD          
 
+            st.setString(1, mat);
+            st.executeUpdate(); //comando para executar SQL no BD  
+    }
+    
+    public static void alterarFuncionario_(String nom, String car, String sex, String nas, String cpf, double sal, String mat)throws ClassNotFoundException, SQLException{
+            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
+            PreparedStatement st = conn.prepareStatement("update funcionario set nome=?, cargo=?, sexo=?, dt_nasc=?, cpf=?, salario=? where matricula=?");  // serve para permitir execuat escrita no BD          
+
+            st.setString(1,nom);
+            st.setString(2,car);
+            st.setString(3, sex);
+            st.setString(4, nas);
+            st.setString(5, cpf);
+            st.setDouble(6, sal);
+            st.setString(7, mat);
+            st.executeUpdate();// executa o comando SQL no BD 
         
     }
 

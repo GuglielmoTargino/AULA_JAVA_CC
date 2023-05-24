@@ -2,7 +2,6 @@ package telas;
 
 import dados_conexao_bd.SistemaDao;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,36 +13,29 @@ import javax.swing.JOptionPane;
  */
 public class Funcionario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Funcionario
-     */
     public Funcionario(String ght) {
         initComponents();
-        
-        if(ght.equalsIgnoreCase("cadastrar")){
+
+        if (ght.equalsIgnoreCase("cadastrar")) {
             btnSalvar.setVisible(true);
             btnConsultar.setVisible(false);
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(false);
-            
-        } else if(ght.equalsIgnoreCase("excluir")||(ght.equalsIgnoreCase("consultar"))){
+
+        } else if (ght.equalsIgnoreCase("excluir") || (ght.equalsIgnoreCase("consultar"))) {
             btnSalvar.setVisible(false);
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(false);
             btnConsultar.setVisible(true);
-            
-            
-        } else if(ght.equalsIgnoreCase("alterar")){
+
+        } else if (ght.equalsIgnoreCase("alterar")) {
             btnExcluir.setVisible(false);
             btnSalvar.setVisible(false);
             btnAlterar.setVisible(false);
             btnConsultar.setVisible(true);
-                      
         }
-        
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -223,8 +215,8 @@ public class Funcionario extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO code application logic here
-            SistemaDao.salvarFuncionario_(txtNome.getText(),txtCargo.getText(),txtSexo.getText(),txtDtNasc.getText(),txtCpf.getText(),txtSalario.getText(),txtMatricula.getText());
-           
+            SistemaDao.salvarFuncionario_(txtNome.getText(), txtCargo.getText(), txtSexo.getText(), txtDtNasc.getText(), txtCpf.getText(), Double.parseDouble(txtSalario.getText()), txtMatricula.getText());
+
             // filtro para obrigar digitação do nome
             if (txtNome.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "O Nome é obrigatório");
@@ -239,15 +231,7 @@ public class Funcionario extends javax.swing.JFrame {
                 return; // para a execução do programa
             }
 
-            st.executeUpdate(); // linha que executa a query no BD.
-
-            txtNome.setText("");
-            txtCargo.setText("");
-            txtSexo.setText("");
-            txtDtNasc.setText("");
-            txtCpf.setText("");
-            txtSalario.setText("");
-            txtMatricula.setText("");
+            limparFuncionario_();
 
             JOptionPane.showMessageDialog(null, "Cadastro Concluido ");
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
@@ -266,22 +250,11 @@ public class Funcionario extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
-              try {
+        try {
             // TODO code application logic here
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            PreparedStatement st = conn.prepareStatement("delete from funcionario where matricula=?");  // serve para permitir execuat escrita no BD          
-
-            st.setString(1, txtMatricula.getText());
-
-            st.executeUpdate(); //comando para executar SQL no BD
-
-            txtNome.setText("");
-            txtCargo.setText("");
-            txtSexo.setText("");
-            txtDtNasc.setText("");
-            txtCpf.setText("");
-            txtSalario.setText("");
-            txtMatricula.setText("");
+            SistemaDao.excluirFuncionario(txtMatricula.getText());            
+           
+            limparFuncionario_();
 
             JOptionPane.showMessageDialog(null, "Funcionário Excluido");
             btnExcluir.setVisible(false);
@@ -297,11 +270,11 @@ public class Funcionario extends javax.swing.JFrame {
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
-        
-              try {
+
+        try {
             // chama a classe sistemadao
-            ResultSet resultado=SistemaDao.consultarFuncionario_(txtMatricula.getText());
-                        
+            ResultSet resultado = SistemaDao.consultarFuncionario_(txtMatricula.getText());
+
             // se o resulatdo não valtar vazio será executado o IF aqui.
             if (resultado.next()) {
                 txtNome.setText(resultado.getString("nome"));
@@ -311,10 +284,9 @@ public class Funcionario extends javax.swing.JFrame {
                 txtCpf.setText(resultado.getString("cpf"));
                 txtSalario.setText(resultado.getString("salario"));
                 txtMatricula.setText(resultado.getString("matricula"));
-                
+
                 btnExcluir.setVisible(true);
                 btnAlterar.setVisible(true);
-                
 
             } else {
                 JOptionPane.showMessageDialog(null, "Funcionário não encontrado");
@@ -331,36 +303,15 @@ public class Funcionario extends javax.swing.JFrame {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
-             try {
+        try {
             // TODO code application logic here
-            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            PreparedStatement st = conn.prepareStatement("update funcionario set nome=?, cargo=?, sexo=?, dt_nasc=?, cpf=?, salario=? where matricula=?");  // serve para permitir execuat escrita no BD          
-
-            st.setString(1, txtNome.getText());
-            st.setString(2, txtCargo.getText());
-            st.setString(3, txtSexo.getText());
-            st.setString(4, txtDtNasc.getText());
-            st.setString(5, txtCpf.getText());
-            st.setDouble(6,Double.parseDouble(txtSalario.getText())); 
-            st.setString(7,txtMatricula.getText());
-            
-
-            st.executeUpdate();// executa o comando SQL no BD
-
-            txtNome.setText("");
-            txtCargo.setText("");
-            txtSexo.setText("");
-            txtDtNasc.setText("");
-            txtCpf.setText("");
-            txtSalario.setText("");
-            txtMatricula.setText("");
+            SistemaDao.alterarFuncionario_(txtNome.getText(), txtCargo.getText(), txtSexo.getText(), txtDtNasc.getText(), txtCpf.getText(), Double.parseDouble(txtSalario.getText()), txtMatricula.getText());
                         
-
+            limparFuncionario_();
             JOptionPane.showMessageDialog(null, "Sucesso na Alteração");
-            
+
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(false);
-            
 
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
@@ -373,7 +324,16 @@ public class Funcionario extends javax.swing.JFrame {
     private void txtDtNascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDtNascActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDtNascActionPerformed
+    private void limparFuncionario_(){
+        txtNome.setText("");
+        txtCargo.setText("");
+        txtSexo.setText("");
+        txtDtNasc.setText("");
+        txtCpf.setText("");
+        txtSalario.setText("");
+        txtMatricula.setText("");
 
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnConsultar;
