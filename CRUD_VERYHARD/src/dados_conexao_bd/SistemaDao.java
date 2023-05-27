@@ -119,12 +119,12 @@ public class SistemaDao {
     //                      ===============================
     //                      PROGRAMAÇÃO EM TELAS DE USUÁRIO
     //                      ===============================
-    public static void salvarUsuario_(String nom, String car, int sen) throws ClassNotFoundException, SQLException {
+    public static void salvarUsuario_(UsuarioEncap usuario_) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
         PreparedStatement st = conn.prepareStatement("INSERT INTO usuario (usuario,cargo,senha) VALUES(?,?,?)");  // serve para permitir execuat escrita no BD          
-        st.setString(1, nom);
-        st.setString(2, car);
-        st.setInt(3, sen);
+        st.setString(1, usuario_.getUsuario());
+        st.setString(2, usuario_.getCargo());
+        st.setInt(3, usuario_.getSenha());
         st.executeUpdate();
     }
 

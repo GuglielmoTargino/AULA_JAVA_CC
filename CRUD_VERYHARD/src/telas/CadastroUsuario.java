@@ -1,6 +1,7 @@
 package telas;
 
 import dados_conexao_bd.SistemaDao;
+import dados_conexao_bd.UsuarioEncap;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
@@ -153,9 +154,17 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
+        
+        UsuarioEncap usuario_;
+        usuario_=new UsuarioEncap();
+        
+        usuario_.setUsuario(txtNome.getText());
+        usuario_.setSenha(Integer.parseInt(txtSenha.getText()));
+        usuario_.setCargo(txtCargo.getText());
+        
         try {
             // TODO code application logic here
-            SistemaDao.salvarUsuario_(txtNome.getText(), txtCargo.getText(), Integer.parseInt(txtSenha.getText()));
+            SistemaDao.salvarUsuario_(usuario_);
             limparTexto_();
 
             JOptionPane.showMessageDialog(null, "Cadastro Concluido");
