@@ -1,6 +1,6 @@
 package telas;
 
-import dados_conexao_bd.FuncionarioDao;
+import dados_conexao_bd.FuncionarioEncap;
 import dados_conexao_bd.SistemaDao;
 import java.sql.SQLException;
 import java.sql.ResultSet;
@@ -210,8 +210,8 @@ public class Funcionario extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         
-        FuncionarioDao funcionario_;
-        funcionario_=new FuncionarioDao();//cria objeto da clase FuncionarioDao
+        FuncionarioEncap funcionario_;
+        funcionario_=new FuncionarioEncap();//cria objeto da clase FuncionarioDao
         
         funcionario_.setNome(txtNome.getText());
         funcionario_.setCargo(txtCargo.getText());

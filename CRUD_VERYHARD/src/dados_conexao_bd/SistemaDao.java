@@ -33,7 +33,7 @@ public class SistemaDao {
     //                          ====================================
     //                          PROGRAMAÇÃO EM TELAS DE DEPARTAMENTO
     //                          ====================================
-    public static void salvarDepartamento_(Departamento departamento) throws ClassNotFoundException, SQLException {
+    public static void salvarDepartamento_(DepartamentoEncap departamento) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();
         PreparedStatement st = conn.prepareStatement("INSERT INTO departamento (codigo,nome,cidade,telefone) VALUES(?,?,?,?)");  // serve para permitir execuat escrita no BD          
         st.setInt(1, departamento.getCodigo());
@@ -166,7 +166,7 @@ public class SistemaDao {
         return resultado;
     }
 
-    public static void salvarFuncionario_(FuncionarioDao funcionario_) throws ClassNotFoundException, SQLException {
+    public static void salvarFuncionario_(FuncionarioEncap funcionario_) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
         PreparedStatement st = conn.prepareStatement("INSERT INTO funcionario (nome,cargo,sexo,dt_nasc,cpf,salario,matricula) VALUES(?,?,?,?,?,?,?)");  // serve para permitir execuat escrita no BD          
 

@@ -1,6 +1,6 @@
 package telas;
 
-import dados_conexao_bd.Departamento;
+import dados_conexao_bd.DepartamentoEncap;
 import dados_conexao_bd.SistemaDao;
 import java.sql.SQLException;
 import java.sql.ResultSet;
@@ -157,8 +157,8 @@ public class ControleDepartamento extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
                   
-        Departamento departamento;
-        departamento= new Departamento();// cria objeto departamento_ da clase Departamento 
+        DepartamentoEncap departamento;
+        departamento= new DepartamentoEncap();// cria objeto departamento_ da clase Departamento 
         
         departamento.setCodigo(Integer.parseInt(txtCodigo.getText()));
         departamento.setCidade(txtCidade.getText());

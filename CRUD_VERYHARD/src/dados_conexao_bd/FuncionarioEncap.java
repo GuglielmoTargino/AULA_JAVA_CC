@@ -2,7 +2,7 @@
 package dados_conexao_bd;
 
 
-public class FuncionarioDao {
+public class FuncionarioEncap {
     private String nome;
     private String cargo;
     private String sexo;
@@ -11,7 +11,7 @@ public class FuncionarioDao {
     private double sal;
     private String matric;
     
-    public FuncionarioDao(){
+    public FuncionarioEncap(){
         
     }
 

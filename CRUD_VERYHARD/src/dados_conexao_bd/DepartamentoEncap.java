@@ -2,14 +2,14 @@
 package dados_conexao_bd;
 
 
-public class Departamento {
+public class DepartamentoEncap {
     private int codigo;
     private String nome;
     private String cidade;
     private String tel; 
     
     //construtor
-    public Departamento(){     
+    public DepartamentoEncap(){     
     }
 
     public void setCodigo(int codigo) {
