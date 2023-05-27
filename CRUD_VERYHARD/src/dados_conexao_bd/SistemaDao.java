@@ -166,17 +166,17 @@ public class SistemaDao {
         return resultado;
     }
 
-    public static void salvarFuncionario_(String nom, String car, String sex, String nas, String cpf, double sal, String mat) throws ClassNotFoundException, SQLException {
+    public static void salvarFuncionario_(FuncionarioDao funcionario_) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
         PreparedStatement st = conn.prepareStatement("INSERT INTO funcionario (nome,cargo,sexo,dt_nasc,cpf,salario,matricula) VALUES(?,?,?,?,?,?,?)");  // serve para permitir execuat escrita no BD          
 
-        st.setString(1, nom);
-        st.setString(2, car);
-        st.setString(3, sex);
-        st.setString(4, nas);
-        st.setString(5, cpf);
-        st.setDouble(6, sal);
-        st.setString(7, mat);
+        st.setString(1, funcionario_.getNome());
+        st.setString(2, funcionario_.getCargo());
+        st.setString(3, funcionario_.getSexo());
+        st.setString(4, funcionario_.getNasc());
+        st.setString(5, funcionario_.getCpf());
+        st.setDouble(6, funcionario_.getSal());
+        st.setString(7, funcionario_.getMatric());
         st.executeUpdate(); // linha que executa a query no BD.        
     }
 

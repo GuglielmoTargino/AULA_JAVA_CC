@@ -158,14 +158,16 @@ public class ControleDepartamento extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
                   
         Departamento departamento;
-        departamento= new Departamento();
+        departamento= new Departamento();// cria objeto departamento_ da clase Departamento 
+        
         departamento.setCodigo(Integer.parseInt(txtCodigo.getText()));
         departamento.setCidade(txtCidade.getText());
         departamento.setNome(txtNome.getText());
         departamento.setTel(txtTel.getText());
+        
         try {
             /* chama o metodo salvar departamento da classe sistemaDao com os valores. */
-            SistemaDao.salvarDepartamento_(departamento);
+            SistemaDao.salvarDepartamento_(departamento);// manda para a classe o objeto departamento
 
             JOptionPane.showMessageDialog(null, "Cadastro Concluido");
             limparTela_();

@@ -1,5 +1,6 @@
 package telas;
 
+import dados_conexao_bd.FuncionarioDao;
 import dados_conexao_bd.SistemaDao;
 import java.sql.SQLException;
 import java.sql.ResultSet;
@@ -208,9 +209,22 @@ public class Funcionario extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
+        
+        FuncionarioDao funcionario_;
+        funcionario_=new FuncionarioDao();//cria objeto da clase FuncionarioDao
+        
+        funcionario_.setNome(txtNome.getText());
+        funcionario_.setCargo(txtCargo.getText());
+        funcionario_.setSexo(txtSexo.getText());
+        funcionario_.setNasc(txtDtNasc.getText());
+        funcionario_.setCpf(txtCpf.getText());
+        funcionario_.setSal(Double.parseDouble(txtSalario.getText()));
+        funcionario_.setMatric(txtMatricula.getText());
+        
+        
         try {
             // TODO code application logic here
-            SistemaDao.salvarFuncionario_(txtNome.getText(), txtCargo.getText(), txtSexo.getText(), txtDtNasc.getText(), txtCpf.getText(), Double.parseDouble(txtSalario.getText()), txtMatricula.getText());
+            SistemaDao.salvarFuncionario_(funcionario_);
 
             // filtro para obrigar digitação do nome
             if (txtNome.getText().equals("")) {
