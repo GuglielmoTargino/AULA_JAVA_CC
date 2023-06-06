@@ -40,7 +40,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
         txtCargo = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Controle Funcionario");
         getContentPane().setLayout(null);
 
         lblSalario.setText("salario");
@@ -88,7 +88,8 @@ public class TelaFuncionario extends javax.swing.JFrame {
         getContentPane().add(btnSalvar);
         btnSalvar.setBounds(40, 313, 90, 30);
 
-        pack();
+        setSize(new java.awt.Dimension(438, 405));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed

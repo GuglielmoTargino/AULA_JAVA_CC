@@ -43,9 +43,9 @@ public class TelaCliente extends javax.swing.JFrame {
 
         lblDataCadastro.setText("data cadastro");
         getContentPane().add(lblDataCadastro);
-        lblDataCadastro.setBounds(70, 210, 100, 30);
+        lblDataCadastro.setBounds(60, 230, 100, 30);
         getContentPane().add(txtDataCadastro);
-        txtDataCadastro.setBounds(210, 200, 170, 40);
+        txtDataCadastro.setBounds(210, 230, 170, 40);
 
         lblCpf.setText("cpf");
         getContentPane().add(lblCpf);
@@ -53,23 +53,23 @@ public class TelaCliente extends javax.swing.JFrame {
 
         lblNome.setText("nome");
         getContentPane().add(lblNome);
-        lblNome.setBounds(60, 70, 100, 30);
+        lblNome.setBounds(60, 80, 100, 30);
 
         lblEmail.setText("email");
         getContentPane().add(lblEmail);
-        lblEmail.setBounds(60, 110, 100, 30);
+        lblEmail.setBounds(60, 130, 100, 30);
 
         lblTelefone.setText("telefone");
         getContentPane().add(lblTelefone);
-        lblTelefone.setBounds(60, 150, 100, 30);
+        lblTelefone.setBounds(60, 180, 100, 30);
         getContentPane().add(txtCpf);
         txtCpf.setBounds(211, 30, 170, 40);
         getContentPane().add(txtNome);
-        txtNome.setBounds(210, 70, 170, 40);
+        txtNome.setBounds(210, 80, 170, 40);
         getContentPane().add(txtEmail);
-        txtEmail.setBounds(210, 110, 170, 40);
+        txtEmail.setBounds(210, 130, 170, 40);
         getContentPane().add(txtTelefone);
-        txtTelefone.setBounds(210, 150, 170, 40);
+        txtTelefone.setBounds(210, 180, 170, 40);
 
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
