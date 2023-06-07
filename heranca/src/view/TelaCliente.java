@@ -4,6 +4,8 @@
  */
 package view;
 
+import data.Cliente_;
+
 /**
  *
  * @author Guglielmo H T
@@ -86,6 +88,16 @@ public class TelaCliente extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
+        Cliente_ cliente;
+        
+        new Cliente_(
+                 txtDataCadastro.getText(),
+                txtCpf.getText(), 
+                txtNome.getText(), 
+                 txtEmail.getText(), 
+                 txtTelefone.getText()               
+        );
+        
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**

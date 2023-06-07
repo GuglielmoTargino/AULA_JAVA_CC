@@ -4,6 +4,8 @@
  */
 package view;
 
+import data.Funcionario_;
+
 /**
  *
  * @author Guglielmo H T
@@ -94,6 +96,13 @@ public class TelaFuncionario extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
+        Funcionario_ funcionario;
+         new Funcionario_(
+                 txtCargo.getText(), 
+                 Double.parseDouble(txtSalario.getText()),
+                 txtCpf.getText(), txtNome.getText(), 
+                 txtEmail.getText(), 
+                 txtTelefone.getText());
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
