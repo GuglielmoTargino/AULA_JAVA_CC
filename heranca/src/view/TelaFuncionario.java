@@ -112,6 +112,9 @@ public class TelaFuncionario extends javax.swing.JFrame {
         } catch (ClassNotFoundException | SQLException ex) { 
             
                 JOptionPane.showMessageDialog(null, ex.getMessage());
+                JOptionPane.showMessageDialog(null,"Cpf já existe");
+                
+                
         } catch( NumberFormatException ex){
     
         JOptionPane.showMessageDialog(null, "Utilize apenas numero e ponto.");

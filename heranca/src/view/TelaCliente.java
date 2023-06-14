@@ -5,6 +5,11 @@
 package view;
 
 import data.Cliente_;
+import data.HerancaDao;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -88,21 +93,32 @@ public class TelaCliente extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        try{
-            
-             Cliente_ cliente;
-        
-        new Cliente_(
-                 txtDataCadastro.getText(),
-                txtCpf.getText(), 
-                txtNome.getText(), 
-                 txtEmail.getText(), 
-                 txtTelefone.getText()               
-        );
-            
+        try {
+
+            Cliente_ cliente;
+
+            cliente = new Cliente_(
+                    txtDataCadastro.getText(),
+                    txtCpf.getText(),
+                    txtNome.getText(),
+                    txtEmail.getText(),
+                    txtTelefone.getText()
+            );
+
+            new HerancaDao().salvarCliente_(cliente);
+            JOptionPane.showMessageDialog(null, " Cliente salvo com Sucesso");
+
+        } catch (ClassNotFoundException | SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showMessageDialog(null, "CPF já cadastrado");
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "utilize só data");
+            txtDataCadastro.requestFocus();
         }
-       
-        
+
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
