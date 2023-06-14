@@ -4,10 +4,37 @@
  */
 package data;
 
-/**
- *
- * @author Guglielmo H T
- */
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+
 public class HerancaDao {
+    
+        public Connection conectar () throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn;
+        conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/heranca_dados", "root", "");
+        return conn;
+        }
+        
+        public void salvarFuncionario(Funcionario_ funcionario)throws ClassNotFoundException, SQLException {
+            Connection conn;
+            conn=conectar();
+            String sql;
+            sql="insert into funcionario values( ?,?,?,?,?,?)";
+            PreparedStatement st;
+            st=conn.prepareStatement(sql);
+            
+            st.setString(1,funcionario.getCpf());
+            st.setString(2, funcionario.getNome());
+            st.setString(3,funcionario.getEmail());
+            st.setString(4,funcionario.getTelefone());
+            st.setString(5,funcionario.getCargo());
+            st.setDouble(6,funcionario.getSalario());
+            st.executeUpdate();         
+            
+        }
     
 }
