@@ -36,5 +36,23 @@ public class HerancaDao {
             st.executeUpdate();         
             
         }
+        
+        public void salvarCliente_(Cliente_ cliente) throws ClassNotFoundException,SQLException{
+            
+            Connection conn;
+            conn=conectar();
+            String sql;
+            sql="insert into cliente values(?,?,?,?,?)";
+            PreparedStatement st;
+            st=conn.prepareStatement(sql);
+            
+            st.setString(1,cliente.getCpf());
+            st.setString(2,cliente.getNome());
+            st.setString(3,cliente.getEmail());
+            st.setString(4,cliente.getTelefone());
+            st.setString(5,cliente.getDataCadastro());
+            st.executeUpdate();           
+            
+        }
     
 }
