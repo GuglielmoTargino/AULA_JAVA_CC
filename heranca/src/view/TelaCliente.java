@@ -6,6 +6,7 @@ package view;
 
 import data.Cliente_;
 import data.HerancaDao;
+import data.Pessoa_;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -95,7 +96,8 @@ public class TelaCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
 
-            Cliente_ cliente;
+            //Cliente_ cliente;
+            Pessoa_ cliente;
 
             cliente = new Cliente_(
                     txtDataCadastro.getText(),
@@ -105,7 +107,7 @@ public class TelaCliente extends javax.swing.JFrame {
                     txtTelefone.getText()
             );
 
-            new HerancaDao().salvarCliente_(cliente);
+            new HerancaDao().salvarCliente_((Cliente_) cliente);
             JOptionPane.showMessageDialog(null, " Cliente salvo com Sucesso");
 
         } catch (ClassNotFoundException | SQLException ex) {

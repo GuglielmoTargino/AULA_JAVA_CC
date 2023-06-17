@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 
-public class HerancaDao {
+public class HerancaDao implements InterfaceDao {
     
         public Connection conectar () throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");

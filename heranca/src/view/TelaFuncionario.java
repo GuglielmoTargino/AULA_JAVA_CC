@@ -6,6 +6,7 @@ package view;
 
 import data.Funcionario_;
 import data.HerancaDao;
+import data.Pessoa_;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -97,7 +98,10 @@ public class TelaFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
 
-            Funcionario_ funcionario;
+            //Funcionario_ funcionario; criar obeto funcionario usando classe
+            //Pessoa
+            
+            Pessoa_ funcionario;
             funcionario = new Funcionario_(
                     txtCargo.getText(),
                     Double.parseDouble(txtSalario.getText()),
@@ -106,7 +110,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
                     txtTelefone.getText()
             );
 
-            new HerancaDao().salvarFuncionario(funcionario);
+            new HerancaDao().salvarFuncionario((Funcionario_) funcionario);
             JOptionPane.showMessageDialog(null, "Funcionario salvo com Sucesso");
 
         } catch (ClassNotFoundException | SQLException ex) { 
