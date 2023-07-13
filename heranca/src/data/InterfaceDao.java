@@ -12,6 +12,5 @@ import java.sql.SQLException;
  * @author Guglielmo H T
  */
 public interface InterfaceDao {
-    public Connection conectar () throws ClassNotFoundException, SQLException;
-    
+    public Connection conectar () throws ClassNotFoundException, SQLException;    
 }
