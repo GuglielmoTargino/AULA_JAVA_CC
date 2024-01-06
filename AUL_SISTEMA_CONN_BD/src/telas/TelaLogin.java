@@ -114,7 +114,7 @@ public class TelaLogin extends javax.swing.JFrame {
         try {
             // TODO code application logic here
             Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", ""); //variavel da classe connection para conexão
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test_ght", "root", "123456"); //variavel da classe connection para conexão
             PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario WHERE usuario = ?  AND senha = ? ");  // comando query no BD
 
             st.setString(1, txtUsuario.getText());
@@ -127,6 +127,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 usuario= resultado.getString("usuario");
                 cargo= resultado.getString("cargo");
                 dispose();
+                JOptionPane.showMessageDialog(null, "CONEXÂO BD OK");
                 new TelaMenu(usuario,cargo).setVisible(true);// chama tela menu com vaiveis usuario e cargo
                
             
