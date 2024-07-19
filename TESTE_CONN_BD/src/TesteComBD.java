@@ -1,6 +1,9 @@
 
-//import Java.sql.Connection; 
-//import Java.sql.Statement;
+//Modelo de conexão com banco de dados MySql e Oracle 
+//Exercício de aula com o professor Evandro Teruel
+//Aluno: Guglielmo Targino.
+//Data: 19jul24.
+//Versão:v3
 
 import java.sql.Connection;// serve para conectar com o BD
 import java.sql.Statement;// serve para conectar com o BD
@@ -18,11 +21,19 @@ public class TesteComBD {
             // TODO code application logic here
             Connection conn; //variavel da classe connection para conexão
             Statement st;// serve para permitir execuat escrita no BD
-            Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD.           
             
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","pmaght","4004"); 
-            st=conn.createStatement();
-            st.executeUpdate("INSERT INTO produto(id_prod,nome_prod,tipo) VALUES(6,'banana','kg')");              
+            //Oracle
+            Class.forName("oracle.jdbc.driver.OracleDriver");//caminho da classe do drive que faz conexão com o BD.
+             conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","ght","4004");
+            
+            //MySql
+            //Class.forName("com.mysql.cj.jdbc.Driver"); //caminho da classe do drive que faz conexão com o BD.
+            //conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","pmaght","4004"); 
+            
+           
+            
+            st=conn.createStatement(); //autentica a conexão feita com BD.
+            st.executeUpdate("delete from pet where nome='joe'");              
             JOptionPane.showMessageDialog(null,"Cadastro bem Sucedido");
             
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
