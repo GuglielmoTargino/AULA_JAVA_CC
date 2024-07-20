@@ -24,7 +24,7 @@ public class TesteComBD {
             
             //Oracle
             Class.forName("oracle.jdbc.driver.OracleDriver");//caminho da classe do drive que faz conexão com o BD.
-             conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","ght","4004");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","ght","4004");
             
             //MySql
             //Class.forName("com.mysql.cj.jdbc.Driver"); //caminho da classe do drive que faz conexão com o BD.
