@@ -22,7 +22,8 @@ public class TesteComBD {
             Connection conn; //variavel da classe connection para conexão
             Statement st;// serve para permitir execuat escrita no BD
             
-            //Oracle
+            //Oracle >> no oracle não precisa indicar o nome do BD
+            //Pois quando faz login de usuario cria uma conta automaticamente.
             Class.forName("oracle.jdbc.driver.OracleDriver");//caminho da classe do drive que faz conexão com o BD.
             conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","ght","4004");
             
@@ -33,7 +34,7 @@ public class TesteComBD {
            
             
             st=conn.createStatement(); //autentica a conexão feita com BD.
-            st.executeUpdate("delete from pet where nome='joe'");              
+            st.executeUpdate("insert into pets(nome) values('espos')");              
             JOptionPane.showMessageDialog(null,"Cadastro bem Sucedido");
             
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
