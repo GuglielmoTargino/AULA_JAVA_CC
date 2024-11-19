@@ -19,7 +19,8 @@ public class connecSql{
             System.out.println("Conexão estabelecida com sucesso!");
 
             st = conn.createStatement();
-            st.executeUpdate("delete from ti where nome='k'");
+            st.executeUpdate("insert into ti (id,nome) values(32,'T')");
+             System.out.println("Processo Concluído!");
 
             conn.close();
 
@@ -27,7 +28,7 @@ public class connecSql{
             JOptionPane.showMessageDialog(null, "Erro de Biblioteca");
             ex.printStackTrace();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Falha de dados recusados ou incorretos");
+            JOptionPane.showMessageDialog(null, "Erro de SQL ou Login");
             ex.printStackTrace();
         }
     }

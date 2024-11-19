@@ -31,8 +31,9 @@ public class connecOracle {
             
              
              st=conn.createStatement(); //autentica a conexão feita com BD.
-             st.executeUpdate("insert into pets(nome) values('GUGA')");
-            JOptionPane.showMessageDialog(null,"Cadastro bem Sucedido");
+             //st.executeUpdate("insert into pets(nome) values('ARMOR')");
+             st.executeUpdate("delete from pets where nome='jaha'");
+            JOptionPane.showMessageDialog(null,"Processo bem Sucedido");
             
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null,"Erro de Biblioteca");
