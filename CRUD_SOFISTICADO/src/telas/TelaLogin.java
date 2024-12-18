@@ -1,11 +1,9 @@
 package telas;
 
 import dados_conexao_bd.SistemaDao;
-import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.SQLException;// usado para opção caso a execução falhe
 
-import java.sql.PreparedStatement; //usado para executar os comandos SQL
 import java.sql.ResultSet; //usado para guardar os resultados da consulta SQL
 import javax.swing.JOptionPane;
 
@@ -121,11 +119,11 @@ public class TelaLogin extends javax.swing.JFrame {
             ResultSet resultado=SistemaDao.fazerLogin_(txtUsuario.getText(),txtSenha.getText());
             
             if (resultado.next()){
-                String usuario, cargo;
-                usuario= resultado.getString("usuario");
-                cargo= resultado.getString("cargo");
+                String x, y;
+                x= resultado.getString("nome_usu"); // nome do campo bd
+                y= resultado.getString("senha"); // nome do campo bd
                 dispose();
-                new TelaMenu(usuario,cargo).setVisible(true);// chama tela menu com vaiveis usuario e cargo
+                new TelaMenu(x,y).setVisible(true);// chama tela menu com vaiveis usuario e cargo
                
             
                 } else{
@@ -147,7 +145,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_ckbSenhaActionPerformed
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     /**

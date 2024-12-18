@@ -156,6 +156,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         try {
             // TODO code application logic here
             SistemaDao.salvarUsuario_(txtNome.getText(), txtCargo.getText(), Integer.parseInt(txtSenha.getText()));
+            //SistemaDao.salvarUsuario_(txtNome.getText(), txtCargo.getText(), txtSenha.getText());
             limparTexto_();
 
             JOptionPane.showMessageDialog(null, "Cadastro Concluido");

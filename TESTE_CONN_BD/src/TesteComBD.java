@@ -28,7 +28,7 @@ public class TesteComBD {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","ght","4004");       
             
              st=conn.createStatement(); //autentica a conexão feita com BD.
-             st.executeUpdate("insert into dao (nome) values('jaha')");
+             st.executeUpdate("insert into dao (nome) values('ja4a')");
             JOptionPane.showMessageDialog(null,"Cadastro bem Sucedido");
             
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"

@@ -121,7 +121,7 @@ public class SistemaDao {
     //                      ===============================
     public static void salvarUsuario_(String nom, String car, int sen) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        PreparedStatement st = conn.prepareStatement("INSERT INTO usuario (usuario,cargo,senha) VALUES(?,?,?)");  // serve para permitir execuat escrita no BD          
+        PreparedStatement st = conn.prepareStatement("INSERT INTO usuario (nome_usu,cargo,senha) VALUES(?,?,?)");  // serve para permitir execuat escrita no BD          
         st.setString(1, nom);
         st.setString(2, car);
         st.setInt(3, sen);
