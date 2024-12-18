@@ -23,6 +23,13 @@ public class CadastroUsuario extends javax.swing.JFrame {
             btnAlterar.setVisible(false);
             btnConsultar.setVisible(true);
 
+            //alterar aqui
+        }else if (gh.equalsIgnoreCase("alterar")) {
+            btnSalvar.setVisible(false);
+            btnConsultar.setVisible(false);
+            btnExcluir.setVisible(false);
+            btnAlterar.setVisible(true);
+        
         } else {
             btnExcluir.setVisible(false);
             btnSalvar.setVisible(false);
@@ -30,7 +37,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             btnConsultar.setVisible(true);
 
         }
-        //(gh.equalsIgnoreCase("alterar"))
+        // gh.equalsIgnoreCase("alterar")
     }
 
     @SuppressWarnings("unchecked")

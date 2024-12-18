@@ -130,7 +130,7 @@ public class SistemaDao {
 
     public static void alterarUsuario_(int sen, String car, String nom) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        PreparedStatement st = conn.prepareStatement("update usuario set senha=?, cargo=? where usuario=?");  // serve para permitir execuat escrita no BD          
+        PreparedStatement st = conn.prepareStatement("update usuario set senha=?, cargo=? where nome_usu=?");  // serve para permitir execuat escrita no BD          
         st.setInt(1, sen);
         st.setString(2, car);
         st.setString(3, nom);
@@ -139,7 +139,7 @@ public class SistemaDao {
 
     public static ResultSet consultarUsuario_(String nom) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        PreparedStatement st = conn.prepareStatement("SELECT * FROM  usuario WHERE usuario= ? ");  // comando query no BD
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM  usuario WHERE nome_usu= ? ");  // comando query no BD
         st.setString(1, nom);
         //aqui resultado guarda o valor encontrado no BD.
         ResultSet resultado = st.executeQuery();
@@ -148,7 +148,7 @@ public class SistemaDao {
 
     public static void excluirUsuario_(String nom) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        PreparedStatement st = conn.prepareStatement("delete from usuario where usuario=?");  // serve para permitir execuat escrita no BD          
+        PreparedStatement st = conn.prepareStatement("delete from usuario where nome_usu=?");  // serve para permitir execuat escrita no BD          
         st.setString(1, nom);
         st.executeUpdate(); //comando para executar SQL no BD
     }
