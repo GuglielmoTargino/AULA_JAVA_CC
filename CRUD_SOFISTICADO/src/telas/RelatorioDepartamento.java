@@ -26,25 +26,25 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
             while (resultado.next()) {
 
                 Object dep[] = {
-                    resultado.getString("codigo"),
-                    resultado.getString("nome"),
-                    resultado.getString("cidade"),
-                    resultado.getString("telefone")
+                    resultado.getString("cod"),
+                    resultado.getString("depto"),
+                    resultado.getString("cid"),
+                    resultado.getString("tel")
                 };
 
                 //aqui insere na tabela
                 modeloBaseTabela.addRow(dep);
 
                 //comando que pega o codigo e insere no cmbCodigo 
-                cmbCodigo.addItem(resultado.getString("codigo"));
-                cmbCidade.addItem(resultado.getString("cidade"));
+                cmbCodigo.addItem(resultado.getString("cod"));
+                cmbCidade.addItem(resultado.getString("cid"));
             }
 
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no alteração");
+            JOptionPane.showMessageDialog(null, "falha no alteração47");
         }
     }
 
@@ -142,10 +142,10 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
             while (resultado.next()) {
 
                 Object dep[] = {
-                    resultado.getString("codigo"),
-                    resultado.getString("nome"),
-                    resultado.getString("cidade"),
-                    resultado.getString("telefone")
+                    resultado.getString("cod"),
+                    resultado.getString("depto"),
+                    resultado.getString("cid"),
+                    resultado.getString("tel")
                 };
 
                 //aqui insere na tabela
@@ -156,7 +156,7 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no alteração");
+            JOptionPane.showMessageDialog(null, "falha no alteração159");
         }
 
     }//GEN-LAST:event_cmbCodigoActionPerformed
@@ -174,10 +174,10 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
             while (resultado.next()) {
 
                 Object dep[] = {
-                    resultado.getString("codigo"),
-                    resultado.getString("nome"),
-                    resultado.getString("cidade"),
-                    resultado.getString("telefone")
+                    resultado.getString("cod"),
+                    resultado.getString("depto"),
+                    resultado.getString("cid"),
+                    resultado.getString("tel")
                 };
 
                 //aqui insere na tabela
@@ -189,7 +189,7 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no alteração");
+            JOptionPane.showMessageDialog(null, "falha no alteração192");
         }
 
     }//GEN-LAST:event_cmbCidadeActionPerformed
@@ -207,10 +207,10 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
              while (resultado.next()) {
                 
                     Object dep[] = {
-                    resultado.getString("codigo"),
-                    resultado.getString("nome"),
-                    resultado.getString("cidade"),
-                    resultado.getString("telefone")};
+                    resultado.getString("cod"),
+                    resultado.getString("depto"),
+                    resultado.getString("cid"),
+                    resultado.getString("tel")};
                              //aqui insere na tabela
                 modeloBaseTabela.addRow(dep);                
                }
@@ -219,7 +219,7 @@ public class RelatorioDepartamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no alteração");
+            JOptionPane.showMessageDialog(null, "falha no alteração222");
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
          

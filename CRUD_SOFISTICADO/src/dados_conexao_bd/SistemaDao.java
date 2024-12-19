@@ -77,7 +77,7 @@ public class SistemaDao {
 
     public static ResultSet relatorioDepto_(String nom) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();
-        PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where nome LIKE ?");  // comando query no BD
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where depto LIKE ?");  // comando query no BD
 
         //pega a string para colocar no comando where
         st.setString(1, nom);
@@ -98,7 +98,7 @@ public class SistemaDao {
 
     public static ResultSet cmbCidade_(String cid) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();
-        PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where cidade=?");  // comando query no BD
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where cid=?");  // comando query no BD
         //pega a string para colocar no comando where
         st.setString(1, cid);
         ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
@@ -107,7 +107,7 @@ public class SistemaDao {
 
     public static ResultSet cmbCodigo_(String cod) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();
-        PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where codigo=?");  // comando query no BD
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento where cod=?");  // comando query no BD
 
         //pega a string para colocar no comando where
         st.setString(1, cod);
