@@ -190,7 +190,7 @@ public class SistemaDao {
 
     public static void alterarFuncionario_(String nom, String car, String sex, String nas, String cpf, double sal, String mat) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        PreparedStatement st = conn.prepareStatement("update funcionario set nome=?, cargo=?, sexo=?, dt_nasc=?, cpf=?, salario=? where matricula=?");  // serve para permitir execuat escrita no BD          
+        PreparedStatement st = conn.prepareStatement("update funcionario set nome=?, cargo=?, sexo=?, dt_nasc=?, cpf=?, salario=? where matric=?");  // serve para permitir execuat escrita no BD          
 
         st.setString(1, nom);
         st.setString(2, car);
