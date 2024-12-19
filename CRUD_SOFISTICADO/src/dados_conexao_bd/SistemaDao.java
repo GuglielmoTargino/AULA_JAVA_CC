@@ -41,13 +41,19 @@ public class SistemaDao {
     //                          PROGRAMAÇÃO EM TELAS DE LOGIN
     //                          =============================
     public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException, SQLException {
+   
         //Connection conn = SistemaDao.conectar_();
-        CallableStatement conn = SistemaDao.conectar_();
-        //PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario WHERE nome_usu= ?  AND senha = ? ");  // comando query no BD
-        CallableStatement st = conn.prepareCall("{BuscarLogin(?,?,?)}");  // comando query no BD
+        Connection conn = SistemaDao.conectar_();
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario WHERE nome_usu= ?  AND senha = ? ");  // comando query no BD
+        //CallableStatement st = conn.prepareCall("{BuscarLogin(?,?)}");  // comando query no BD
         st.setString(1, u);
         st.setString(2, s);
+        
+       
         ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+       
+      
+        
         return resultado;
     }
 
