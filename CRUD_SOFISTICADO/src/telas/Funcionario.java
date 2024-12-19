@@ -278,8 +278,8 @@ public class Funcionario extends javax.swing.JFrame {
                 txtDtNasc.setText(resultado.getString("dt_nasc"));
                 txtCpf.setText(resultado.getString("cpf"));
                 txtSalario.setText(resultado.getString("salario"));
-                txtMatricula.setText(resultado.getString("matricula"));
-
+                txtMatricula.setText(resultado.getString("matric"));
+                //txtMatricula.setText(resultado.getString("matricula"));
                 btnExcluir.setVisible(true);
                 btnAlterar.setVisible(true);
 

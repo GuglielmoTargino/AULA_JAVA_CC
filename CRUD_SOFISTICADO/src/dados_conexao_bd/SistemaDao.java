@@ -158,7 +158,7 @@ public class SistemaDao {
     //                              ===================================
     public static ResultSet consultarFuncionario_(String mat) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario WHERE matricula= ? ");  // comando query no BD
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario WHERE matric= ? ");  // comando query no BD
 
         st.setString(1, mat);
         //st.setString(2, txtSenha.getText());// nao mais nessa tela
@@ -168,7 +168,7 @@ public class SistemaDao {
 
     public static void salvarFuncionario_(String nom, String car, String sex, String nas, String cpf, double sal, String mat) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        PreparedStatement st = conn.prepareStatement("INSERT INTO funcionario (nome,cargo,sexo,dt_nasc,cpf,salario,matricula) VALUES(?,?,?,?,?,?,?)");  // serve para permitir execuat escrita no BD          
+        PreparedStatement st = conn.prepareStatement("INSERT INTO funcionario (nome,cargo,sexo,dt_nasc,cpf,salario,matric) VALUES(?,?,?,?,?,?,?)");  // serve para permitir execuat escrita no BD          
 
         st.setString(1, nom);
         st.setString(2, car);
