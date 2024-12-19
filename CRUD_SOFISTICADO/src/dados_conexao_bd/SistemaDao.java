@@ -211,6 +211,7 @@ public class SistemaDao {
         //st.setString(2, txtSenha.getText());// nao mais nessa tela
         ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
         return resultado;
+        
     }
 
     public static ResultSet cmbCargoFuncionario_(String car) throws ClassNotFoundException, SQLException {
@@ -227,7 +228,7 @@ public class SistemaDao {
 
     public static ResultSet cmbMatriculaFuncionario_(String mat) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario where matricula=?");  // comando query no BD
+        java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM funcionario where matric=?");  // comando query no BD
 
         //pega a string para colocar no comando where
         st.setString(1, mat);

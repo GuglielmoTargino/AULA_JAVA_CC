@@ -29,7 +29,7 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
                     resultado.getString("dt_nasc"),
                     resultado.getString("cpf"),
                     resultado.getString("salario"),
-                    resultado.getString("matricula")
+                    resultado.getString("matric")
 
                 };
 
@@ -38,7 +38,7 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
 
                 //comando que pega o codigo e insere no cmbCodigo 
                 cmbCargo.addItem(resultado.getString("cargo"));
-                cmbMatricula.addItem(resultado.getString("matricula"));
+                cmbMatricula.addItem(resultado.getString("matric"));
 
             }
 
@@ -46,7 +46,7 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no alteração");
+            JOptionPane.showMessageDialog(null, "falha no alteração49");
         }
 
     }
@@ -162,7 +162,7 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
                     resultado.getString("dt_nasc"),
                     resultado.getString("cpf"),
                     resultado.getString("salario"),
-                    resultado.getString("matricula")
+                    resultado.getString("matric")
                 };
 
                 //aqui insere na tabela
@@ -174,7 +174,7 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no alteração");
+            JOptionPane.showMessageDialog(null, "falha no alteração177");
         }
 
 
@@ -198,7 +198,7 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
                     resultado.getString("dt_nasc"),
                     resultado.getString("cpf"),
                     resultado.getString("salario"),
-                    resultado.getString("matricula")
+                    resultado.getString("matric")
                 };
 
                 //aqui insere na tabela
@@ -210,7 +210,7 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no alteração");
+            JOptionPane.showMessageDialog(null, "falha no alteração213");
         }
 
     }//GEN-LAST:event_cmbCargoActionPerformed
@@ -235,7 +235,7 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
                     resultado.getString("dt_nasc"),
                     resultado.getString("cpf"),
                     resultado.getString("salario"),
-                    resultado.getString("matricula")
+                    resultado.getString("matric")
                 };
                 //aqui insere na tabela
                 modeloBaseTabela.addRow(dep);
@@ -245,7 +245,7 @@ public class RelatorioFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no alteração");
+            JOptionPane.showMessageDialog(null, "falha no alteração248");
         }
 
     }//GEN-LAST:event_btnBuscaActionPerformed
