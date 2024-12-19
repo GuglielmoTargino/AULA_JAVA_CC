@@ -167,7 +167,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no cadastro");
+            JOptionPane.showMessageDialog(null, "falha no cadastro170");
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 

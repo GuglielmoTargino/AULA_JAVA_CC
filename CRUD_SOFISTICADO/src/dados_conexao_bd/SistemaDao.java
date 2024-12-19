@@ -35,7 +35,7 @@ public class SistemaDao {
     //                          ====================================
     public static void salvarDepartamento_(int cod, String nom, String cid, String tel) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();
-        PreparedStatement st = conn.prepareStatement("INSERT INTO departamento (codigo,nome,cidade,telefone) VALUES(?,?,?,?)");  // serve para permitir execuat escrita no BD          
+        PreparedStatement st = conn.prepareStatement("INSERT INTO departamento (cod,depto,cid,tel) VALUES(?,?,?,?)");  // serve para permitir execuat escrita no BD          
         st.setInt(1, cod);
         st.setString(2, nom);
         st.setString(3, cid);
@@ -47,7 +47,7 @@ public class SistemaDao {
         Connection conn = SistemaDao.conectar_();
 
         // serve para permitir execuat escrita no BD
-        PreparedStatement st = conn.prepareStatement("delete from departamento where codigo=?");
+        PreparedStatement st = conn.prepareStatement("delete from departamento where cod=?");
         st.setInt(1, cod);
         st.executeUpdate();
     }
