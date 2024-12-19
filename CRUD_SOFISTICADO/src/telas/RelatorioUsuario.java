@@ -28,9 +28,9 @@ public class RelatorioUsuario extends javax.swing.JFrame {
             while (resultado.next()) {
 
                 Object dep[] = {
-                    resultado.getString("usuario"),
-                    resultado.getString("senha"),
-                    resultado.getString("cargo")
+                    resultado.getString("nome_usu"),
+                    resultado.getString("cargo"),
+                    resultado.getString("senha")
 
                 };
 
@@ -46,7 +46,7 @@ public class RelatorioUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no alteração");
+            JOptionPane.showMessageDialog(null, "falha no alteração49");
         }
     }
 
@@ -110,7 +110,7 @@ public class RelatorioUsuario extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Usuario", "Senha", "Cargo"
+                "Usuario", "Cargo", "Senha"
             }
         ));
         jScrollPane1.setViewportView(tblRelatorioUsuario);
@@ -176,7 +176,7 @@ public class RelatorioUsuario extends javax.swing.JFrame {
          try {
             // TODO code application logic here
            Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario where senha=?");  // comando query no BD
+            java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario where senha= ?");  // comando query no BD
 
             //pega a string para colocar no comando where
             st.setString(1, cmbSenha.getSelectedItem().toString());
@@ -192,9 +192,9 @@ public class RelatorioUsuario extends javax.swing.JFrame {
             while (resultado.next()) {
 
                 Object dep[] = {
-                    resultado.getString("usuario"),
-                    resultado.getString("senha"),
-                    resultado.getString("cargo")
+                    resultado.getString("nome_usu"),
+                    resultado.getString("cargo"),
+                    resultado.getString("senha")
                    
                 };
 
@@ -207,7 +207,7 @@ public class RelatorioUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no alteração");
+            JOptionPane.showMessageDialog(null, "falha no alteração210");
         }
         
     }//GEN-LAST:event_cmbSenhaActionPerformed
@@ -233,9 +233,9 @@ public class RelatorioUsuario extends javax.swing.JFrame {
             while (resultado.next()) {
 
                 Object dep[] = {
-                    resultado.getString("usuario"),
-                    resultado.getString("senha"),
-                    resultado.getString("cargo")
+                    resultado.getString("nome_usu"),
+                    resultado.getString("cargo"),
+                    resultado.getString("senha")
                    
                 };
 
@@ -258,7 +258,9 @@ public class RelatorioUsuario extends javax.swing.JFrame {
          try {
             // TODO code application logic here
             Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-            java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario where usuario LIKE ?");  // comando query no BD
+            
+            
+            java.sql.PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario where nome_usu LIKE ?");  // comando query no BD
 
             //pega a string para colocar no comando where
             st.setString(1, "%" + txtUsuario.getText() + "%");
@@ -274,9 +276,10 @@ public class RelatorioUsuario extends javax.swing.JFrame {
             while (resultado.next()) {
 
                 Object dep[] = {
-                    resultado.getString("usuario"),
-                    resultado.getString("senha"),
-                    resultado.getString("cargo")
+                    resultado.getString("nome_usu"),
+                    resultado.getString("cargo"),
+                    resultado.getString("senha")
+                    
                    
                 };
 

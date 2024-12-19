@@ -145,6 +145,7 @@ public class SistemaDao {
         ResultSet resultado = st.executeQuery();
         return resultado;
     }
+    
 
     public static void excluirUsuario_(String nom) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
