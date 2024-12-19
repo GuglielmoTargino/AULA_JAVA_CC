@@ -9,13 +9,31 @@ import java.sql.ResultSet;
 /**
  *
  * @author Guglielmo H T
- */
-public class SistemaDao {
+ * 
+ * public class SistemaDao {
 
     public static Connection conectar_() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "ght", "4004"); //variavel da classe connection para conexão
         return conn;
+    }
+ * 
+ */
+public class SistemaDao {
+
+    public static Connection conectar_() throws ClassNotFoundException, SQLException {
+        
+         Connection conn;
+            String urla = "jdbc:sqlserver://localhost:1433;databaseName=connec_test;encrypt=true;trustServerCertificate=true";
+            String usuario = "ght";
+            String senha = "4004";
+
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection(urla, usuario, senha);
+
+        return conn;
+        
+        
     }
 
     //                          =============================
