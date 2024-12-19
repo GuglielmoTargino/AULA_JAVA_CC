@@ -56,7 +56,7 @@ public class SistemaDao {
         Connection conn = SistemaDao.conectar_();
 
         // serve para permitir execuat escrita no BD
-        PreparedStatement st = conn.prepareStatement("update departamento set nome=?, cidade=?, telefone=? where codigo=?");
+        PreparedStatement st = conn.prepareStatement("update departamento set depto=?, cid=?, tel=? where cod=?");
 
         st.setString(1, nom);
         st.setString(2, cid);
@@ -67,7 +67,7 @@ public class SistemaDao {
 
     public static ResultSet consultarDepto_(String cod) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();
-        PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento WHERE codigo = ? ");  // comando query no BD
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM departamento WHERE cod = ? ");  // comando query no BD
 
         st.setString(1, cod);
         //st.setString(2, txtSenha.getText());// nao mais nessa tela

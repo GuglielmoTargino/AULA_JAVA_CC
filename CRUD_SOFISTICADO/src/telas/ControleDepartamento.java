@@ -183,9 +183,9 @@ public class ControleDepartamento extends javax.swing.JFrame {
             ResultSet resultado = SistemaDao.consultarDepto_(txtCodigo.getText());
            
             if (resultado.next()) {
-                txtNome.setText(resultado.getString("nome"));
-                txtCidade.setText(resultado.getString("cidade"));
-                txtTel.setText(resultado.getString("telefone"));
+                txtNome.setText(resultado.getString("depto"));
+                txtCidade.setText(resultado.getString("cid"));
+                txtTel.setText(resultado.getString("tel"));
 
                 btnExcluir.setVisible(true);
                 btnAlterar.setVisible(true);
@@ -199,7 +199,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no alteração");
+            JOptionPane.showMessageDialog(null, "falha no alteração202");
         }
     }//GEN-LAST:event_btnConsultarActionPerformed
 
@@ -218,7 +218,7 @@ public class ControleDepartamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no cadastro");
+            JOptionPane.showMessageDialog(null, "falha no cadastro221");
         }
 
     }//GEN-LAST:event_btnAlterarActionPerformed
