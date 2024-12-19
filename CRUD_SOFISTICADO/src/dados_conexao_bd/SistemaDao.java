@@ -182,7 +182,7 @@ public class SistemaDao {
 
     public static void excluirFuncionario(String mat) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        PreparedStatement st = conn.prepareStatement("delete from funcionario where matricula=?");  // serve para permitir execuat escrita no BD          
+        PreparedStatement st = conn.prepareStatement("delete from funcionario where matric=?");  // serve para permitir execuat escrita no BD          
 
         st.setString(1, mat);
         st.executeUpdate(); //comando para executar SQL no BD  
