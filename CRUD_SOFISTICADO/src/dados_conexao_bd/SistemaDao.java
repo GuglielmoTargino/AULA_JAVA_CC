@@ -164,7 +164,8 @@ public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundExce
     //                      ===============================
     public static void salvarUsuario_(String nom, String car, int sen) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        PreparedStatement st = conn.prepareStatement("INSERT INTO usuario (nome_usu,cargo,senha) VALUES(?,?,?)");  // serve para permitir execuat escrita no BD          
+          
+        CallableStatement st = conn.prepareCall("{call SalvarUsuario(?, ?, ?)}");
         st.setString(1, nom);
         st.setString(2, car);
         st.setInt(3, sen);
