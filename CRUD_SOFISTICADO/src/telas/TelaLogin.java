@@ -124,18 +124,20 @@ public class TelaLogin extends javax.swing.JFrame {
                 y= resultado.getString("senha"); // nome do campo bd
                 dispose();
                 new TelaMenu(x,y).setVisible(true);// chama tela menu com vaiveis usuario e cargo
-               
+               resultado.close();
             
                 } else{
                 JOptionPane.showMessageDialog(null,"Usuario ou senha incorreto");
-                txtUsuario.requestFocus(); // coloca o pronpt no campo usuario            
+                txtUsuario.requestFocus(); // coloca o pronpt no campo usuario
+                resultado.close();
                 }
 
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
+            
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "Falha de Acesso.");
+            JOptionPane.showMessageDialog(null, "Falha de Acesso138.");
         }
      
     }//GEN-LAST:event_btnEntrarActionPerformed
