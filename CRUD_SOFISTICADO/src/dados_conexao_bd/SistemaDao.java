@@ -193,7 +193,8 @@ public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundExce
 
     public static void excluirUsuario_(String nom) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        PreparedStatement st = conn.prepareStatement("delete from usuario where nome_usu=?");  // serve para permitir execuat escrita no BD          
+        //PreparedStatement st = conn.prepareStatement("delete from usuario where nome_usu=?");  // serve para permitir execuat escrita no BD 
+        CallableStatement st = conn.prepareCall("{call ExcluirUsuario(?)}");  // comando query no BD
         st.setString(1, nom);
         st.executeUpdate(); //comando para executar SQL no BD
     }
