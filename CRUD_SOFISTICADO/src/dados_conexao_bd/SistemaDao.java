@@ -18,6 +18,25 @@ import java.sql.CallableStatement;
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "ght", "4004"); //variavel da classe connection para conexão
         return conn;
     }
+    * 
+    * 
+    * 
+    *   public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException, SQLException {
+   
+        //Connection conn = SistemaDao.conectar_();
+        Connection conn = SistemaDao.conectar_();
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario WHERE nome_usu= ?  AND senha = ? ");  // comando query no BD
+        //CallableStatement st = conn.prepareCall("{BuscarLogin(?,?)}");  // comando query no BD
+        st.setString(1, u);
+        st.setString(2, s);
+        
+       
+        ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+       
+      
+        
+        return resultado;
+    }
  * 
  */
 public class SistemaDao {
@@ -40,17 +59,21 @@ public class SistemaDao {
     //                          =============================
     //                          PROGRAMAÇÃO EM TELAS DE LOGIN
     //                          =============================
-    public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException, SQLException {
+public static CallableStatement fazerLogin_(String u, String s) throws ClassNotFoundException, SQLException {
+        
    
         //Connection conn = SistemaDao.conectar_();
         Connection conn = SistemaDao.conectar_();
-        PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario WHERE nome_usu= ?  AND senha = ? ");  // comando query no BD
-        //CallableStatement st = conn.prepareCall("{BuscarLogin(?,?)}");  // comando query no BD
+        //PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario WHERE nome_usu= ?  AND senha = ? ");  // comando query no BD
+        CallableStatement st = conn.prepareCall("{call BuscarLogin(?,?,?)}");  // comando query no BD
         st.setString(1, u);
         st.setString(2, s);
+        //st.registerOutParameter(3, java.sql.Types.CHAR);      
         
        
-        ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
+        
+        ResultSet resultado=st.execute(); //aqui resultado guarda o valor encontrado no BD.
+        //String resultado=st.getString(3);
        
       
         
