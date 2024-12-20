@@ -26,7 +26,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             //alterar aqui
         }else if (gh.equalsIgnoreCase("alterar")) {
             btnSalvar.setVisible(false);
-            btnConsultar.setVisible(false);
+            btnConsultar.setVisible(true);
             btnExcluir.setVisible(false);
             btnAlterar.setVisible(true);
         
@@ -213,7 +213,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
             // caso não execute o script sql mostra "falha de processo "
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "falha no comando");
+            JOptionPane.showMessageDialog(null, "falha no comando216");
         }
 
     }//GEN-LAST:event_btnConsultarActionPerformed
@@ -247,13 +247,14 @@ public class CadastroUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Sucesso na Alteração");
 
             btnExcluir.setVisible(false);
-            btnAlterar.setVisible(false);
+            btnAlterar.setVisible(true);
+            btnConsultar.setVisible(true);
 
         } catch (ClassNotFoundException ex) { // caso não encontre a biblioteca, mosta "Erro de biblioteca"
             JOptionPane.showMessageDialog(null, "Erro de biblioteca");
 
         } catch (SQLException ex) { // caso não execute o script sql mostra "falha de processo "
-            JOptionPane.showMessageDialog(null, "falha no comando");
+            JOptionPane.showMessageDialog(null, "falha no comando256");
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
 

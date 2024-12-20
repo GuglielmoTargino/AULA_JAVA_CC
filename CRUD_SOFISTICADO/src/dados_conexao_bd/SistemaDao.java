@@ -59,15 +59,14 @@ public class SistemaDao {
     //                          =============================
     //                          PROGRAMAÇÃO EM TELAS DE LOGIN
     //                          =============================
-public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException, SQLException {
-        
-   
+public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException, SQLException {   
         
         Connection conn = SistemaDao.conectar_();
         CallableStatement st = conn.prepareCall("{call BuscarLogin(?,?)}");  // comando query no BD
+        
         st.setString(1, u);
         st.setString(2, s);
-       
+        
         ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
              
         return resultado;
@@ -163,21 +162,23 @@ public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundExce
     //                      PROGRAMAÇÃO EM TELAS DE USUÁRIO
     //                      ===============================
     public static void salvarUsuario_(String nom, String car, int sen) throws ClassNotFoundException, SQLException {
-        Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-          
+        Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada          
         CallableStatement st = conn.prepareCall("{call SalvarUsuario(?, ?, ?)}");
+        
         st.setString(1, nom);
         st.setString(2, car);
         st.setInt(3, sen);
         st.executeUpdate();
     }
 
-    public static void alterarUsuario_(int sen, String car, String nom) throws ClassNotFoundException, SQLException {
-        Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        PreparedStatement st = conn.prepareStatement("update usuario set senha=?, cargo=? where nome_usu=?");  // serve para permitir execuat escrita no BD          
-        st.setInt(1, sen);
-        st.setString(2, car);
-        st.setString(3, nom);
+    public static void alterarUsuario_(int sen, String car, String nom) throws ClassNotFoundException, SQLException {        
+        Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada       
+        CallableStatement st = conn.prepareCall("{call AlterarUsuario(?,?,?)}");  // comando query no BD// serve para permitir execuat escrita no BD          
+        
+         st.setInt(1, sen);
+         st.setString(2, car);
+         st.setString(3, nom);         
+        
         st.executeUpdate();// executa o comando SQL no BD      
     }
 
@@ -193,7 +194,7 @@ public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundExce
 
     public static void excluirUsuario_(String nom) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        //PreparedStatement st = conn.prepareStatement("delete from usuario where nome_usu=?");  // serve para permitir execuat escrita no BD 
+        // serve para permitir execuat escrita no BD 
         CallableStatement st = conn.prepareCall("{call ExcluirUsuario(?)}");  // comando query no BD
         st.setString(1, nom);
         st.executeUpdate(); //comando para executar SQL no BD
