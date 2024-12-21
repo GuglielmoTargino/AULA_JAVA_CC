@@ -184,7 +184,8 @@ public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundExce
 
     public static ResultSet consultarUsuario_(String nom) throws ClassNotFoundException, SQLException {
         Connection conn = SistemaDao.conectar_();//c_.conectar_(); //chama a class conectar criada
-        PreparedStatement st = conn.prepareStatement("SELECT * FROM  usuario WHERE nome_usu= ? ");  // comando query no BD
+         CallableStatement st = conn.prepareCall("{call consultarUsuario(?)}");
+        //PreparedStatement st = conn.prepareStatement("SELECT * FROM  usuario WHERE nome_usu= ? ");  // comando query no BD
         st.setString(1, nom);
         //aqui resultado guarda o valor encontrado no BD.
         ResultSet resultado = st.executeQuery();
