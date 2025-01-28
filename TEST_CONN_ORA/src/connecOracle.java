@@ -31,7 +31,8 @@ public class connecOracle {
             
              
              st=conn.createStatement(); //autentica a conexão feita com BD.
-             st.executeUpdate("insert into pets(nome) values('gug')");
+             st.executeUpdate("insert into usuario(nome_usu,id_usu) values('nia',7)");
+             //st.executeUpdate("insert into pets(nome,id_pet) values('nia',7)");
              //st.executeUpdate("delete from pets where nome='jaha'");
             JOptionPane.showMessageDialog(null,"Processo bem Sucedido");
             
