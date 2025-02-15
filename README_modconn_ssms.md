@@ -1,3 +1,12 @@
+
+/*
+modelo de conexão bd SSMS
+
+*/
+
+
+
+
 package dados_conexao_bd;
 
 import java.sql.Connection;
@@ -7,54 +16,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.CallableStatement;
 
-/**
- *
- * @author Guglielmo H T
- * 
- * public class SistemaDao {
-
-    public static Connection conectar_() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver"); //classe do drive que faz conexaõ com o BD. 
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "ght", "4004"); //variavel da classe connection para conexão
-        return conn;
-    }
-    * 
-    * 
-    * 
-    *   public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException, SQLException {
-   
-        //Connection conn = SistemaDao.conectar_();
-        Connection conn = SistemaDao.conectar_();
-        PreparedStatement st = conn.prepareStatement("SELECT * FROM usuario WHERE nome_usu= ?  AND senha = ? ");  // comando query no BD
-        //CallableStatement st = conn.prepareCall("{BuscarLogin(?,?)}");  // comando query no BD
-        st.setString(1, u);
-        st.setString(2, s);
-        
-       
-        ResultSet resultado = st.executeQuery(); //aqui resultado guarda o valor encontrado no BD.
-       
-      
-        
-        return resultado;
-    }
- * 
- */
 
 
 
 public class SistemaDao {
 
     public static Connection conectar_() throws ClassNotFoundException, SQLException {
-                
+        
          Connection conn;
-         String urla = "jdbc:sqlserver://localhost:1433;databaseName=connec_test;encrypt=true;trustServerCertificate=true";
-         String usuario = "ght";
-         String senha = "4004";
+            String urla = "jdbc:sqlserver://localhost:1433;databaseName=connec_test;encrypt=true;trustServerCertificate=true";
+            String usuario = "ght";
+            String senha = "4004";
 
-         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-         conn = DriverManager.getConnection(urla, usuario, senha);
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection(urla, usuario, senha);
 
-         return conn;
+        return conn;
         
         
     }
@@ -64,7 +41,7 @@ public class SistemaDao {
     //                          =============================
     //                          PROGRAMAÇÃO EM TELAS DE LOGIN
     //                          =============================
-    public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException, SQLException {   
+public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException, SQLException {   
         
         Connection conn = SistemaDao.conectar_();
         CallableStatement st = conn.prepareCall("{call BuscarLogin(?,?)}");  // comando query no BD
