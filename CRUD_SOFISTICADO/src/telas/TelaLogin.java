@@ -1,9 +1,9 @@
+
+
+
 package telas;
-
 import dados_conexao_bd.SistemaDao;
-
 import java.sql.SQLException;// usado para opção caso a execução falhe
-
 import java.sql.ResultSet; //usado para guardar os resultados da consulta SQL
 import javax.swing.JOptionPane;
 
@@ -108,6 +108,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
+        
         
 
         try {
