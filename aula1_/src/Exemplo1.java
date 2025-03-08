@@ -1,24 +1,21 @@
-/*
-
- String nome, cargo;
-        
-        nome=JOptionPane.showInputDialog(null,"Qual seu nome?");// linha para fazer pergunta pro usuario
-        cargo=JOptionPane.showInputDialog("Digite seu cargo.");
-                
-        JOptionPane.showMessageDialog(null, "Boa noite!"+nome+cargo);// linha para mostrar mensagem (similiar printf)
-
-
-*/
-
-
 
 
 import javax.swing.JOptionPane;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+
+//import calculadora.Calculadora;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+
+
 
 /*
  * @author Guglielmo H T
  */
-public class Exemplo1 {// programa para teste em aula
+public class Exemplo1 {
 
     /**
      * @param args the command line arguments
@@ -46,5 +43,10 @@ public class Exemplo1 {// programa para teste em aula
         
         JOptionPane.showMessageDialog(null,nome+ " ,Sua média é " +media+ ". Você foi " +status);
     }
+    
+ 
+    
+
+
     
 }
