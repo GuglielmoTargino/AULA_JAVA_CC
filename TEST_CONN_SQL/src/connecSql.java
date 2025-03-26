@@ -19,7 +19,7 @@ public class connecSql{
             System.out.println("Conexão estabelecida com sucesso!");
 
             st = conn.createStatement();
-            st.executeUpdate("insert into ti (id,nome) values(33,'y')");
+            st.executeUpdate("insert into usuario (nome_usu,cargo,senha) values('Guga','gov',8585)");
              System.out.println("Processo Concluído!");
 
             conn.close();
