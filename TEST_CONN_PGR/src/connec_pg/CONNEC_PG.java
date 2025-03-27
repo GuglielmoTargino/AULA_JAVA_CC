@@ -26,7 +26,7 @@ public class CONNEC_PG {
             System.out.println("Conexão estabelecida com sucesso!");
 
             st = conn.createStatement();
-            st.executeUpdate("insert into usuario (nome_usu,id) values('Karianne',28)");
+            st.executeUpdate("insert into usuario (nome_usu,id) values('Takira',30)");
              System.out.println("Processo Concluído!");
 
             conn.close();
