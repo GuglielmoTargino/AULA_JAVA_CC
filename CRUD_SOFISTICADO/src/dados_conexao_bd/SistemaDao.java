@@ -67,7 +67,7 @@ public class SistemaDao {
     public static ResultSet fazerLogin_(String u, String s) throws ClassNotFoundException, SQLException {   
         
         Connection conn = SistemaDao.conectar_();
-        CallableStatement st = conn.prepareCall("{call BuscarLogin(?,?)}");  // comando query no BD
+        CallableStatement st = conn.prepareCall("{call BuscarLogin(?,?)}");  // procedure chamada com a assinatura
         
         st.setString(1, u);
         st.setString(2, s);
